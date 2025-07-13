@@ -52,8 +52,10 @@ For completing this bootcamp you will need the following services.
 * watsonx.data Intelligence
 * watsonx.ai Studio & Runtime
 * watsonx Orchestrate
+  
+A techzone instance with the required services been provided and shared with you.   
 
-With all the required services a techzone instance has been already provisioned and you should have received any email from IBM Technology Zone <noreply@techzone.ibm.com>.  To access the environment, look for the email message from IBM Technology Zone inviting you to join the account where your class environment is located.
+To access the environment, look for an email message from IBM Technology Zone <noreply@techzone.ibm.com> inviting you to join the account where your class environment is located.  
 
 In the email, Click on the `HERE` link to accept the invitation
 (Highlighted in the screenshot below.)
