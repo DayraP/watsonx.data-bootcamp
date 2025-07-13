@@ -37,14 +37,5 @@ For users who are new to databases, it is recommended that you complete the foll
 1. [What is a database (Blog)](https://www.ibm.com/think/topics/database)  (20 mins)
 2. [SQL and Relational Databases Course](https://cognitiveclass.ai/courses/learn-sql-relational-databases) (3 hours). 
 
-## Techzone
-A techzone environment will be provisioned for each student one day prior to the start of the bootcamp (Day 0).  
-
-Students should allocate time during Day 0 to complete the initial setup of their bootcamp environment by following the instructions in the [Prerequisites](Prerequisites/README.md) section of the repo.  
-
-
-## Bootcamp Support 
-- A Slack Channel [placeholder] has been setup for Q & A during and after the bootcamp
-- Office Hours to help configure the techzone environment [add date/time]
 
 ## [Agenda](./Agenda/README.md)

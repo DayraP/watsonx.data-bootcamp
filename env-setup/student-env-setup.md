@@ -1,6 +1,6 @@
-#  Wealth Manager Use Case Environment Setup
+#  Environment Setup
 
-- [Wealth Manager Use Case Environment Setup](#wealth-manager-use-case-environment-setup)
+- [Environment Setup](#environment-setup)
   - [1. Getting Started](#1-getting-started)
     - [1.1 Clone the classroom Repo](#11-clone-the-classroom-repo)
     - [1.2 Access your class Instance](#12-access-your-class-instance)
