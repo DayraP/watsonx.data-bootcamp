@@ -346,7 +346,7 @@ You should see all connection details entered, change the name to `cos-connectio
 * `Test connection` (upper right corner)and once successful, `Create` connection.
 ![test-create-cos](./attachments/2025-06-16-14-38-26-pasted-vscode.png)
 
-In case `Select instance` didn't detect a COS instance, follow the instructions in the [Troubleshooting](../Troubleshooting/Troubleshooting.md) section to manually create the COS connection.
+In case `Select instance` didn't detect a COS instance, follow the instructions in the [Troubleshooting](../Troubleshooting/README.md) section to manually create the COS connection.
 
 
 ### 3.4 Review connections in the project
