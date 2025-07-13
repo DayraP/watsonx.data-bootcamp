@@ -35,7 +35,7 @@ This system harnesses the power of [watsonx Orchestrate](https://www.ibm.com/pro
 ## 📝 Step-by-Step Hands-on Lab
 You can find step-by-step instructions here :
 
-[Step-by-step hands-on guide](watsonx.data-hands-on-lab.md)
+[Step-by-step hands-on guide](Labs/README.md)
 
 
 
