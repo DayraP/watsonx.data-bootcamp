@@ -12,7 +12,7 @@
 To run the steps in this hands-on lab portion of the bootcamp, you need access to **watsonx Orchestrate**, **watsonx.data**, and **watsonx.ai** which are provided for you as part of the preparation for this bootcamp.
 
 - Check with your instructor to make sure **all systems** are up and running before you continue.
-- Complete the [Environment Setup Guide](env-setup/student-env-setup.md)to setup your environment to run the (4) labs below.  
+- Complete the [Environment Setup Guide](../env-setup/student-env-setup.md) to setup your environment to run the (4) labs below.  
 
 ## Labs
 
