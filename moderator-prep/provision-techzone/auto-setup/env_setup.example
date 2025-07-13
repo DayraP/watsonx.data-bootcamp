@@ -1,0 +1,11 @@
+# IBM Cloud identity url
+IDENTITY_URL = https://iam.cloud.ibm.com/identity/token
+CLOUD_API_KEY = ""
+
+# wx.data credentials
+WXD_REGION = "jp-tok"
+WXD_INSTANCE_CRN = ""
+
+# COS credentials json
+COS_CREDENTIALS_PATH = "./credentials/cos.json"
+POSTGRES_CREDENTIALS_PATH = "./credentials/postgres.json"
