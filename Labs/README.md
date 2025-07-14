@@ -3,13 +3,14 @@
   - [🤔 The Problem](#-the-problem)
   - [🎯 Objective](#-objective)
   - [🏛 Architecture](#-architecture)
-  - [📝 Step-by-Step Hands-on Lab](#-step-by-step-hands-on-lab)
+  - [📝 Step-by-Step Hands-on Labs](#-step-by-step-hands-on-labs)
     - [Environment Setup](#environment-setup)
-    - [Data Warehouse Lab](#data-warehouse-lab)
-    - [Data Lakehouse Lab](#data-lakehouse-lab)
-    - [Data Governance Lab if we can get it to work in toronto](#data-governance-lab-if-we-can-get-it-to-work-in-toronto)
-    - [Agentic RAG Lab](#agentic-rag-lab)
-    - [Natural Language to SQL Lab](#natural-language-to-sql-lab)
+    - [Labs](#labs)
+      - [1. Data Warehouse Lab](#1-data-warehouse-lab)
+      - [2. Data Lakehouse Lab](#2-data-lakehouse-lab)
+      - [3. Data Governance Lab](#3-data-governance-lab)
+      - [4. Agentic RAG Lab](#4-agentic-rag-lab)
+      - [5. Natural Language to SQL Lab](#5-natural-language-to-sql-lab)
 
 
 # 🥇 Wealth Manager Use Case
@@ -45,7 +46,7 @@ This system harnesses the power of [watsonx Orchestrate](https://www.ibm.com/pro
 
 ![Solution Architecture](../attachments/Slide6.png)
  
-## 📝 Step-by-Step Hands-on Lab
+## 📝 Step-by-Step Hands-on Labs
 
 ### Environment Setup
 To run the steps in this hands-on lab portion of the bootcamp, you need access to **watsonx Orchestrate**, **watsonx.data**, and **watsonx.ai** which are provided for you as part of the preparation for this bootcamp.
@@ -53,13 +54,10 @@ To run the steps in this hands-on lab portion of the bootcamp, you need access t
 - Check with your instructor to make sure **all systems** are up and running before you continue.
 - Complete the [Environment Setup Guide](../env-setup/README.md) to setup your environment to run the (4) labs below.  
 
-### [Data Warehouse Lab](Labs/Lab1_Data_Warehouse_Optimization/Lab_1_Data_Offload_Guide.md)
-
-### [Data Lakehouse Lab](Labs/Lab2_Data_Lakehouse/Lab2_Data_Lakehouse_Guide.md) 
-
-### [Data Governance Lab if we can get it to work in toronto](<Labs/Lab3_Data_Governance/Lab 3 wdi Data Protection Guide v2.md>) 
-
-### [Agentic RAG Lab](Labs/Lab4_Agentic_RAG/Agentic_RAG_Guide.md)
-
-### [Natural Language to SQL Lab](Labs/Lab5_NL2SQL/NL2SQL_Guide.md)
+### Labs
+#### 1. [Data Warehouse Lab](Lab1_Data_Warehouse_Optimization/Lab_1_Data_Offload_Guide.md)
+#### 2. [Data Lakehouse Lab](Lab2_Data_Lakehouse/Lab2_Data_Lakehouse_Guide.md) 
+#### 3. [Data Governance Lab](<Lab3_Data_Governance/Lab 3 wdi Data Protection Guide v2.md>)
+#### 4. [Agentic RAG Lab](Lab4_Agentic_RAG/Agentic_RAG_Guide.md)
+#### 5. [Natural Language to SQL Lab](Lab5_NL2SQL/NL2SQL_Guide.md)
 
