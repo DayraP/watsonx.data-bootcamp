@@ -1,41 +1,19 @@
-# 🥇 Wealth Manager 
+# watsonx.data Client Bootcamp
 
-FinWin Bank is an established leader in US financial services with 50+ years of experience in providing a comprehensive suite of solutions, including traditional and online banking, brokerage and wealth management, across a vast network of nationwide locations. 
+<!-- <img src="./assets1/class structure.png" width="100%"> -->
 
-Their IT infrastructure, however has grown organically, resulting in a hybrid environment spanning on-premises data centers and multpile cloud providers.
+## Objective
 
-FinWin Bank is seeking IBN's industry expertise and technology leadership to provide a cost-effective, easily managed solution that minimizes disruption to their existing IT Systems.
+Explore today’s data challenges, learn the strategies to overcome them and gain hands-on experience towards readying your data for Artificial Intelligence (AI) with watsonx.data.
 
-## 🤔 The Problem
+## Bootcamp Structure
 
-Financial advisors face overwhelming challenges each day, managing client relationships, making complex decisions, growing their wealth, and offering personalized plans for future goals—all while manually navigating internal processes and enterprise systems. Manually logging into various platforms is time-consuming and inefficient. 
-
-
-## 🎯 Objective
-
-* Unify and leverage curated enterprise data assets, enabling employees to access the right data at the right time.
-* Facilitate easy data discovery, empowering employees to quickly locate relevant information.
-* Implement intuitive AI tools to automate repetitive tasks and enhance financial advisor efficiency.
-
-By automating these tasks, the company aims to bootst productivity so their wealth managers can focus on developing personalized and effective client strategies that drive client relationships.
-
-
-## 🏛 Architecture
-
-To streamline the research process, FinWin partnered with IBM to design a Multi-Agent Wealth Manager solution that drives productivity for financial advisors by helping them better prioritize, research, and prepare for client meetings.
-
-This solution takes in natural language queries and does not
-require the user to be an expert in SQL. Advisors can easily ask various client-and market-related questions and make informed decisions with easy access to the necessary data from internal and external sources.
-
-This system harnesses the power of [watsonx Orchestrate](https://www.ibm.com/products/watsonx-orchestrate), IBM's no-code/low-code/pro-code product for developing agentic AI solutions, [watsonx.data](https://www.ibm.com/products/watsonx-data), IBM's hybrid, open data lakehouse for enterprise AI and analytics and [watsonx.ai](https://www.ibm.com/products/watsonx-ai), IBM's platform for hosting foundation models such as Large Language Models (LLMs).
-
-![Solution Architecture](attachments/Slide6.png)
+In this bootcamp, you will gain hands-on experience developing a solution around a real business scenario that our Financial Services clients face today.  
  
+🚀 You'll learn how to make your data ready for AI with a modern Lakehouse
 
-## 📝 Step-by-Step Hands-on Lab
-You can find step-by-step instructions here :
+🚀 You'll learn how to build more accurate AI Agents by leveraging your enterprise data
 
-[Step-by-step hands-on guide](Labs/README.md)
+🚀 You'll learn how unify your data from various sources (both structured and unstructured) and create a single, trusted view
 
-
-
+🚀 You'll gain hand-on experience and learn best practices from top industry experts
