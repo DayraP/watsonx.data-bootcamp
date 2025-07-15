@@ -10,7 +10,7 @@
   - [2. Solution Approach:](#2-solution-approach)
   - [3. Netezza data schema](#3-netezza-data-schema)
   - [4. 🚀 Lab Flow](#4--lab-flow)
-    - [4.1 - Create Netezza Data Source Connection](#41---create-netezza-data-source-connection)
+    - [4.1 - Check Netezza data source](#41---check-netezza-data-source)
     - [4.2 - Create New schema and tables in watsonx.data](#42---create-new-schema-and-tables-in-watsonxdata)
     - [4.3 - Insert Historic Data into watsonx.data](#43---insert-historic-data-into-watsonxdata)
     - [4.4 - Review the Data in watsonx.data](#44---review-the-data-in-watsonxdata)
@@ -21,8 +21,6 @@
 
 ## Prerequisites
 - Completed  [Environment Setup](env-setup/wealth-mgr-env-setup.md)
-- env.txt 
-- Netezza Data Source Credentials:  Hostname, Port, Username and Password
 
 
 ## 1. Objective: 
@@ -53,42 +51,25 @@ Due to the limitations of the lab environment, we will:
 
 ```mermaid
 graph TD
-    A(🔌 Step 1: Netezza <br>data source)
+    A(🔌 Step 1: Check connection <br>to NZ)
     A --> B(🗂️ Step 2 :Create  New schema <br> and tables)
     B --> C(📥 Step 3: Data insertion)
     C --> D(🔍 Step 4: Review data)
     D --> E(🧠  Step 5: Combined query)
 ```
 
-- **Step 1 - Netezza connection**: Connect Netezza DW as an external data source;
+- **Step 1 - Netezza connection**: Check Netezza Connection;
 - **Step 2 - New schema and tables**: Create new schema and tables in the iceberg_data catalog for data offload;
 - **Step 3 - Data insertion**: insert data into newly created tables from Netezza INVESTMENTS schema, for historic transactions prior to 2025;
 - **Step 4 - Review data**: check data samples and number of records in the newly created tables;
 - **Step 5 - Combined query**: Execute querys that combine the data from the iceberg tables in watsonx.data and the current year schema, `equity_transactions_ly` in Netezza.
 
-### 4.1 - Create Netezza Data Source Connection
+### 4.1 - Check Netezza data source
+- Open your `watsonx.data` Instance from cloud resources, under `Databases`: https://cloud.ibm.com/resources
+- Go to watsonx your `Infrastructure Manager` check that Netezza is added as a data source and that data could be accessed in `Data manager`.
+- Netezza `equity_transactions` and `equity_transactions_ly` schemas should be synchronized via `nz_catalog`
 
-1. Open your `watsonx.data` Instance from cloud resources, under `Databases`: https://cloud.ibm.com/resources
-2. Under Infrastructure Manager, select `Add component`
-3. Under Data Sources, select `IBM Netezza` and `Next` (make sure you are not adding an Engine) 
-![](attachments/Pasted%20image%2020250409141021.png)
-4. Fill out as follows:
-   * Name = NZ_INVESTMENTS
-   * Data Source Name = INVESTMENTS
-   * Instructor to provide:  `Hostname`, `Port`, `Username` and `Password`
-   * Test Connection
-   * Select option to `Associate Catalog` 
-   * Catalog name = `nz_catalog`
-   * Select `Create`
-   ![](attachments/Pasted%20image%2020250409141356.png)
-
-5. From Infrastructure manager associate `nz_catalog` with the Presto engine by hovering over catalog and clicking on `Manage associations`<br>
-    <img src="./attachments/image-3.png" alt="alt text" width="50%"><br>
-    <img src="./attachments/image-4.png" alt="alt text" width="75%"><br>
-
-6. Check in `Data manager` that data from Netezza has been synchronized via `nz_catalog`
-
-    ![](attachments/Pasted%20image%2020250409145504.png)
+![](./attachments/Pasted%20image%2020250409145504.png)
 
 ### 4.2 - Create New schema and tables in watsonx.data
 1. Now go to `Query workspace` where you will be executing SQL queries.

@@ -23,7 +23,7 @@ The application uses:
 ## 2.  Prerequisites
 - Completed  [Environment Setup](env-setup/wealth-mgr-env-setup.md)
 - env.txt 
-- Data uploaded to Milvus bucket in Cloud Object Storage
+- Data uploaded to input-data bucket in Cloud Object Storage
   
   
 ## 3. Ingest Data into Milvus

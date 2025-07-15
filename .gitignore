@@ -1,1 +1,31 @@
-*.DS_Store
+# python environments
+venv
+venv*
+
+# env variables
+*.env*
+env.txt
+
+# VSCode files
+.DS_
+__pycache__/
+.DS_Store
+*.DS_Store*
+.vscode/
+
+#folders
+temp/
+Data-Preparation/logs/
+Data-Preparation/tmp_nz/
+
+# credentials, logs and test files
+test
+credentials/
+events_file
+*driver_log
+
+
+# Netezza-demo related
+nz
+.set_nz_envs.sh
+netezza_demo

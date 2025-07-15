@@ -261,9 +261,6 @@ The User API Key is a prerequisite for successful remote deployment and accessin
     SCHEMA_DATA_H = "input_data_hive_YourName_First3LettersOfSurname"
     SCHEMA_DATA_I = "clients_schema_YourName_First3LettersOfSurname"
 
-    # directory to copy data from for Lab2  -> Should not need to change unless provided by instructor
-    FILES_DIRECTORY = "./data"
-
     # From watsonx.ai studio->  Copy from your Reference Note
     WATSONX_URL = ""
     WATSONX_PROJECT_ID = ""
@@ -273,7 +270,7 @@ The User API Key is a prerequisite for successful remote deployment and accessin
     MV_COLLECTION_NAME="equity_research_YourName_First3LettersOfSurname"
 
     # COS folder with input pdf files for milvus ingestion -> should not need to change unless provided by instructor
-    COS_FOLDER = "data"
+    COS_FOLDER = "pdfs"
 
     # parameters for milvus ingestion -> should not need to change unless provided by instructor
     SIMILARITY_METRIC="L2"
@@ -299,56 +296,18 @@ The User API Key is a prerequisite for successful remote deployment and accessin
 
 ## 3. Create Data Source Connections in the watsonx.ai Studio project
 ### 3.1 Add Presto Connection
-From watsonx.ai Studio Project -> `Assets` -> `New asset +` -> `Connect to a data source` -> Search for `IBM watsonx.data` -> Select `Presto` -> `Next`
+From watsonx.ai Studio Project -> `Assets` -> `New asset +` -> `Connect to a data source` -> Select `Platform connections` from the left side menu -> Select `presto_connection` -> `Next` -> Test connection and create
 ![ws-studio-assets](./attachments/2025-06-16-13-36-42-pasted-vscode.png)
-![add-wxdata-connection](./attachments/2025-06-16-13-38-17-pasted-vscode.png)
-
-**Fill in your connection details**:  
-The easiest way will be to fill in connection details from JSON snippet provided by the instructor.
-
-* Select `Enter JSON Snippet`
-* Select `Upload File`
-* Browse to the `presto.json` provided by the instructor and click `Enter`
- 
-You should see all connection details entered except for API key, enter it manually:  
-* Rename the name of the connection to (required): `presto_connection`
-* Paste your `CLOUD_API_KEY` in the `API Key` field 
-* `Test connection` (upper right corner)and once successful, `Create` connection.
-![test-create-connection](./attachments/2025-06-16-13-55-33-pasted-vscode.png)
+![](attachments/2025-07-15-20-36-14-pasted-vscode.png)
 
 ### 3.2 Add milvus connection
 Repeat the steps and create the Milvus Connection.
 
-From watsonx.ai Studio Project -> `Assets` -> `New asset +` -> `Connect to a data source` -> Search for `IBM watsonx.data` -> Select `Milvus`
-![ws-studio-assets](./attachments/2025-06-16-13-36-42-pasted-vscode.png)
-![add-wxdata-connection-milvus](./attachments/2025-06-16-13-59-15-pasted-vscode.png)
-
-**Fill in your connection details**:  
-The easiest way will be to fill in connection details from JSON snippet provided by the instructor.
-
-* Select `Enter JSON Snippet`
-* Select `Upload File`
-* Browse to the `milvus.json` provided by the instructor and click `Enter`
-You should see all connection details entered except for Username and Password
-* Rename the name of the connection to (required): `milvus_connection`
-* Enter the Username as: `ibmlhapikey`
-* Paste your `CLOUD_API_KEY` as the password. 
-* `Test connection` (upper right corner)and once successful, `Create` connection.
-![test-create-connection-milvus](./attachments/2025-06-16-14-05-31-pasted-vscode.png)
+From watsonx.ai Studio Project -> `Assets` -> `New asset +` -> `Connect to a data source` -> Select `Platform connections` from the left side menu -> Select `milvus_connection` -> `Next` -> Test connection and create
 
 ### 3.3 Add COS connection
-From watsonx.ai Studio Project -> `Assets` -> `New asset +` -> `Connect to a data source` -> Search for `IBM Cloud Object Storage` -> Select `IBM Cloud Object Storage`
+From watsonx.ai Studio Project -> `Assets` -> `New asset +` -> `Connect to a data source` -> Select `Platform connections` from the left side menu -> Select `cos_connection` -> `Next` -> Test connection and create
 ![ws-studio-assets](./attachments/2025-06-16-13-36-42-pasted-vscode.png)
-![add-cos-connection](./attachments/2025-06-16-14-34-56-pasted-vscode.png)
-Fill in your connection details:
-We will add integrated instance (COS instance at the same IBM Cloud Account) ->
-![select-integrated-cos-instance](./attachments/2025-06-16-14-36-28-pasted-vscode.png)
-You should see all connection details entered, change the name to `cos-connection`:  
-* Rename the name of the connection to (required): `cos_connection`  
-* `Test connection` (upper right corner)and once successful, `Create` connection.
-![test-create-cos](./attachments/2025-06-16-14-38-26-pasted-vscode.png)
-
-In case `Select instance` didn't detect a COS instance, follow the instructions in the [Troubleshooting](../Troubleshooting/README.md) section to manually create the COS connection.
 
 
 ### 3.4 Review connections in the project

@@ -1,0 +1,28 @@
+# token generation for IBM Cloud
+IDENTITY_URL = "https://iam.cloud.ibm.com/identity/token"
+
+# fill in your CLOUD API KEY from reference file
+CLOUD_API_KEY = ""
+
+# COS configuration
+COS_INSTANCE_CRN = ""
+COS_BUCKETS_LOCATION = ""
+
+# Postgres credentials
+# csv file to upload
+csv_file_path='gen_data/customers.csv'
+db_name=
+db_user=
+db_password=
+db_host=
+db_port=
+schema_name='bankdemo'
+table_name='customers_table'
+
+# Netezza credentials
+hostname = 
+port = 
+database = 'INVESTMENTS'
+username = 
+password = 
+schema = 'EQUITY_TRANSACTIONS'
