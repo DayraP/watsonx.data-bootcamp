@@ -30,22 +30,29 @@ The **watsonx.data  Bootcamp** is a hands-on, modular learning experience design
 Study the [client facing presentations](https://ibm.box.com/s/um7lwpfdlqjrruz7gcnm5dcvd670szsc). You can pick and choose the topics that resonate the most to the client depending on their maturity and interests. 
 
 
-## 🌍 3. Set up your environment
+## 🌍 2. Set up your environment
 
 Set up your environment with [these instructions](environment-setup.md)
 
-## 🧪 4. Run the labs 
+## 🧪 3. Run the labs 
 
 Run the [client-facing labs](../Labs/README.md)
 
-## 🎨 5. Review the murals
+## 🎨 4. Review the murals
 
 we need to add link to the mural template(s)
 
-## :paintbrush: 6. Customize it!
+## :paintbrush: 5. Customize it!
   - **Build your own bootcamp curriculum**: pick your learning materials, hands-on labs, and other resources, and tailor the bootcamp to your Client or Business Partner, depending on their interests and skill levels.
 
 -   Update the sample [Agenda](../Agenda/README.md)
+
+## 🚀 6.  Go!
+
+-   placeholder for running bootcamp best practices?
+-   Gather feedback ->add link to monday survey
+-   Tell participants about the badge!  -->add link to badge how to once ready
+
 
 ## 🤝 Need help or want to contribute?
 Ask on [**#ce-wxd-client-bootcamp**](https://ibm.enterprise.slack.com/archives/C095VBRBVUN).
