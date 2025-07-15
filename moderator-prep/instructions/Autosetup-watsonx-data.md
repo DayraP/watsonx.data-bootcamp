@@ -26,11 +26,11 @@
 # 1. Getting Started
 
 ## 1.1 Open bootcamp main directory in VSCode or clone the repo if not yet
-* VSCode -> Open Folder -> select `watsonx.data-bootcamp-2025`
+* VSCode -> Open Folder -> select `watsonx.data-client-bootcamp-2025 `
   
 * Or if you need to clone the github repo
 ```sh
-git clone git@github.ibm.com:skol/watsonx.data-bootcamp-2025.git
+git clone git@github.ibm.com:skol/watsonx.data-client-bootcamp-2025 .git
 ```
 ## 1.2 Make sure you have correct remote repo
 
