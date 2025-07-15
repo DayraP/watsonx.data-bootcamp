@@ -1,5 +1,5 @@
 # watsonx.data Bootcamp
-## Instructor's Guide: Customize your Own Bootcamp!
+## Instructor's Guide: 
 
 ![Image title](./attachments/wxdinstructors.png)
 
@@ -7,8 +7,6 @@
 
 The **watsonx.data  Bootcamp** is a hands-on, modular learning experience designed by **IBM Client Engineering** for Clients and Business Partners. The goal is for the Client or Business Partner team to explore today’s data challenges, learn the strategies to overcome them and gain hands-on experience towards readying their data for Artificial Intelligence (AI) with watsonx.data in 1-2 days. 
 
-### Customize it!
-🔨 **Build your own bootcamp** curriculum: pick your learning materials, hands-on labs, and other resources, and tailor the bootcamp to your Client or Business Partner, depending on their interests and skill levels.
 
 ## What's the goal?
 🚀 Show the value of watsonx.data Lakehouse technology quickly with lower commitment from the client.
@@ -40,10 +38,14 @@ Set up your environment with [these instructions](environment-setup.md)
 
 Run the [client-facing labs](../Labs/README.md)
 
-## 🎨 5. Review / customize the murals
+## 🎨 5. Review the murals
 
 we need to add link to the mural template(s)
 
+## :paintbrush: 6. Customize it!
+  - **Build your own bootcamp curriculum**: pick your learning materials, hands-on labs, and other resources, and tailor the bootcamp to your Client or Business Partner, depending on their interests and skill levels.
+
+-   Update the sample [Agenda](../Agenda/README.md)
 
 ## 🤝 Need help or want to contribute?
 Ask on [**#ce-wxd-client-bootcamp**](https://ibm.enterprise.slack.com/archives/C095VBRBVUN).
