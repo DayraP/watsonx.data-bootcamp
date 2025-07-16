@@ -3,7 +3,10 @@ IDENTITY_URL = https://iam.cloud.ibm.com/identity/token
 CLOUD_API_KEY = ""
 
 # wx.data credentials
-WXD_REGION = "jp-tok"
+# location of watsonx data, e.g. "eu-de"
+WXD_REGION = ""
+
+# Cloud resource name (CRN)
 WXD_INSTANCE_CRN = ""
 
 # COS credentials json
