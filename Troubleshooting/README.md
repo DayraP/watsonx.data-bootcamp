@@ -4,9 +4,10 @@
 - [Troubleshooting tips](#troubleshooting-tips)
   - [1. Environment Setup](#1-environment-setup)
     - [1.1 Provisioning of wxd stuck initializing 4:10 remaining](#11-provisioning-of-wxd-stuck-initializing-410-remaining)
-    - [1.2 Student seeing all of the wxd instances](#12-student-seeing-all-of-the-wxd-instances)
-    - [1.3 Configuring watsonx.ai project not able to find Watsonx machine learning service](#13-configuringwatsonxaiproject-not-able-to-find-watsonx-machine-learning-service)
-    - [1.4 Creating COS Connection  `Select instance` didn't detect a COS instance, follow the instructions below to manually create the COS connection.](#14-creating-cos-connection--select-instance-didnt-detect-a-cos-instance-follow-the-instructions-below-to-manually-create-the-cos-connection)
+    - [1.2 Students did not receive techzone invitation](#12-students-did-not-receive-techzone-invitation)
+    - [1.3 Student seeing all of the wxd instances](#13-student-seeing-all-of-the-wxd-instances)
+    - [1.4 Configuring watsonx.ai project not able to find Watsonx machine learning service](#14-configuringwatsonxaiproject-not-able-to-find-watsonx-machine-learning-service)
+    - [1.5 Creating COS Connection  `Select instance` didn't detect a COS instance, follow the instructions below to manually create the COS connection.](#15-creating-cos-connection--select-instance-didnt-detect-a-cos-instance-follow-the-instructions-below-to-manually-create-the-cos-connection)
   - [2. Lab 1 - Netezza](#2-lab-1---netezza)
     - [2.1 Create schema errors:](#21-create-schema-errors)
   - [3. Lab 2 - Presto and Spark](#3-lab-2---presto-and-spark)
@@ -28,13 +29,21 @@
 ### 1.1 Provisioning of wxd stuck initializing 4:10 remaining  
 :wrench: **Solution**:  Need assistance from SRE team, check [Slack channel](https://ibm.enterprise.slack.com/archives/C0789PYP9B2)
 
-### 1.2 Student seeing all of the wxd instances  
+### 1.2 Students did not receive techzone invitation
+In Toronto data center, inviting users via Techzone UI works intermittently.  If students never receive invitation, manually invite them via IBM Cloud.  
+- Login to IBM Cloud, go to `Manage`, `Access (IAM)`, `Users`
+- Click button to `Invite Users`
+- Paste email addresses (one per line)
+- Select Admin group for techzone instance, should start with `itz`
+- Click `Add`, then `Invite`
+
+### 1.3 Student seeing all of the wxd instances  
 :wrench: **Workaround**:  use your Cloud Service ID as a filter to see your own
 
-### 1.3 Configuring watsonx.ai project not able to find Watsonx machine learning service  
+### 1.4 Configuring watsonx.ai project not able to find Watsonx machine learning service  
 :wrench: **Solution**:  wml service renamed watsonx.ai Runtime
 
-### 1.4 Creating COS Connection  `Select instance` didn't detect a COS instance, follow the instructions below to manually create the COS connection.
+### 1.5 Creating COS Connection  `Select instance` didn't detect a COS instance, follow the instructions below to manually create the COS connection.
 
 ![select-service](.../env-setup/attachments/2025-06-26-11-56-18-pasted-vscode.png)
 * Enter connection name

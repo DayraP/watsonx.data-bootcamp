@@ -24,30 +24,36 @@ The **watsonx.data  Bootcamp** is a hands-on, modular learning experience design
 
 - Create an ISC Project for your watsonx.data Bootcamp and tag it as ???. (Need process for x.data)
 
+## 📚 1. Review the Bootcamp Materials 
 
-## 📚 1. Client facing presentations
+- Study the [client facing presentations](https://ibm.box.com/s/um7lwpfdlqjrruz7gcnm5dcvd670szsc). You can pick and choose the topics that resonate the most to the client depending on their maturity and interests. 
 
-Study the [client facing presentations](https://ibm.box.com/s/um7lwpfdlqjrruz7gcnm5dcvd670szsc). You can pick and choose the topics that resonate the most to the client depending on their maturity and interests. 
+- Review the available [labs](lab-overview.md)
+
+- Review the available Murals (need link)
 
 
 ## 🌍 2. Set up your environment
 
-Set up your environment with [these instructions](environment-setup.md)
+The bootcamp will use a shared [Techzone environment](techzone-env-setup.md) for all students to be created by the instructor. 
 
 ## 🧪 3. Run the labs 
 
-Run the [client-facing labs](../Labs/README.md)
+Run the client facing [labs](../Labs/README.md)
 
-## 🎨 4. Review the murals
-
-we need to add link to the mural template(s)
-
-## :paintbrush: 5. Customize it!
+## :paintbrush: 4. Customize it!
   - **Build your own bootcamp curriculum**: pick your learning materials, hands-on labs, and other resources, and tailor the bootcamp to your Client or Business Partner, depending on their interests and skill levels.
 
--   Update the sample [Agenda](../Agenda/README.md)
+-  Update the sample [Agenda](../Agenda/README.md)
+  
+## 📚 5. Share optional pre-work for clients new to watsonx.data
 
-## 🚀 6.  Go!
+  - [IBM watsonx.data Technical Essentials Course](https://learn.ibm.com/course/view.php?id=16226) (3 hours).<br>
+  - [What is a database Blog](https://www.ibm.com/think/topics/database) (20 mins)
+  - [SQL and Relational Databases Course](https://cognitiveclass.ai/courses/learn-sql-relational-databases) (3 hours)
+
+
+## 🚀 5.  Go!
 
 -   placeholder for running bootcamp best practices?
 -   Gather feedback ->add link to monday survey
@@ -58,7 +64,3 @@ we need to add link to the mural template(s)
 Ask on [**#ce-wxd-client-bootcamp**](https://ibm.enterprise.slack.com/archives/C095VBRBVUN).
 
 📝 [Open an **Issue**](https://github.ibm.com/skol/watsonx.data-bootcamp-2025/issues) in this repository if something's not working.
-
-
-
-
