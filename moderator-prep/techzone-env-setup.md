@@ -6,13 +6,13 @@
     - [1.2 Data Sources](#12-data-sources)
       - [1.2.1 Netezza](#121-netezza)
       - [1.2.2 Postgres SQL](#122-postgres-sql)
-  - [3. Setup Overview](#3-setup-overview)
-    - [3.1 Provision and setup watsonx.data bootcamp Environment](#31-provision-and-setup-watsonxdata-bootcamp-environment)
-    - [3.2 Upload data (binary files and pdfs)](#32-upload-data-binary-files-and-pdfs)
-    - [3.3 Prepare handover configurations and setup watsonx.ai connections](#33-prepare-handover-configurations-and-setup-watsonxai-connections)
-    - [3.4 Share your Techzone environment](#34-share-your-techzone-environment)
-    - [3.5 Share access to watsonx.data](#35-share-access-to-watsonxdata)
-    - [3.6 Share connections in watsonx.ai](#36-share-connections-in-watsonxai)
+  - [2. Setup Overview](#2-setup-overview)
+    - [2.1 Provision and setup watsonx.data bootcamp Environment](#21-provision-and-setup-watsonxdata-bootcamp-environment)
+    - [2.2 Upload data (binary files and pdfs)](#22-upload-data-binary-files-and-pdfs)
+    - [2.3 Prepare handover configurations and setup watsonx.ai connections](#23-prepare-handover-configurations-and-setup-watsonxai-connections)
+    - [2.4 Share the Techzone environment](#24-share-the-techzone-environment)
+    - [2.5 Share access to watsonx.data](#25-share-access-to-watsonxdata)
+    - [2.6 Share connections in watsonx.ai](#26-share-connections-in-watsonxai)
 
 
 The bootcamp will use a shared Techzone environment for all students, to be created by the instructor. 
@@ -52,28 +52,35 @@ To showcase DWH offload capability you will need Netezza connection with `INVEST
 Data description in Netezza can be found [here](../Labs/Lab1_Data_Warehouse_Optimization/Data-description.md).
    #### 1.2.2 Postgres SQL  
 Postgres SQL customer table will be used to demonstrate federation capabilities of watsonx.data Presto and will be added as a data source.  
-:warning: Contact @anna.istomina or @jennifer.wales if there is Postgres instance available, if not you will need to follow [the steps](./instructions/Postgres-provisioning.md) to provision and fill it will data.  
-**Latest Postgres credential are availble [here](https://ibm.ent.box.com/notes/1873722995947).**
+
+-  Currently we have a Postgres SQL instance available in the `watsonx-events` account.  
+
+-  :warning: If the `Postgres xdata bootcamp` service is not available once you provision your bundle, you will need to manually create the service and populate it with data.  
+
+Postgres xdata bootcamp credentials [here](https://ibm.ent.box.com/notes/1873722995947)<br>
+Steps to provision Postgres and populate with data [here](./instructions/Postgres-provisioning.md)
 
 
-## 3. Setup Overview
-You will pre-setup environment that you will later share with the bootcamp participants: you will be using the same account and services' instances.
-### 3.1 Provision and setup watsonx.data bootcamp Environment  
+## 2. Setup Overview
+The instructor will pre-setup the techzone environment and then share with the bootcamp participants.  All students will use the same account and service instances.
+
+
+### 2.1 Provision and setup watsonx.data bootcamp Environment  
 There are 2 options:
-   - [Half-automatic setup](./instructions/Autosetup-watsonx-data.md): some parts of the provisioning are automated incl. COS buckets, watsonx.data engines and services using watsonx.data API and COS API, as those APIs change you might need to adjust python script. 
+   - [Semi-automatic setup](./instructions/Autosetup-watsonx-data.md): some parts of the provisioning are automated incl. COS buckets, watsonx.data engines and services using watsonx.data API and COS API, as those APIs change you might need to adjust python script. 
    - [Manual setup](./instructions/UI-watsonx-environment-setup.md): all of the setup is done in UI.
-### 3.2 Upload data (binary files and pdfs)  
+### 2.2 Upload data (binary files and pdfs)  
 Folder `moderator-prep/data` contains directories with files that are required for the second lab (`files` or `input_data_hive`) and for Lab4 - Rag Agent (`pdfs`). <br>
 
 -  :warning: Make sure files are available at local directory [moderator-prep/data](./data).
 
 -  Follow [instructions](./instructions/Add-cos-files.md) to upload files to the corresponding COS buckets.
 
-### 3.3 Prepare handover configurations and setup watsonx.ai connections
+### 2.3 Prepare handover configurations and setup watsonx.ai connections
 
 Follow instructions [here](./instructions/wx-ai-env-prep.md)
 
-### 3.4 Share your Techzone environment
+### 2.4 Share the Techzone environment
    - Invite students to Techzone Env
       - Go to your IBM Techzone, `My reservations` https://techzone.ibm.com/my/reservations
       - Find the reservation you created for the Lab -> `More options` -> `Share`
@@ -83,7 +90,7 @@ Follow instructions [here](./instructions/wx-ai-env-prep.md)
 
    Note:  If users do not receive an invitation, you can manually invite them via IBM Cloud by following instructions in [1.2 Students did not receive techzone invitation ](../Troubleshooting/README.md)
    
-### 3.5 Share access to watsonx.data 
+### 2.5 Share access to watsonx.data 
    -  Find your resource group so you can share acess to it
      - In your Techzone reservations click on the right Techzone reservation and copy `Environment`, that is your resource group -> the same one your should see in IBM Cloud Resource List / Groups
   ![resource-group](./attachments/resource-group.png)
@@ -95,7 +102,7 @@ Follow instructions [here](./instructions/wx-ai-env-prep.md)
      - There search for a resource group corresponding to your account and select it -> Next
      - Choose `Admin` roles for all components, remember to scroll left to select all engines/sources/services
      - Save
-### 3.6 Share connections in watsonx.ai
+### 2.6 Share connections in watsonx.ai
  - Go to watsonx.ai -> In Hamburger menu select `Data/ Connectivity`
  - Go to `Access control` tab -> Add collaborators -> Add user group
   ![connectivity-access](./attachments/wxai-connectivity-access.png)

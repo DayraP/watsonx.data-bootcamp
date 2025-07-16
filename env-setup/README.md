@@ -287,8 +287,9 @@ The User API Key is a prerequisite for successful remote deployment and accessin
 
 * Go to your Project in watsonx.ai by selecting the Hamburger menu -> Projects -> YourProject
 * Go to the `Assets` tab
-* Click in the right upper corner to upload data files
+* Click on numbers in the right upper corner to upload data files
   ![](./attachments/add-asset.png)
+
 * Drag and drop your `env.txt` file to the dedicated area
 * Check that you can see this file in the list of all assets on `Assets` tab
   ![view-env.txt](./attachments/2025-06-15-12-39-24-pasted-vscode.png)
