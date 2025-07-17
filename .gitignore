@@ -23,6 +23,7 @@ test
 credentials/
 events_file
 *driver_log
+text_share.txt
 
 
 # Netezza-demo related

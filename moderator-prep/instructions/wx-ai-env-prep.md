@@ -37,8 +37,8 @@ There stay on tab `Platform connections` -> `New Connection +`
 
 ### 2.1 Add Presto Connection
 Search for `IBM watsonx.data` -> Select `Presto`
-![add-wxdata-connection](../attachments/2025-06-16-13-38-17-pasted-vscode.png)
-
+![add-wxdata-connection](../attachments/add-wxdata-connection.png)
+![alt text](image.png)
 **Fill in your connection details**:  
 The easiest way will be to fill in connection details from JSON snippet from `watsonx.data`:
 * From IBM Cloud Resource List -> in Databases select watsonx.data instance -> Open web console
@@ -75,7 +75,7 @@ You should see all connection details entered except for Username and Password
 Now you can `Test connection` (upper right corner), once successful, `Create` connection.
 ![test-create-connection-milvus](../attachments/2025-06-16-14-05-31-pasted-vscode.png)
 
-#### 10.3 Add COS connection
+### 2.3 Add COS connection
 New connection -> Search for `IBM Cloud Object Storage` -> Select `IBM Cloud Object Storage`
 ![add-cos-connection](../attachments/2025-06-16-14-34-56-pasted-vscode.png)
 Fill in your connection details:
@@ -106,3 +106,11 @@ And copy values to watsonx.ai Connection:
 ![cos-credentials](../attachments/2025-07-03-20-29-48-pasted-vscode.png)
 Now test connection and if successful, click `Create`.
 ![](../attachments/2025-06-26-12-50-46-pasted-vscode.png)
+
+### 2.4 Check connections
+Check connections names and connectors in `Platform connections`, if differ, click on individual connections and edit according to the instructions above.
+![connections-overview](../attachments/connections-overview.png)
+
+## 3 Return to the instructions
+
+Go back to [techzone-env-setup.md](../techzone-env-setup.md).
