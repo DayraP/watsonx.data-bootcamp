@@ -221,7 +221,7 @@ pip install -r moderator-prep/scripts/auto-setup/requirements_autosetup.txt
 *  Open `moderator-prep/scripts/auto-setup/Auto-setup.ipynb`
 *  Select kernel as `venv_prep`
 *  Run All
-*  As an output you should also get an output with some configuration prefilled for  your `.env_all` file -> `moderator-prep/scripts/auto-setup/.env_output`
+*  As an output you should also get an output with some configuration prefilled for the contents to share with students and your own env file to test labs -> `moderator-prep/scripts/auto-setup/.env_output`
 
 
 # 5 Verify 

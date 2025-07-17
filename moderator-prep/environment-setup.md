@@ -93,7 +93,7 @@ Follow instructions in the [Natural Language to SQL Guide](../Labs/Lab5_NL2SQL/N
 You will pre-setup environment that you will later share with the bootcamp participants: you will be using the same account and services' instances.
 1. Provision and setup watsonx.data bootcamp Environment  
 There are 2 options:
-   - [Half-automatic setup](./instructions/Autosetup-watsonx-data.md): some parts of the provisioning are automated incl. COS buckets, watsonx.data engines and services using watsonx.data API and COS API, as those APIs change you might need to adjust python script. 
+   - [Half-automatic setup](./instructions/Autosetup-watsonx-environment.md): some parts of the provisioning are automated incl. COS buckets, watsonx.data engines and services using watsonx.data API and COS API, as those APIs change you might need to adjust python script. 
    - [Manual setup](./instructions/UI-watsonx-environment-setup.md): all of the setup is done in UI.
 2. Upload data (binary files and pdfs)  
 Folder `moderator-prep/data` contains directories with files that are required for the second lab (`files` or `input_data_hive`) and for Lab4 - Rag Agent (`pdfs`). 
