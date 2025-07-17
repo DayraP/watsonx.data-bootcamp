@@ -323,3 +323,5 @@ From watsonx.ai Studio Project -> `Assets` -> `New asset +` -> `Connect to a dat
 ![connections-overview](./attachments/connections-overview.png)
 
 **Congratulations!  You are ready for the labs.**
+
+Return back to [Labs/README.md](../Labs/README.md)

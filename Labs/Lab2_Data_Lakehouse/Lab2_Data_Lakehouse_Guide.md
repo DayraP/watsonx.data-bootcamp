@@ -25,7 +25,7 @@
 ## 1. Introduction
 
 The :dart: **purpose** of this Lab is to demonstrate:
-- Workflow with hive and iceberg catalogs to handle different workflows.
+- Workflow with hive and iceberg catalogs to handle different data tasks.
 - Support for data federation so that data can be consumed from the source rather than making additional copies. 
 - Using the fit for purpose engine (Spark) to Transform, aggregate and cleanse the data in-order to expose high quality data for Analytical and AI applications.
 
@@ -51,10 +51,11 @@ In the Spark steps `Spark pre-processing` you will prepare holdings table :clipb
 
 **:card_file_box: Sources of data**
 
-- files in [/input_data_hive](./wx-ai-lab2/input_data_hive/) folder for `wx-ai-lab2` option
-  - `accounts.csv` / `accounts.parquet` contains the list of account ids and customer ids from the internal system dump;
-  - `holdings_up_2023.csv` / `holdings_up_2023.parquet`contains information on accounts and their stock holdings (unique by account_id and asset_ticker) for the previous period up to 2023, where `asset_ticker` is stock symbol, `holding_amt` is the total amount of a particular stock and `tax_liability` is the remaining tax liability still owed;
-  - `tax_liability.json` contains country specific tax rate;
+- files in COS hive bucket
+  - Go to your COS instance https://cloud.ibm.com/objectstorage/instances -> select hive bucke -> input_data_hive
+  - `accounts_ht` contains the list of account ids and customer ids from the internal system dump;
+  - `holdings_ht`contains information on accounts and their stock holdings (unique by account_id and asset_ticker) for the previous period up to 2023, where `asset_ticker` is stock symbol, `holding_amt` is the total amount of a particular stock and `tax_liability` is the remaining tax liability still owed;
+  - `tax_liability_ht` contains country specific tax rate;
 - watsonx.data schema
   - `iceberg_data.<SCHEMA_DWH_OFFLOAD>` contains data offloaded from Netezza;
   - `postgres_catalog.bankdemo.customers_table` is a federated postgres table that contains customer data.
@@ -62,8 +63,6 @@ In the Spark steps `Spark pre-processing` you will prepare holdings table :clipb
 ## 4. Expected outcome
 
 At the end of the lab you should have 2 tables in  `clients_schema_YourName_First3LettersOfSurname` prepared that will be later used by an agentic flow in Lab5.
-
-<img src="./attachments/image-10.png" alt="alt text" width="75%"><br>
 
 ![alt text](./attachments/image-12.png)
 

@@ -111,6 +111,8 @@ Now test connection and if successful, click `Create`.
 Check connections names and connectors in `Platform connections`, if differ, click on individual connections and edit according to the instructions above.
 ![connections-overview](../attachments/connections-overview.png)
 
+
+
 ## 3 Return to the instructions
 
 Go back to [techzone-env-setup.md](../techzone-env-setup.md).
