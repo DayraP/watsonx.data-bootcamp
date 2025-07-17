@@ -300,6 +300,7 @@ The User API Key is a prerequisite for successful remote deployment and accessin
 ### 3.1 Add Presto Connection
 From watsonx.ai Studio Project -> `Assets` -> `New asset +` -> `Connect to a data source` -> Select `Platform connections` from the left side menu -> Select `presto_connection` -> `Next` -> Test connection and create
 ![ws-studio-assets](./attachments/2025-06-16-13-36-42-pasted-vscode.png)
+![presto-connection](./attachments/presto-connection.png)
 ![](attachments/2025-07-15-20-36-14-pasted-vscode.png)
 
 ### 3.2 Add milvus connection
@@ -318,6 +319,7 @@ From watsonx.ai Studio Project -> `Assets` -> `New asset +` -> `Connect to a dat
    * cos_connection
    * milvus_connection
    * presto_connection
-   ![](./attachments/2025-06-16-14-41-30-pasted-vscode.png)
+
+![connections-overview](./attachments/connections-overview.png)
 
 **Congratulations!  You are ready for the labs.**
