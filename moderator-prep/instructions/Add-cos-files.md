@@ -49,7 +49,7 @@ After upload, you should see the files in the bucket.
 
 ### 2.1 Create and activate a virtual environment
 
-In case you didn't provision Postgres before create a new environment for data preparation first. If you already have virtual env -> you can continue using it.
+> In case you didn't provision Postgres before create a new environment for data preparation first. If you already have virtual env -> you can continue using it.
 
 - Create python venv in the root directory
 ```sh
@@ -75,13 +75,15 @@ pip install -r ./requirements_data_prep.txt
 
 ### 2.3 Environment file
 
+> In case you didn't provision Postgres before copy `.env_load` template first.
+
 - Copy the template in the root folder with the name .env_all
 
 ```sh
-cp "./env_load.example" "./.env_load"
+cp "moderator-prep/scripts/data-prep/env_load.example" "moderator-prep/scripts/data-prep/.env_load"
 ```
 
-- Update env_load with the values for 
+- Update env_load with the values for CLOUD_API_KEY and COS from `moderator-prep/scripts/auto-setup/.env_output` if you run `Auto-setup.ipynb` script, if not you can find them manually:
   - Take CLOUD_API_KEY from your reference file (you've used it in auto setup)  
   
   CLOUD_API_KEY = "\<IAM CLOUD API KEY>"
@@ -99,3 +101,7 @@ cp "./env_load.example" "./.env_load"
 - Open [moderator-prep/scripts/data-prep/add_files_cos.ipynb](../scripts/data-prep/add_files_cos.ipynb) by clicking the link or by navigating to the notebook
 - Change the Kernel to venv python before running the notebook
 - Run all 
+
+## 3 Return to the instructions
+
+Go back to [techzone-env-setup.md](../techzone-env-setup.md).
