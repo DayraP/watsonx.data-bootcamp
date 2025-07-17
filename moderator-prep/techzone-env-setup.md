@@ -11,7 +11,7 @@
     - [2.2 Prepare handover configurations and setup watsonx.ai connections](#22-prepare-handover-configurations-and-setup-watsonxai-connections)
     - [2.3 Share the Techzone environment](#23-share-the-techzone-environment)
     - [2.4 Share access to watsonx.data](#24-share-access-to-watsonxdata)
-    - [2.5 Share connections in watsonx.ai](#25-share-connections-in-watsonxai)
+    - [2.5:raised\_hands: **Congratulations!!** The environment is now ready for labs.](#25raised_hands-congratulations-the-environment-is-now-ready-for-labs)
 
 
 The bootcamp will use a shared Techzone environment for all students, to be created by the instructor.
@@ -95,26 +95,31 @@ Follow instructions [here](./instructions/wx-ai-env-prep.md)
    Note:  If users do not receive an invitation, you can manually invite them via IBM Cloud by following instructions in [1.2 Students did not receive techzone invitation ](../Troubleshooting/README.md)
    
 ### 2.4 Share access to watsonx.data 
-   -  Find your resource group so you can share acess to it
-     - In your Techzone reservations click on the right Techzone reservation and copy `Environment`, that is your resource group -> the same one your should see in IBM Cloud Resource List / Groups
-  ![resource-group](./attachments/resource-group.png)
-   - Share access in watsonx.data
+In this step, you will grant access to the watsonx.data buckets, catalogs, and engines that you provisioned for the class.  To make this easy, we will be using the techzone admin group for your reservation.  
+
+1.  Find the name of the admin group for the techzone environment
+    -  For techzone environments using the `watsonx-events` account, the admin group name matches the `Environment` setting in the techzone reservation
+   ![resource-group](./attachments/resource-group.png)
+    -  For techzone environments in Toronto, using the `itz-sas-xxx` account, to find the admin name, go to `Manage`, `Access (IAM)`, `Access groups`.  The group name should start with `itz-...`
+
+2. Share access in watsonx.data
      - Go to watsonx.data instance -> Access Control -> Add access
   ![access-control](./attachments/access-control.png)
-     - There select all component of watsonx.data with Items box
-     - Click Next
-     - There search for a resource group corresponding to your account and select it -> Next
+     - Select all components of watsonx.data by selecting `Items` box
+     - Click `Next`
+     - Search for / Select the admin group for the techzone environment
+     - Click `Next`
      - Choose the role next `Admin` or all components, remember to scroll right to select all engines/sources/services:
        - catalogs: hive_catalog/ iceberg_data / nz_catalog / postgres_catalog (User)
        - source databases: INVESTMENTS_NZ / Postgres (Reader)
        - engines: presto / spark / milvus (User)
        - buckets: hive/ milvus / cos-bucket (Writer)
-     - Save
-     - You should recieve a notification on the status
-### 2.5 Share connections in watsonx.ai
- - Go to watsonx.ai -> In Hamburger menu select `Data/ Connectivity`
- - Go to `Access control` tab -> Add collaborators -> Add user group
-  ![connectivity-access](./attachments/wxai-connectivity-access.png)
-     - There select search for your resource group
-     - Select Editor access and click Add
-  ![editor-access-connections](./attachments/editor-access-connections.png)
+     - Click `Save`
+     - You should receive a notification on the status
+
+### 2.5:raised_hands: **Congratulations!!** The environment is now ready for labs.   
+
+Share the information from `Step 2.2` with the students to enable them to complete their [environment setup.](../env-setup/README.md):
+-  Text file with credentials and configurations 
+-  presto.json
+-  milvus.json
