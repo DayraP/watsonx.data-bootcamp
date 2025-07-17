@@ -104,8 +104,13 @@ Follow instructions [here](./instructions/wx-ai-env-prep.md)
      - There select all component of watsonx.data with Items box
      - Click Next
      - There search for a resource group corresponding to your account and select it -> Next
-     - Choose `Admin` roles for all components, remember to scroll left to select all engines/sources/services
+     - Choose the role next `Admin` or all components, remember to scroll right to select all engines/sources/services:
+       - catalogs: hive_catalog/ iceberg_data / nz_catalog / postgres_catalog (User)
+       - source databases: INVESTMENTS_NZ / Postgres (Reader)
+       - engines: presto / spark / milvus (User)
+       - buckets: hive/ milvus / cos-bucket (Writer)
      - Save
+     - You should recieve a notification on the status
 ### 2.5 Share connections in watsonx.ai
  - Go to watsonx.ai -> In Hamburger menu select `Data/ Connectivity`
  - Go to `Access control` tab -> Add collaborators -> Add user group
@@ -113,5 +118,3 @@ Follow instructions [here](./instructions/wx-ai-env-prep.md)
      - There select search for your resource group
      - Select Editor access and click Add
   ![editor-access-connections](./attachments/editor-access-connections.png)
-
-
