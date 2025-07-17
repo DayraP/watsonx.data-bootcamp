@@ -8,7 +8,7 @@
       - [1.2.2 Postgres SQL](#122-postgres-sql)
   - [2. Setup Overview](#2-setup-overview)
     - [2.1 Provision and setup watsonx.data bootcamp Environment](#21-provision-and-setup-watsonxdata-bootcamp-environment)
-    - [2.2 Prepare handover configurations and setup watsonx.ai connections](#22-prepare-handover-configurations-and-setup-watsonxai-connections)
+    - [2.2 Prepare handover configurations](#22-prepare-handover-configurations)
     - [2.3 Share the Techzone environment](#23-share-the-techzone-environment)
     - [2.4 Share access to watsonx.data](#24-share-access-to-watsonxdata)
     - [2.5 :raised\_hands: **Congratulations!!** The environment is now ready for labs.](#25-raised_hands-congratulations-the-environment-is-now-ready-for-labs)
@@ -80,7 +80,7 @@ Folder `moderator-prep/data` contains directories with files that are required f
 Upload them to the corresponding COS buckets following [instructions](./instructions/Add-cos-files.md).  
 :warning: Make sure files are available at local directory [moderator-prep/data](./data).
 
-### 2.2 Prepare handover configurations and setup watsonx.ai connections
+### 2.2 Prepare handover configurations
 
 Follow instructions [here](./instructions/wx-ai-env-prep.md)
 
