@@ -29,9 +29,10 @@
 
 ### 1.1 Clone the classroom Repo
 
-Clone the classroom Repo via SSH
+Clone the classroom Repo via SSH  
+:warning: Update the repo according to the classroom repo
 ```sh
-git clone git@github.ibm.com:jennifer-wales/watsonx.data-client-bootcamp-2025.git
+git clone git@github.ibm.com:skol/watsonx.data-client-bootcamp-2025.git
 ```
 
 If you are not setup for SSH, you can download via Browser instead:
