@@ -29,6 +29,7 @@
 - [4. Verify](#4-verify)
 - [5 Add Restricted User to x.data](#5-add-restricted-user-to-xdata)
   - [5.1. Add access to the infrastructure components](#51-add-access-to-the-infrastructure-components)
+- [6 Return to instructions](#6-return-to-instructions)
 
 
 # 1. Getting Started
@@ -516,3 +517,8 @@ click Add +
 - Click Review
 
 - Click Create
+
+
+# 6 Return to instructions
+
+Go back to [techzone-env-setup.md](../techzone-env-setup.md).
