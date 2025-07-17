@@ -11,7 +11,7 @@
     - [2.2 Prepare handover configurations and setup watsonx.ai connections](#22-prepare-handover-configurations-and-setup-watsonxai-connections)
     - [2.3 Share the Techzone environment](#23-share-the-techzone-environment)
     - [2.4 Share access to watsonx.data](#24-share-access-to-watsonxdata)
-    - [2.5:raised\_hands: **Congratulations!!** The environment is now ready for labs.](#25raised_hands-congratulations-the-environment-is-now-ready-for-labs)
+    - [2.5 :raised\_hands: **Congratulations!!** The environment is now ready for labs.](#25-raised_hands-congratulations-the-environment-is-now-ready-for-labs)
 
 
 The bootcamp will use a shared Techzone environment for all students, to be created by the instructor.
@@ -117,7 +117,7 @@ In this step, you will grant access to the watsonx.data buckets, catalogs, and e
      - Click `Save`
      - You should receive a notification on the status
 
-### 2.5:raised_hands: **Congratulations!!** The environment is now ready for labs.   
+### 2.5 :raised_hands: **Congratulations!!** The environment is now ready for labs.   
 
 Share the information from `Step 2.2` with the students to enable them to complete their [environment setup.](../env-setup/README.md):
 -  Text file with credentials and configurations 
