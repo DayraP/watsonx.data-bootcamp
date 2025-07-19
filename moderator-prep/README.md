@@ -21,6 +21,7 @@ The **watsonx.data  Bootcamp** is a hands-on, modular learning experience design
 ## 🚗💨 Get started 
 
 - Pitch the bootcamp to your client using the external facing [flyer](https://ibm.box.com/s/i6pqhgl2b8n1p2rhn63t8muj9rq4it9c).
+- Learn more about the bootcamp using the [Instructor Starter Kit](https://ibm.box.com/s/aiuyc6c3ubdj1wg5feqop77zsnj1tn4z)
 
 - Create an ISC Project for your watsonx.data Bootcamp and tag it as ???. (Need process for x.data)
 
@@ -56,7 +57,7 @@ Run the client facing [labs](../Labs/README.md)
 ## 🚀 5.  Go!
 
 -   placeholder for running bootcamp best practices?
--   Gather feedback ->add link to monday survey
+-   Gather feedback, share the short survey -->https://wkf.ms/3GRozh7
 -   Tell participants about the badge!  -->add link to badge how to once ready
 
 
