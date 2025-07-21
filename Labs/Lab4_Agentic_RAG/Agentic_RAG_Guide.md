@@ -159,6 +159,7 @@ Then we load vectors into memory and test semantic search locally.
   3. Test the agent by asking questions related to the Equity Research documents.  Here are some sample questions :<br>
 
       ```What are the main insights from the equity market in 2024?```<br>
+      ```Which commodity has the highest percentage change in 2024?```
       ```What is an ETF?```<br>
 
   4. Evaluate the responses, reasoning and document sources 
