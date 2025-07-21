@@ -99,16 +99,13 @@ Then we load vectors into memory and test semantic search locally.
 
 2. From the Hamburger menu on the top left go to `Build`, `Agent Builder` 
 3. From the manage agents screen click `Create Agent`
-
-    <img width="750" alt="proj_id" src="./attachments/Create_New_Agent.png"><br>
-
    * Choose `Create from Scratch`
    * Name the agent,`Equity Research -{your name}`
    * Under `Profile`, `Description`, paste the text below.  
      ```
      An agent to help researching the Equity market based on the past, and current market performance.  This agent will also provide insights into the emerging trends.   By analyzing market research documents details, the agent answers questions about equity market trends.  If the answer to the question is not contained in your knowledge base, instead of responding you should initiate a transfer to the supervisor agent, copying the users query verbatim.
      ```
-
+   * Click `Create`
    * Under `Knowledge` ,`Description`, paste the text below.  
 
      ```
@@ -125,11 +122,11 @@ Then we load vectors into memory and test semantic search locally.
 
    * Provide the Milvus connection credentials
 
-     * For GRPC Host - use `MILVUS_HOST` from .env_all
-     * For GRPC Port - use `MILVUS_PORT` from .env_all
+     * For GRPC Host - use `MILVUS_HOST` from milvus.json
+     * For GRPC Port - use `MILVUS_PORT` from milvus.json
      * For Authentication Type - choose `Basic Authentication`
      * For `Username`, enter `ibmlhapikey`
-     * For `Password`, use `CLOUD_API_KEY` from .env_all
+     * For `Password`, use `CLOUD_API_KEY` from the text based reference
      * Click `Next`
      
      <img width="750" alt="proj_id" src="./attachments/Milvus_Connection_Details.png"><br>
@@ -146,7 +143,7 @@ Then we load vectors into memory and test semantic search locally.
   
      <img width="750" alt="proj_id" src="./attachments/Milvus_Conf_Details.png"><br>
  
-      **Ensure** Chat with Documents is enabled under the Behavior section.<br>
+     * Under `Behavior` section, **ensure** Chat with Documents is enabled .<br>
       <img width="750" alt="proj_id" src="./attachments/2025-07-11_08-16-25.png"><br>
       
 
@@ -163,7 +160,6 @@ Then we load vectors into memory and test semantic search locally.
 
       ```What are the main insights from the equity market in 2024?```<br>
       ```What is an ETF?```<br>
-      ```What are the main insights from the equity market in 2024?```<br>
 
   4. Evaluate the responses, reasoning and document sources 
 
