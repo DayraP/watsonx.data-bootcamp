@@ -263,9 +263,9 @@ The User API Key is a prerequisite for successful remote deployment and accessin
     SCHEMA_DATA_I = "clients_schema_YourName_First3LettersOfSurname"
 
     # From watsonx.ai studio->  Copy from your Reference Note
-    WATSONX_URL = ""
-    WATSONX_PROJECT_ID = ""
-    WATSONX_DEPLOYMENT_SPACE_ID = ""
+    WATSONX_URL = "watsonx.ai URL"
+    WATSONX_PROJECT_ID = "watsonx.ai Project ID"
+    WATSONX_DEPLOYMENT_SPACE_ID = "Deployment space GUID"
 
     # milvus ingestion parameters ->> Update collection name to add your name and first 3 letter from surname
     MV_COLLECTION_NAME="equity_research_YourName_First3LettersOfSurname"
