@@ -8,10 +8,11 @@
       - [1.2.2 Postgres SQL](#122-postgres-sql)
   - [2. Setup Overview](#2-setup-overview)
     - [2.1 Provision and setup watsonx.data bootcamp Environment](#21-provision-and-setup-watsonxdata-bootcamp-environment)
-    - [2.2 Prepare handover configurations](#22-prepare-handover-configurations)
-    - [2.3 Share the Techzone environment](#23-share-the-techzone-environment)
-    - [2.4 Share access to watsonx.data](#24-share-access-to-watsonxdata)
-    - [2.5 :raised\_hands: **Congratulations!!** The environment is now ready for labs.](#25-raised_hands-congratulations-the-environment-is-now-ready-for-labs)
+    - [2.2 Upload data (binary files and pdfs)](#22-upload-data-binary-files-and-pdfs)
+    - [2.3 Prepare handover configurations](#23-prepare-handover-configurations)
+    - [2.4 Share the Techzone environment](#24-share-the-techzone-environment)
+    - [2.5 Share access to watsonx.data](#25-share-access-to-watsonxdata)
+    - [2.6 :raised\_hands: **Congratulations!!** The environment is now ready for labs.](#26-raised_hands-congratulations-the-environment-is-now-ready-for-labs)
 
 
 The bootcamp will use a shared Techzone environment for all students, to be created by the instructor.
@@ -73,18 +74,18 @@ There are 2 options:
    - [Half-automatic setup](./instructions/Autosetup-watsonx-environment.md): some parts of the provisioning are automated incl. COS buckets, watsonx.data engines and services using watsonx.data API and COS API, as those APIs change you might need to adjust python script. 
    - [Manual setup](./instructions/UI-watsonx-environment-setup.md): all of the setup is done in UI.
 
-**2. Upload data (binary files and pdfs)**  
+### 2.2 Upload data (binary files and pdfs)
 
 Folder `moderator-prep/data` contains directories with files that are required for the second lab (`files` or `input_data_hive`) and for Lab4 - Rag Agent (`pdfs`).
 
 Upload them to the corresponding COS buckets following [instructions](./instructions/Add-cos-files.md).  
 :warning: Make sure files are available at local directory [moderator-prep/data](./data).
 
-### 2.2 Prepare handover configurations
+### 2.3 Prepare handover configurations
 
 Follow instructions [here](./instructions/wx-ai-env-prep.md)
 
-### 2.3 Share the Techzone environment
+### 2.4 Share the Techzone environment
    - Invite students to Techzone Env
       - Go to your IBM Techzone, `My reservations` https://techzone.ibm.com/my/reservations
       - Find the reservation you created for the Lab -> `More options` -> `Share`
@@ -94,7 +95,7 @@ Follow instructions [here](./instructions/wx-ai-env-prep.md)
 
    Note:  If users do not receive an invitation, you can manually invite them via IBM Cloud by following instructions in [1.2 Students did not receive techzone invitation ](../Troubleshooting/README.md)
    
-### 2.4 Share access to watsonx.data 
+### 2.5 Share access to watsonx.data 
 In this step, you will grant access to the watsonx.data buckets, catalogs, and engines that you provisioned for the class.  To make this easy, we will be using the techzone admin group for your reservation.  
 
 1.  Find the name of the admin group for the techzone environment
@@ -117,7 +118,7 @@ In this step, you will grant access to the watsonx.data buckets, catalogs, and e
      - Click `Save`
      - You should receive a notification on the status
 
-### 2.5 :raised_hands: **Congratulations!!** The environment is now ready for labs.   
+### 2.6 :raised_hands: **Congratulations!!** The environment is now ready for labs.   
 
 Share the information from `Step 2.2` with the students to enable them to complete their [environment setup.](../env-setup/README.md):
 -  Text file with credentials and configurations 

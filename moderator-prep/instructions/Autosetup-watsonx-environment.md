@@ -15,12 +15,11 @@
   - [3.2 Create COS Service Credentials](#32-create-cos-service-credentials)
   - [3.3 Add watsonx.data configuraion to env file](#33-add-watsonxdata-configuraion-to-env-file)
   - [3.4 Copy Postgres credentials](#34-copy-postgres-credentials)
+  - [3.5 Copy Netezza credentials](#35-copy-netezza-credentials)
 - [4 Run Auto setup script in Jupyter Notebook](#4-run-auto-setup-script-in-jupyter-notebook)
   - [4.1 Create virtual environment and install requirements](#41-create-virtual-environment-and-install-requirements)
   - [4.2 Run Jupyter Notebook with the script](#42-run-jupyter-notebook-with-the-script)
 - [5 Verify](#5-verify)
-- [6 Add Restricted User to x.data](#6-add-restricted-user-to-xdata)
-  - [6.1. Add access to the infrastructure components](#61-add-access-to-the-infrastructure-components)
 - [6 Return to instructions](#6-return-to-instructions)
 
 
@@ -112,13 +111,13 @@ alt="A screenshot of a computer AI-generated content may be incorrect." />
 
 :hourglass: **Wait while instance is provisioned – 12-20 minutes... do not close your browser**
 
-After quick initial setup you should have the following components available in Infrustructure manager
+After quick initial setup you should have the following components available in Infrastructure manager
 
 ![Infrastucture manager - initial setup](../attachments/2025-05-26-10-08-49-pasted-vscode.png)
 
 # 3. Credentials and configurations
 
-* Within `moderator-prep/scripts/auto-setup` folder create a subfolder `credentials` with 2 empty json files: `cos.json` and `postgres.json`. At later steps you will store there credentails for Cloud Object Storage `cos.json` and for Postgres database `postgres.json`.
+* Within `moderator-prep/scripts/auto-setup` folder create a subfolder `credentials` with 2 empty json files: `cos.json` and `postgres.json`. At later steps you will store there credentials for Cloud Object Storage `cos.json` and for Postgres database `postgres.json`.
 
 ![](attachments/2025-06-26-23-32-57-pasted-vscode.png)
 
@@ -179,10 +178,14 @@ Go to IBM Cloud `Resource List`, click on watsonx.data instance in the databases
 ## 3.4 Copy Postgres credentials
 
 **If you are using Postgres provisioned to you by us**:  
-From [Boxfolder](https://ibm.ent.box.com/folder/322609163013) `postgres.json` file copy all content into `moderator-prep/scripts/auto-setup/postgres.json`.
+From [Box Folder](https://ibm.box.com/s/cp090jf3awquuxzwbvpocw6rd0p431hs) `postgres.json` file copy all content into `moderator-prep/scripts/auto-setup/postgres.json`.
 
 **If you provisioned Postgres yourself**:  
 You should have `postgres.json` available locally after running `moderator-prep/instructions/Postgres-provisioning.md`; now copy all content into `moderator-prep/scripts/auto-setup/postgres.json`.
+
+## 3.5 Copy Netezza credentials
+
+From [Box Note](https://ibm.box.com/s/gpi9i9qh89rmpag59qp6bx86rjsv99q0) copy the Netezza credential snippet and paste into  `moderator-prep/scripts/auto-setup/.env_setup`
 
 Now you should have `moderator-prep/scripts/auto-setup/.env_setup` and `moderator-prep/scripts/auto-setup/credentials` ready to run [Auto-setup.ipynb](../scripts/auto-setup/Auto-setup.ipynb) script.
 
@@ -234,69 +237,7 @@ should have something that looks like this:
 style="width:6.5in;height:3.82222in"
 alt="A screenshot of a computer AI-generated content may be incorrect." />
 
-# 6 Add Restricted User to x.data
-
-## 6.1. Add access to the infrastructure components
-
-In watsonx.data. go to Access Control, Add access
-
-- Select all, Next
-
-Under: Add access to infrastructure components, Select Data\_scientist
-and click Next
-
-<img src="../attachments/image30.png"
-style="width:6.5in;height:3.52361in"
-alt="A screenshot of a computer AI-generated content may be incorrect." />
-
-- Select User for all engines
-
-- Select Reader for any / all Storage buckets
-
-Example:
-
-<img src="../attachments/image31.png"
-style="width:6.5in;height:2.15903in"
-alt="A screenshot of a computer AI-generated content may be incorrect." />
-
-- Add Policy to grant access to iceberg table
-
-- Switch to Policies tab, click Add Policy
-
-  - Policy name: iceberg
-
-  - Change policy status after creation to Active, Click Next
-
-  - Under Data objects, Choose a resource to get started, Select
-iceberg\_data
-
-  - Under search schemas, select all, Click Next
-
-<img src="../attachments/image32.png"
-style="width:6.5in;height:3.15208in"
-alt="A screenshot of a computer AI-generated content may be incorrect." />
-
-- Select Add rule +
-
-- Rule type will be allow
-
-- Under Actions, Select all
-
-- On the right side of the screen, under Authorized users and groups,
-click Add +
-
-- Select Add users to rule
-
-- Select data\_scientist group
-
-- Click Add
-
-- Click Add
-
-- Click Review
-
-- Click Create
 
 # 6 Return to instructions
 
-Go back to [techzone-env-setup.md](../techzone-env-setup.md).
+Go back to [techzone-env-setup.md](../techzone-env-setup.md), and continue starting at step `2.2 Upload data (binary files and pdfs)`

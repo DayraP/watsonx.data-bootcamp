@@ -12,3 +12,10 @@ WXD_INSTANCE_CRN = ""
 # COS credentials json
 COS_CREDENTIALS_PATH = "./credentials/cos.json"
 POSTGRES_CREDENTIALS_PATH = "./credentials/postgres.json"
+
+# Netezza credentials
+NZ_DATABASE = ""
+NZ_HOST = ""
+NZ_PORT = 
+NZ_USERNAME = ""
+NZ_PASSWORD = ""
