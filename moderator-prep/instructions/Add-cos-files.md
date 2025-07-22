@@ -104,4 +104,4 @@ cp "moderator-prep/scripts/data-prep/env_load.example" "moderator-prep/scripts/d
 
 ## 3 Return to the instructions
 
-Go back to [techzone-env-setup.md](../techzone-env-setup.md).
+Go back to [techzone-env-setup.md](../techzone-env-setup.md), and continue starting at step `2.3 Prepare handover configurations`
