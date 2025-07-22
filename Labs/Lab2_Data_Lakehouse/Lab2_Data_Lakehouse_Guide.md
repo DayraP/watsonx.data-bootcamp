@@ -40,7 +40,7 @@ In the Spark steps `Spark pre-processing` you will prepare holdings table :clipb
 ## 2.  Prerequisites
 - Completed  [Environment Setup](env-setup/wealth-mgr-env-setup.md)
 - Moderator uploaded files to hive bucket
-- env.txt 
+- `env.txt` uploaded into the project
 - Completed [Lab 1](../Lab1_Data_Warehouse_Optimization/Lab_1_Data_Offload_Guide.md).
 
 
@@ -52,10 +52,10 @@ In the Spark steps `Spark pre-processing` you will prepare holdings table :clipb
 **:card_file_box: Sources of data**
 
 - files in COS hive bucket
-  - Go to your COS instance https://cloud.ibm.com/objectstorage/instances -> select hive bucke -> input_data_hive
-  - `accounts_ht` contains the list of account ids and customer ids from the internal system dump;
-  - `holdings_ht`contains information on accounts and their stock holdings (unique by account_id and asset_ticker) for the previous period up to 2023, where `asset_ticker` is stock symbol, `holding_amt` is the total amount of a particular stock and `tax_liability` is the remaining tax liability still owed;
-  - `tax_liability_ht` contains country specific tax rate;
+  - Go to your COS instance https://cloud.ibm.com/objectstorage/instances -> select bucket that starts with `hive` like `hive-1753085729998611476` -> search for `input_data_hive` directory, there you should find folders/files that were pre-uploaded for you by moderator, if not raise concerns:
+    - `accounts_ht` contains the list of account ids and customer ids from the internal system dump;
+    - `holdings_ht`contains information on accounts and their stock holdings (unique by account_id and asset_ticker) for the previous period up to 2023, where `asset_ticker` is stock symbol, `holding_amt` is the total amount of a particular stock and `tax_liability` is the remaining tax liability still owed;
+    - `tax_liability_ht` contains country specific tax rate;
 - watsonx.data schema
   - `iceberg_data.<SCHEMA_DWH_OFFLOAD>` contains data offloaded from Netezza;
   - `postgres_catalog.bankdemo.customers_table` is a federated postgres table that contains customer data.
@@ -76,9 +76,12 @@ At the end of the lab you should have 2 tables in  `clients_schema_YourName_Firs
 2. Login and from the quick access page -> `Recent work` Select the project you created during [Environment Setup](../env-setup/wealth-mgr-env-setup.md).
 ![get-project-wx-studio](./attachments/2025-06-15-21-05-27-pasted-vscode.png)
 3. Check that you can see env.txt file in the list of all assets on `Assets` tab
-![view-env.txt](./attachments/2025-06-15-12-39-24-pasted-vscode.png)
+![view-env.txt](./attachments/2025-06-15-12-39-24-pasted-vscode.png), if not upload via data files
+<img src="./attachments/upload-python-script.png" alt="alt text" width="50%"><br>
 4. Check that Connections are available, we will be using them in the lab
 ![](./attachments/2025-06-16-16-07-01-pasted-vscode.png)
+
+
 
 ### 5.2 Import Jupyter Notebook with the script from local folder
 
@@ -117,6 +120,7 @@ At the end of the lab you should have 2 tables in  `clients_schema_YourName_Firs
     ![](attachments/2025-06-16-16-18-26-pasted-vscode.png)
 4. Run all cells consequtively starting from packages installations in the first cell and check outputs
 
+
 ### 5.4 Review data in watsonx.data UI after Presto part of the lab
 
 1. In a different window, open watsonx.data Service - From [Cloud Resource list](https://cloud.ibm.com/resources) select `Databases` resources -> Select your `watsonx.data` service 
@@ -136,7 +140,7 @@ At the end of the lab you should have 2 tables in  `clients_schema_YourName_Firs
      * From `Assets` Tab click `Import assets`
   ![import-assets-project](./attachments/2025-06-15-23-08-25-pasted-vscode.png)
      * Select `Local file` -> `Data asset` -> `Browse`  
-     * From local files under Lab2_Data_Lakehouse, select `spark-processing.py` script and click `Open`
+     * From local files under Lab2_Data_Lakehouse, select `/wx-ai-lab2/spark-processing.py` script and click `Open`
   ![local-file-asset](./attachments/2025-06-15-23-10-04-pasted-vscode.png)
      * Once loaded, click `Done`
   ![load-script](./attachments/2025-06-15-23-20-51-pasted-vscode.png)
@@ -176,7 +180,7 @@ At the end of the lab you should have 2 tables in  `clients_schema_YourName_Firs
 
 4. Run all cells consequitively starting from packages installations in the first cell and check outputs
    
-  * :warning: The notebook will prompt for your Cloud API Key.  When prompted, please paste your (<CLOUD_API_KEY>) and press `Enter`
+  * :warning: The notebook will prompt for your Cloud API Key.  When prompted, please paste your (<CLOUD_API_KEY>) that was generated for your IBM Cloud Account and press `Enter`
   * A successful run will include the payload to your spark app submission in the last cell in json format.  
   * Copy the `payload` to your reference note, you will use it for your spark app submission.  
 
