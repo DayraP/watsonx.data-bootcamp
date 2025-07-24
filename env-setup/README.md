@@ -47,18 +47,18 @@ alt="A screenshot of a computer AI-generated content may be incorrect." />
 
 ### 1.2 Access your class Instance
 
-For completing this bootcamp you will need the following services.
-* watsonx.data
-* Cloud Object Storage (COS)
+For completing this bootcamp you will need access the following services.
+* watsonx.data (Shared Environment)
+* Cloud Object Storage (COS) 
 * watsonx.data Intelligence
 * watsonx.ai Studio & Runtime
 * watsonx Orchestrate
   
-A techzone instance with the required services been provided and shared with you.   
+Two techzone environments are needed for the labs.  A shared watsonx.data environment used by all students and an individual techzone environment where you will work.
 
-To access the environment, look for an email message from IBM Technology Zone <noreply@techzone.ibm.com> inviting you to join the account where your class environment is located.  
+To access the environments, look for an email messages from IBM Technology Zone <noreply@techzone.ibm.com> inviting you to join the accounts where your environments are located.  
 
-In the email, Click on the `HERE` link to accept the invitation
+In each email, Click on the `HERE` link to accept the invitation
 (Highlighted in the screenshot below.)
 
 <img src="./attachments/image4.png"
@@ -102,11 +102,7 @@ alt="A screenshot of a computer AI-generated content may be incorrect." />
 ### 1.5 Verify you are in the right instance. 
 
 Check at the top right that you are in the right instance –
-**watsonx-events** or **watsonx-events2**
-
-<img src="./attachments/image7.png"
-style="width:6.30556in;height:0.98611in"
-alt="A black and white stripe AI-generated content may be incorrect." />
+**itz-watsonx-event-xxx** 
 
 If it does not show the right name of the instance, you can select it from the drop-down.
 
@@ -275,7 +271,7 @@ The User API Key is a prerequisite for successful remote deployment and accessin
 
     # parameters for milvus ingestion -> should not need to change unless provided by instructor
     SIMILARITY_METRIC="L2"
-    SENTENCE_TRANSFORMER = "sentence-transformers/all-MiniLM-L6-v2"
+    SENTENCE_TRANSFORMER = "sentence-transformers/all-minilm-l6-v2"
     TEXT_SPLITTER_CHUNK_SIZE=1000
     TEXT_SPLITTER_CHUNK_OVERLAP=200
     TEXT_SPLITTER_SEPARATORS='[" \n", "\n"]'
@@ -311,8 +307,10 @@ The easiest way will be to fill in connection details from JSON snippet provided
  
 You should see all connection details entered except for API key, enter it manually:  
 * Rename the name of the connection to (required): `presto_connection`
-* Paste your `CLOUD_API_KEY` in the `API Key` field 
-* `Test connection` (upper right corner)and once successful, `Create` connection.
+* Paste the `watsonx.data Cloud API Key` provided by the instructor in the `API Key` field (Not the student Cloud API Key)
+* `Test connection` (upper right corner)and once successful, `Create` connection. 
+  
+  **IMPORTANT** :  Use the instructor provided Cloud API Key, not your own Cloud API Key for the Presto connection
 ![test-create-connection](./attachments/2025-06-16-13-55-33-pasted-vscode.png)
 
 ### 3.2 Add milvus connection
@@ -331,7 +329,10 @@ The easiest way will be to fill in connection details from JSON snippet provided
 You should see all connection details entered except for Username and Password
 * Rename the name of the connection to (required): `milvus_connection`
 * Enter the Username as: `ibmlhapikey`
-* Paste your `CLOUD_API_KEY` as the password. 
+* Paste the `watsonx.data Cloud API Key` provided by the instructor as the password. (Not the student Cloud API Key)
+* `Test connection` (upper right corner)and once successful, `Create` connection. 
+  
+  **IMPORTANT** :  Use the instructor provided Cloud API Key, not your own Cloud API Key for the Milvus connection
 * `Test connection` (upper right corner)and once successful, `Create` connection.
 ![test-create-connection-milvus](./attachments/2025-06-16-14-05-31-pasted-vscode.png)
 
@@ -340,15 +341,17 @@ From watsonx.ai Studio Project -> `Assets` -> `New asset +` -> `Connect to a dat
 ![ws-studio-assets](./attachments/2025-06-16-13-36-42-pasted-vscode.png)
 ![add-cos-connection](./attachments/2025-06-16-14-34-56-pasted-vscode.png)
 Fill in your connection details:
-We will add integrated instance (COS instance at the same IBM Cloud Account) ->
-![select-integrated-cos-instance](./attachments/2025-06-16-14-36-28-pasted-vscode.png)
-You should see all connection details entered, change the name to `cos_connection`:  
-* Rename the name of the connection to (required): `cos_connection`  
+* Name `cos_connection`
+* Leave `Bucket` name field empty
+* For Login URL, use `COS Bucket Public Endpoint` provided by Instructor without `https://`
+* Under Credentials, select `Resource Instance ID and API Key`
+* For Resource instance ID, enter `COS CRN` provided by Instructor
+* For API key, enter `COS API Key` provided by instructor.  Not Cloud API key(s)
+
+  ![](../env-setup/attachments/2025-07-03-20-20-17-pasted-vscode.png)
+
 * `Test connection` (upper right corner)and once successful, `Create` connection.
-![test-create-cos](./attachments/2025-06-16-14-38-26-pasted-vscode.png)
-
-In case `Select instance` didn't detect a COS instance, follow the instructions in the [Troubleshooting](../Troubleshooting/README.md) section to manually create the COS connection.
-
+![](../env-setup/attachments/2025-06-26-12-50-46-pasted-vscode.png)
 
 ### 3.4 Review connections in the project
 

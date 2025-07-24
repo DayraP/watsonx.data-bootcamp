@@ -1,33 +1,40 @@
-# Bootcamp Techzone Environment
+# Bootcamp watsonx.data Environment
 
-- [Bootcamp Techzone Environment](#bootcamp-techzone-environment)
+- [Bootcamp watsonx.data Environment](#bootcamp-watsonxdata-environment)
   - [1. Prerequisities](#1-prerequisities)
-    - [1.1 Environment](#11-environment)
+    - [1.1 Environments](#11-environments)
     - [1.2 Data Sources](#12-data-sources)
       - [1.2.1 Netezza](#121-netezza)
       - [1.2.2 Postgres SQL](#122-postgres-sql)
   - [2. Setup Overview](#2-setup-overview)
-    - [2.1 Provision and setup watsonx.data bootcamp Environment](#21-provision-and-setup-watsonxdata-bootcamp-environment)
+    - [2.1 Provision and setup watsonx.data backend Environment](#21-provision-and-setup-watsonxdata-backend-environment)
     - [2.2 Upload data (binary files and pdfs)](#22-upload-data-binary-files-and-pdfs)
     - [2.3 Prepare handover configurations](#23-prepare-handover-configurations)
-    - [2.4 Share the Techzone environment](#24-share-the-techzone-environment)
+    - [2.4 Share the watsonx.data Techzone environment](#24-share-the-watsonxdata-techzone-environment)
     - [2.5 Share access to watsonx.data](#25-share-access-to-watsonxdata)
-    - [2.6 :raised\_hands: **Congratulations!!** The environment is now ready for labs.](#26-raised_hands-congratulations-the-environment-is-now-ready-for-labs)
+    - [2.6 :raised\_hands: **Congratulations!!** The backend environment is now ready for labs.](#26-raised_hands-congratulations-the-backend-environment-is-now-ready-for-labs)
+  - [3. Client Environment Setup](#3-client-environment-setup)
+    - [3.1 Create a workshop reservation for the bootcamp](#31-create-a-workshop-reservation-for-the-bootcamp)
+    - [3.2 Share environment information with the Students](#32-share-environment-information-with-the-students)
 
 
-The bootcamp will use a shared Techzone environment for all students, to be created by the instructor.
 
 ## 1. Prerequisities
-### 1.1 Environment
-TechZone [bundle](https://techzone.ibm.com/my/reservations/create/67e6c2a9bc768d343f1c08ea), which has all the components needed for the hands-on labs, including:
+### 1.1 Environments
 
-   * watsonx.data
-   * Cloud Object Storage (COS)
-   * watsonx.data Intelligence (Formerly IKC)
-   * watsonx.ai Studio & Runtime
-   * watsonx Orchestrate
+The bootcamp will use a single shared Techzone environment for the backend watsonx.data components, shared by all students, to be created by the instructor. The [watsonx.data backend bundle](https://techzone.ibm.com/my/reservations/create/67e6c2a9bc768d343f1c08ea) uses the following services:
+- Cloud Object storage
+- watsonx.data
+- watsonx.data intelligence
 
-At this step you need to request a new environment in Techzone (Demo with corresponding opportunity ID), at later steps you will do pre-setup and share reservation/ services with bootcamp participants.
+The bootcamp also requires individual Techzone environments for each student where they will work in projects and their own watsonx Orchestrate environment.  The [student bundle](https://techzone.ibm.com/collection/client-engineering-agentic-ai-labs/journey-workshop-environments) requires: 
+-  watsonx.ai studio
+-  watsonx.ai runtime
+-  watsonx Orchestrate
+-  Cloud Object storage
+
+For instructor self education, you can use just the backend bundle to test the labs, as the bundle includes watsonx.ai studio, runtime and Orchestrate, but because Orchestrate is a trial service it should not be used for multiple students.
+
 
 ### 1.2 Data Sources
 During labs you will work both with structured and unstructured (text data).  
@@ -62,17 +69,17 @@ Steps to provision Postgres and populate with data [here](./instructions/Postgre
 
 
 ## 2. Setup Overview
-The instructor will pre-setup the techzone environment and then share with the bootcamp participants.  All students will use the same account and service instances.
+The instructor will pre-setup the techzone environment and then share with the bootcamp participants.  All students will use the same the same watsonx.data service instance.
 
+  
+### 2.1 Provision and setup watsonx.data backend Environment
 
-### 2.1 Provision and setup watsonx.data bootcamp Environment
-You will pre-setup environment that you will later share with the bootcamp participants: you will be using the same account and services' instances.
+1. Request a watsonx.data [environment](https://techzone.ibm.com/my/reservations/create/67e6c2a9bc768d343f1c08ea) in Techzone, that will be shared with all bootcamp participants.  -Select option for  `Demo` with corresponding `opportunity ID`
+2. Provision and setup watsonx.data bootcamp Environment**
 
-**1. Provision and setup watsonx.data bootcamp Environment**
-
-There are 2 options:
-   - [Half-automatic setup](./instructions/Autosetup-watsonx-environment.md): some parts of the provisioning are automated incl. COS buckets, watsonx.data engines and services using watsonx.data API and COS API, as those APIs change you might need to adjust python script. 
-   - [Manual setup](./instructions/UI-watsonx-environment-setup.md): all of the setup is done in UI.
+   There are 2 options:
+      - [Half-automatic setup](./instructions/Autosetup-watsonx-environment.md): some parts of the provisioning are automated incl. COS buckets, watsonx.data engines and services using watsonx.data API and COS API, as those APIs change you might need to adjust python script. 
+      - [Manual setup](./instructions/UI-watsonx-environment-setup.md): all of the setup is done in UI.
 
 ### 2.2 Upload data (binary files and pdfs)
 
@@ -85,7 +92,7 @@ Upload them to the corresponding COS buckets following [instructions](./instruct
 
 Follow instructions [here](./instructions/wx-ai-env-prep.md)
 
-### 2.4 Share the Techzone environment
+### 2.4 Share the watsonx.data Techzone environment
    - Invite students to Techzone Env
       - Go to your IBM Techzone, `My reservations` https://techzone.ibm.com/my/reservations
       - Find the reservation you created for the Lab -> `More options` -> `Share`
@@ -118,9 +125,34 @@ In this step, you will grant access to the watsonx.data buckets, catalogs, and e
      - Click `Save`
      - You should receive a notification on the status
 
-### 2.6 :raised_hands: **Congratulations!!** The environment is now ready for labs.   
+### 2.6 :raised_hands: **Congratulations!!** The backend environment is now ready for labs.   
 
-Share the information from `Step 2.2` with the students to enable them to complete their [environment setup.](../env-setup/README.md):
--  Text file with credentials and configurations 
--  presto.json
--  milvus.json
+## 3. Client Environment Setup
+
+Instructors will create a Techzone workshop to reserve the individual client environments
+
+Clients will follow [instructions](../env-setup/README.md) to setup their individual environments as part of the bootcamp.
+
+### 3.1 Create a workshop reservation for the bootcamp
+
+The workshop reservation must be made at least **7 days** before your start date. Choose a reservation date 1-2 days before your workshop start date to give yourself time for access, troubleshooting, and setup! 
+
+When creating a workshop reservation, you will need:
+- Name & description of workshop
+- Number of attendees
+- ISC Opportunity code & customer name
+
+Please use any of the six bundles listed in [this collection](https://techzone.ibm.com/collection/client-engineering-agentic-ai-labs/journey-workshop-environments) for your TechZone workshop.
+
+Details on reserving your [workshop environment](https://ibm.ent.box.com/notes/1803626814108)! 
+If any of your environments fail to provision, simply contact support through the link on the workshop page. See additional [troubleshooting](troubleshooting.md) tips!
+
+### 3.2 Share environment information with the Students   
+
+1. Assign users to the techzone workshop once it becomes available.
+2. Share the information from `Step 2.2` with the students to enable them to complete their [environment setup](../env-setup/README.md):
+   -  Text file with credentials and configurations 
+   -  presto.json
+   -  milvus.json
+   -  [Instructions](../env-setup/README.md) to setup their individual environments as part of the bootcamp.
+  

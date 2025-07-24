@@ -5,7 +5,7 @@
 - [Configure watsonx.data bootcamp Environment (Manual Process)](#configure-watsonxdata-bootcamp-environment-manual-process)
 - [1. Getting Started](#1-getting-started)
   - [1.1 Clone the classroom Repo](#11-clone-the-classroom-repo)
-  - [1.2 Provision the techzone environment](#12-provision-the-techzone-environment)
+  - [1.2 Provision the Shared watsonx.data environment](#12-provision-the-shared-watsonxdata-environment)
   - [1.3 Open your Techzone Reservation](#13-open-your-techzone-reservation)
   - [1.4 Login to your Techzone environment](#14-login-to-your-techzone-environment)
   - [1.5 Verify you are in the right instance.](#15-verify-you-are-in-the-right-instance)
@@ -51,14 +51,13 @@ If you are not setup for SSH, you can download via Browser instead:
 style="width:6.5in;height:2.94861in"
 alt="A screenshot of a computer AI-generated content may be incorrect." />
 
-## 1.2 Provision the techzone environment
+## 1.2 Provision the Shared watsonx.data environment
 
 For completing this bootcamp you will need the following services.
 * watsonx.data
 * Cloud Object Storage (COS)
 * IBM watsonx.data intelligence
 * watsonx.ai Studio & Runtime
-* watsonx Orchestrate
 
 Provision the watsonx.data TechZone [bundle](https://techzone.ibm.com/my/reservations/create/67e6c2a9bc768d343f1c08ea), which has all the components needed for the hands-on labs
 
@@ -109,8 +108,8 @@ From the IBM Cloud interface use to the top menu
 * Manage -> Access IAM 
 * From the Left Navigation click Manage Identities -> API Keys
 * Click on the Create button
-* Name you key **CLOUD_API_KEY** and click Create with the defaults
-* Save **CLOUD_API_KEY** to your text Reference
+* Name your key **CLOUD_API_KEY** and click Create with the defaults
+* Save **CLOUD_API_KEY** to your text Reference.  You will have to share this key with the students so they can programatically connect to the shared watsonx.data environment.
 * Download the file to your laptop / desktop.
 
 <img src="../attachments/image8.png"
@@ -204,8 +203,7 @@ alt="A screenshot of a computer AI-generated content may be incorrect." />
 
 * Select the twistie to show your credentials
 
-* Copy and paste the credentials json to your text Reference (you will use
-in a future step)
+* Copy and paste the credentials json to your text Reference.  You will have to share `apikey` and `resource_instance_id` with the students so they can connect to the environment programatically.
 
 <img src="../attachments/image12.png"
 style="width:5.01389in;height:3.95833in"
@@ -222,7 +220,7 @@ style="width:6.5in;height:3.76944in"
 alt="A screenshot of a computer AI-generated content may be incorrect." />
 
 * Copy the **Public** endpoint where your techzone instance was
-provisioned pre-pended with https:// into your text Reference  (you will use in a future step).
+provisioned pre-pended with https:// into your text Reference.  You will have to share this endpoint with students so they can connect to the environment programatically.
 
 * For example – Dallas is
 `s3.us-south.cloud-object-storage.appdomain.cloud`  

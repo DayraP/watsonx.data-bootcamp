@@ -106,19 +106,10 @@ Then we load vectors into memory and test semantic search locally.
      An agent to help researching the Equity market based on the past, and current market performance.  This agent will also provide insights into the emerging trends.   By analyzing market research documents details, the agent answers questions about equity market trends.  If the answer to the question is not contained in your knowledge base, instead of responding you should initiate a transfer to the supervisor agent, copying the users query verbatim.
      ```
    * Click `Create`
-   * Under `Knowledge` ,`Description`, paste the text below.  
+   * Select `Choose Knowledge`, `Milvus`, `Next`
+   * Add
+add host, port, ibmlhapi key and backend cloud api key, next
 
-     ```
-     These  knowledge file had the details of the Equity market and can be used to answer questions to users.   Contains information about market trends and insights for the past and current performance.  If the answer to the question is not contained in your knowledge base, instead of responding you should initiate a transfer to the supervisor agent, copying the users query verbatim.
-     ```
-
-   * Scroll down to `Documents`, `Content Repository` and select `Connect Content Repository` 
-
-     <img width="750" alt="proj_id" src="./attachments/Choose_Content_Repo.png"><br>
-
-   * Select `Milvus` as the content repository
-
-     <img width="750" alt="proj_id" src="./attachments/Choose_Milvus.png"><br>
 
    * Provide the Milvus connection credentials
 
@@ -126,28 +117,30 @@ Then we load vectors into memory and test semantic search locally.
      * For GRPC Port - use `MILVUS_PORT` from milvus.json
      * For Authentication Type - choose `Basic Authentication`
      * For `Username`, enter `ibmlhapikey`
-     * For `Password`, use `CLOUD_API_KEY` from the text based reference
+     * For `Password`, use `watsonx.data Cloud API Key` provided by the instructor.  (Do not use your own Cloud API Key)
      * Click `Next`
-     
-     <img width="750" alt="proj_id" src="./attachments/Milvus_Connection_Details.png"><br>
 
    * Provide the Milvus Configuration details
 
      * For `Database`, enter `default`
+     * For `Collection or Alias`, choose `Collection`
      * For `Collection`, enter your Collection name from the previous step, example, `your initials_equity_research`
      * For `Index` enter `text_embedding`
-     * For `embedding_model_id`, enter `sentence-transformers/all-MiniLM-L6-v2`
+     * For `embedding_model_id`, enter `sentence-transformers/all-minilm-l6-v2`
      * For `Title`, enter `title`
      * For `Body`, enter `body`
      * Click `Save`
-  
-     <img width="750" alt="proj_id" src="./attachments/Milvus_Conf_Details.png"><br>
- 
+
+    * Under `Knowledge` ,`Description`, paste the text below.  
+
+     ```
+     These  knowledge file had the details of the Equity market and can be used to answer questions to users.   Contains information about market trends and insights for the past and current performance.  If the answer to the question is not contained in your knowledge base, instead of responding you should initiate a transfer to the supervisor agent, copying the users query verbatim.
+     ```
+
      * Under `Behavior` section, **ensure** Chat with Documents is enabled .<br>
-      <img width="750" alt="proj_id" src="./attachments/2025-07-11_08-16-25.png"><br>
       
 
-4. Deploy the agent by clicking the `Deploy` button on the top right 
+1. Deploy the agent by clicking the `Deploy` button on the top right 
 <img width="750" alt="proj_id" src="./attachments/Deploy_Agent.png"><br>
 
 ## 5. Chat with the deployed Agent
@@ -159,7 +152,7 @@ Then we load vectors into memory and test semantic search locally.
   3. Test the agent by asking questions related to the Equity Research documents.  Here are some sample questions :<br>
 
       ```What are the main insights from the equity market in 2024?```<br>
-      ```Which commodity has the highest percentage change in 2024?```
+      ```Which commodity has the highest percentage change in 2024?```<br>
       ```What is an ETF?```<br>
 
   4. Evaluate the responses, reasoning and document sources 
