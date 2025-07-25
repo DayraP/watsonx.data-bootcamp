@@ -39,9 +39,7 @@ In the Spark steps `Spark pre-processing` you will prepare holdings table :clipb
 
 ## 2.  Prerequisites
 - Completed  [Environment Setup](env-setup/wealth-mgr-env-setup.md)
-- Moderator uploaded files to hive bucket
-- `env.txt` uploaded into the project
-- Completed [Lab 1](../Lab1_Data_Warehouse_Optimization/Lab_1_Data_Offload_Guide.md).
+- Completed Lab 1
 
 
 

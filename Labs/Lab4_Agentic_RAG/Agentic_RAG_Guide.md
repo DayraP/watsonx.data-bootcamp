@@ -20,10 +20,10 @@ The application uses:
 - **LangChain**: For building the RAG pipeline
 - **LangGraph**: For orchestrating the RAG workflow
  
+The application leverages data that was uploaded to the <INPUT_BUCKET> in Cloud Object Storage by the moderator.
+
 ## 2.  Prerequisites
 - Completed  [Environment Setup](env-setup/wealth-mgr-env-setup.md)
-- env.txt 
-- Data uploaded to input-data bucket in Cloud Object Storage
   
   
 ## 3. Ingest Data into Milvus

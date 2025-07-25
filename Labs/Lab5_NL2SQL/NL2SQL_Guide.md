@@ -16,7 +16,9 @@
 
 
 ## 1. Introduction 
-As part of this lab we will create an agent that can convert user Natural Language queries into SQL queries and use the presto engine to query the data and respond back to the user with the answer.  This lab uses the `customers_table` from the postgres_catalog and the `accounts_table` and `holdings table` from the iceberg_data catalog for the data sources.
+As part of this lab we will create an agent that can convert user Natural Language queries into SQL queries and use the presto engine to query the data and respond back to the user with the answer. 
+
+This lab uses the `customers_table` from the postgres_catalog and the `accounts_table` and `holdings table` from the iceberg_data catalog for the data sources.
 
 ## 2.  Prerequisites
 - Completed  [Environment Setup](env-setup/wealth-mgr-env-setup.md) 
