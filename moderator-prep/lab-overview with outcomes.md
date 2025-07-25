@@ -5,8 +5,8 @@
 [Data Warehouse Optimization Lab](../Labs/Lab1_Data_Warehouse_Optimization/Lab_1_Data_Offload_Guide.md) demonstrates how to reduce the operational cost of running the Data Warehouse environment. In-addition to reducing the operations cost of the Data Warehouse the data will be unified in the Open Hybrid Lakehouse, watsonx.data platform for Analytical and AI applications.
 
 Outcome:  
-- New Schema and tables in icebeg_data Catalog:
-  - Schema: netezza_offload_%user%
+- New Schema and tables in iceberg_data Catalog:
+  - Schema: netezza_offload_YourName_First3LettersOfSurname
   - Tables:
     - dim_stock
     - dim_account
@@ -23,12 +23,12 @@ Outcome:
 
 Outcome:  
 - New Schema and tables in iceberg_data Catalog:
-  - Schema: clients_schema_%user%
+  - Schema: clients_schema_YourName_First3LettersOfSurname
   - Tables:
     - accounts_table (from 1_presto_wxai notebook)
     - holdings_table (from 2_prepare-spark-app-submission notebook & after spark app submission)
 - New Schema and tables in hive_catalog Catalog: (from 1_presto_wxai notebook)
-  - Schema: input_data_hive_%user%
+  - Schema: input_data_hive_YourName_First3LettersOfSurname
   - Tables:
     - holdings_up_2023_ht
     - accounts_ht
@@ -47,8 +47,8 @@ This lab implements an Agentic RAG pipeline using watsonx.data Milvus vector dat
 Follow the steps in the [Agentic RAG Guide](../Labs/Lab4_Agentic_RAG/Agentic_RAG_Guide.md) to create the RAG agent.
 
 Outcome:  
-- equity_research_%user% collection in Milvus
-- Equity Research-%user% Agent in watson Orchestrate that uses Milvus collection as knowledge source.
+- equity_research_YourName_First3LettersOfSurname collection in Milvus
+- Equity Research-YourName_First3LettersOfSurname Agent in watson Orchestrate that uses Milvus collection as knowledge source.
 
 ## Lab5: Natural Language to SQL Agent
 
@@ -58,4 +58,4 @@ Follow instructions in the [Natural Language to SQL Guide](../Labs/Lab5_NL2SQL/N
 
 Outcome:  
 - deployed AI service to watsonx.ai
-- NL2SLAgent-%user% wrapper Agent in watsonx Orchestrate that calls AI service in watsonx.ai
+- NL2SLAgent-YourName_First3LettersOfSurname wrapper Agent in watsonx Orchestrate that calls AI service in watsonx.ai
