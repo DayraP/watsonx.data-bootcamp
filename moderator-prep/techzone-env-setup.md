@@ -55,7 +55,7 @@ During labs you will work both with structured and unstructured (text data).
    #### 1.2.1 Netezza  
 To showcase DWH offload capability you will need Netezza connection with `INVESTMENTS` database that was created and filled with data. Currently we use NPS instance from @Daniel Hancock. There we have a user `STUDENT_01` generated with access limited to `INVESTMENTS` database (SELECT and LIST access for `equity_transactions` and `equity_transactions_ly` schemas).
 
-**Netezza credentials are in the boxnote [here](https://ibm.ent.box.com/notes/1873722995947).**  
+**Netezza credentials are in the boxnote [here](https://ibm.box.com/s/ic3jx96uck8t1s4gvs3wak3hliesjnuo).**  
 Data description in Netezza can be found [here](../Labs/Lab1_Data_Warehouse_Optimization/Data-description.md).
    #### 1.2.2 Postgres SQL  
 Postgres SQL customer table will be used to demonstrate federation capabilities of watsonx.data Presto and will be added as a data source.  
@@ -64,7 +64,7 @@ Postgres SQL customer table will be used to demonstrate federation capabilities 
 
 -  :warning: If the `Postgres xdata bootcamp` service is not available once you provision your bundle, you will need to manually create the service and populate it with data.  
 
-Postgres xdata bootcamp credentials [here](https://ibm.ent.box.com/notes/1873722995947)<br>
+Postgres xdata bootcamp credentials [here](https://ibm.box.com/s/k6iabvkkw4plh711tm2c74bnky3ug34r)<br>
 Steps to provision Postgres and populate with data [here](./instructions/Postgres-provisioning.md)
 
 
