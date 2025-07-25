@@ -3,9 +3,9 @@
 - [Environment Setup](#environment-setup)
   - [1. Getting Started](#1-getting-started)
     - [1.1 Clone the classroom Repo](#11-clone-the-classroom-repo)
-    - [1.2 Access your class Instance](#12-access-your-class-instance)
+    - [1.2 Access the bootcamp environment](#12-access-the-bootcamp-environment)
     - [1.3 Open your Techzone Reservation](#13-open-your-techzone-reservation)
-    - [1.4 Login to your Techzone environment](#14-login-to-your-techzone-environment)
+    - [1.4 Login to your individual Techzone environment](#14-login-to-your-individual-techzone-environment)
     - [1.5 Verify you are in the right instance.](#15-verify-you-are-in-the-right-instance)
     - [1.6 Open a Text Editor of your choice](#16-open-a-text-editor-of-your-choice)
   - [2. Configuring the Environment](#2-configuring-the-environment)
@@ -45,18 +45,18 @@ If you are not setup for SSH, you can download via Browser instead:
 style="width:6.5in;height:2.94861in"
 alt="A screenshot of a computer AI-generated content may be incorrect." />
 
-### 1.2 Access your class Instance
+### 1.2 Access the bootcamp environment
 
 For completing this bootcamp you will need access the following services.
-* watsonx.data (Shared Environment)
+* watsonx.data (Shared back-end Environment)
 * Cloud Object Storage (COS) 
 * watsonx.data Intelligence
 * watsonx.ai Studio & Runtime
 * watsonx Orchestrate
   
-Two techzone environments are needed for the labs.  A shared watsonx.data environment used by all students and an individual techzone environment where you will work.
+Two techzone environments are needed for the labs.  A shared watsonx.data back-end environment used by all students and an individual labs environment where you will work.
 
-To access the environments, look for an email messages from IBM Technology Zone <noreply@techzone.ibm.com> inviting you to join the accounts where your environments are located.  
+To access the environments, look for email messages from IBM Technology Zone <noreply@techzone.ibm.com> inviting you to join the accounts where your environments are located.  
 
 In each email, Click on the `HERE` link to accept the invitation
 (Highlighted in the screenshot below.)
@@ -86,14 +86,13 @@ alt="A screenshot of a computer AI-generated content may be incorrect." />
 * Look for your recently created reservation and click "Open this
 environment".
 
-* Scroll down and look for the name of the Cloud Account (should be
-watsonx-events or watsonx-events2)
+* Scroll down and look for the name of the Cloud Account (will be provided by instructor)
 
 <img src="./attachments/image6.png"
 style="width:5.33333in;height:2.875in"
 alt="A screenshot of a computer AI-generated content may be incorrect." />
 
-### 1.4 Login to your Techzone environment 
+### 1.4 Login to your individual Techzone environment 
 
 * Go to: <https://cloud.ibm.com/resources>
 
@@ -133,7 +132,7 @@ style="width:4.58333in;height:2.125in"
 alt="A screenshot of a computer error AI-generated content may be incorrect." />
 
 
-1. Log in to watsonx<a name="log-in-to-watsonx"></a>
+1. Log in to watsonx <a name="log-in-to-watsonx"></a>
 ---
 Go to `IBM Cloud` -> `Resource list` -> In `AI/ Machine Learning` resources find `watsonx.ai Studio` instance and click on it -> Launch in IBM watsonx
 ![](./attachments/2025-04-23-17-33-42-pasted-vscode.png)
@@ -141,7 +140,7 @@ Go to `IBM Cloud` -> `Resource list` -> In `AI/ Machine Learning` resources find
 
 2. Check that you are in the right account and location <a name="check-instance"></a>
 ---
-You should now be taken to the watsonx home screen. Check at the top right that you are in the right account and location (specified for your Labs account). If it does not show the right name of the account, you can select it in the dropdown. For the entirety of the bootcamp, you will be working in that same account and location!
+You should now be taken to the watsonx home screen. Check at the top right that you are in the right account and location (specified for your Labs account). If it does not show the right name of the account, you can select it in the dropdown. 
 
 If you do not know your account, go to your techzone reservations list https://techzone.ibm.com/my/reservations. Look for your recently created reservation and click on "Open this environment". Scroll down and look for a reservation name that looks similar to this:  `2709027 - watsonx-events`. 
 

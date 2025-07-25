@@ -10,14 +10,14 @@
   - [3. Data overview](#3-data-overview)
   - [4. Expected outcome](#4-expected-outcome)
   - [5. Presto Data Insertion](#5-presto-data-insertion)
-    - [5.1  Open watsonx.ai Project](#51--open-watsonxai-project)
+    - [5.1  Open watsonx.ai Project (Labs Techzone Environment)](#51--open-watsonxai-project-labs-techzone-environment)
     - [5.2 Import Jupyter Notebook with the script from local folder](#52-import-jupyter-notebook-with-the-script-from-local-folder)
     - [5.3 Open and run the Jupyter Notebook](#53-open-and-run-the-jupyter-notebook)
-    - [5.4 Review data in watsonx.data UI after Presto part of the lab](#54-review-data-in-watsonxdata-ui-after-presto-part-of-the-lab)
+    - [5.4 Review data in watsonx.data UI after Presto part of the lab (watsonx.data back-end Techzone Environment)](#54-review-data-in-watsonxdata-ui-after-presto-part-of-the-lab-watsonxdata-back-end-techzone-environment)
   - [6. Spark pre-processing: submit spark app in watsonx.data UI](#6-spark-pre-processing-submit-spark-app-in-watsonxdata-ui)
     - [6.1 Save spark script to COS bucket and generate payload json](#61-save-spark-script-to-cos-bucket-and-generate-payload-json)
     - [6.2 Open and run the Jupyter Notebook](#62-open-and-run-the-jupyter-notebook)
-    - [6.3 Submit spark app in watsonx.data UI](#63-submit-spark-app-in-watsonxdata-ui)
+    - [6.3 Submit spark app in watsonx.data UI (watsonx.data back-end Techzone Environment)](#63-submit-spark-app-in-watsonxdata-ui-watsonxdata-back-end-techzone-environment)
     - [6.4 Check Status](#64-check-status)
     - [6.5 Review data in watsonx.data UI after spark processing](#65-review-data-in-watsonxdata-ui-after-spark-processing)
 
@@ -70,7 +70,7 @@ At the end of the lab you should have 2 tables in  `clients_schema_YourName_Firs
 
 ## 5. Presto Data Insertion 
 
-### 5.1  Open watsonx.ai Project
+### 5.1  Open watsonx.ai Project (Labs Techzone Environment)
 1. Open watsonx.ai Studio Service - From [Cloud Resource list](https://cloud.ibm.com/resources) select `AI / Machine Learning` resources -> `watsonx.ai Studio` service -> open in `IBM watsonx`
 <img src="./attachments/2025-06-15-21-03-23-pasted-vscode.png" alt="alt text" width="75%"><br>
 2. Login and from the quick access page -> `Recent work` Select the project you created during [Environment Setup](../env-setup/wealth-mgr-env-setup.md).
@@ -121,16 +121,19 @@ At the end of the lab you should have 2 tables in  `clients_schema_YourName_Firs
 4. Run all cells consequtively starting from packages installations in the first cell and check outputs
 
 
-### 5.4 Review data in watsonx.data UI after Presto part of the lab
+### 5.4 Review data in watsonx.data UI after Presto part of the lab (watsonx.data back-end Techzone Environment)
 
-1. In a different window, open watsonx.data Service - From [Cloud Resource list](https://cloud.ibm.com/resources) select `Databases` resources -> Select your `watsonx.data` service 
+1. In a different window, open watsonx.data Service 
 
 2. From the Hamburger menu on the top left go to `Data manager`
 
 3. Verify tables were added to `hive_catalog.input_data_hive_YourName_First3LettersOfSurname`
 <img src="./attachments/image-21.png" alt="alt text" width="60%"><br>
 
-## 6. Spark pre-processing: submit spark app in watsonx.data UI
+4. Verify `accounts_table` was added to `iceberg_catalog.clients_schema_YourName_First3LettersOfSurname`
+
+
+## 6. Spark pre-processing: submit spark app in watsonx.data UI 
 
 ### 6.1 Save spark script to COS bucket and generate payload json
 
@@ -180,13 +183,12 @@ At the end of the lab you should have 2 tables in  `clients_schema_YourName_Firs
 
 4. Run all cells consequitively starting from packages installations in the first cell and check outputs
    
-  * :warning: The notebook will prompt for your Cloud API Key.  When prompted, please paste your (<CLOUD_API_KEY>) that was generated for your IBM Cloud Account and press `Enter`
+  * :warning: The notebook will prompt for a Cloud API Key. When prompted, please paste the `watsonx.data back-end Cloud API key`  that was provided by the instructor and press `Enter`.  Do not use your client CLOUD_API_KEY here.   
   * A successful run will include the payload to your spark app submission in the last cell in json format.  
   * Copy the `payload` to your reference note, you will use it for your spark app submission.  
 
-### 6.3 Submit spark app in watsonx.data UI
-1.  Return to watsonx.data Service. From [Cloud Resource list](https://cloud.ibm.com/resources) in `Databases` find your watsonx.data instance, Select -> `Open web console`
-
+### 6.3 Submit spark app in watsonx.data UI (watsonx.data back-end Techzone Environment)
+1. Return to watsonx.data Service.
 2. From the Hamburger menu on the top left go to `Infrastructure manager` 
 3. Click on the `Spark` engine
 4. Go to `Spark history` tab and make sure that spark history server has started, if not start with the default configuration
@@ -221,7 +223,7 @@ At the end of the lab you should have 2 tables in  `clients_schema_YourName_Firs
   * Go to `Details` tab and find bucket listed under `Engine home`<br>
 ![home-bucket](./attachments/2025-07-12_08-09-45.png)
   * Reference env.txt for your actual bucket name, for example: `WXD_BUCKET="wxd2-bucket-gxcrxaku11w09z0"`
-  * Open the Cloud Object Storage Service.  From Resource list -> Storage -> Select service instance 
+  * Open the Cloud Object Storage Service from watsonx.data back-end Techzone Environment.
   * Scroll down and open the bucket.  
   * In search bar, type `Spark` and switch to folder view.
   ![home-bucket](./attachments/2025-07-12_08-07-21.png)

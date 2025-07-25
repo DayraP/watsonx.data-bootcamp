@@ -31,7 +31,7 @@ In this lab the historic data will be off loaded from the Netezza Data Warehouse
 
 The current year data is left in the data warehouse to minimize disruption to the existing applications.  We will be using the presto query engine to run federated queries that allows aggregating the data that exists in Netezza and watsonx.data.
 
-The whole lab will be executed in **watsonx.data UI** interface.
+The whole lab will be executed in **watsonx.data UI** interface in the back-end techzone environment.  
 
 ## 3. Netezza data schema
 
@@ -65,7 +65,7 @@ graph TD
 - **Step 5 - Combined query**: Execute querys that combine the data from the iceberg tables in watsonx.data and the current year schema, `equity_transactions_ly` in Netezza.
 
 ### 4.1 - Check Netezza data source
-- Open your `watsonx.data` Instance from cloud resources, under `Databases`: https://cloud.ibm.com/resources
+- Open your `watsonx.data` instance 
 - Go to watsonx your `Infrastructure Manager` check that Netezza is added as a data source and that data could be accessed in `Data manager`.
 - Netezza `equity_transactions` and `equity_transactions_ly` schemas should be synchronized via `nz_catalog`
 
