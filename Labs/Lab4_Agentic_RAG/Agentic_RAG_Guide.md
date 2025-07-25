@@ -124,7 +124,7 @@ add host, port, ibmlhapi key and backend cloud api key, next
 
      * For `Database`, enter `default`
      * For `Collection or Alias`, choose `Collection`
-     * For `Collection`, enter your Collection name from the previous step, example, `your initials_equity_research`
+     * For `Collection`, enter your `MV_COLLECTION_NAME` from env.txt, example, `equity_research_YourName_First3LettersOfSurname`
      * For `Index` enter `text_embedding`
      * For `embedding_model_id`, enter `sentence-transformers/all-minilm-l6-v2`
      * For `Title`, enter `title`
