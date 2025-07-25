@@ -16,12 +16,11 @@
 
 
 ## 1. Introduction 
-As part of this lab we will create an agent that can convert user Natural Language queries into SQL queries and use the presto engine to query the data and respond back to the user with the answer. 
+As part of this lab we will create an agent that can convert user Natural Language queries into SQL queries and use the presto engine to query the data and respond back to the user with the answer.  This lab uses the `customers_table` from the postgres_catalog and the `accounts_table` and `holdings table` from the iceberg_data catalog for the data sources.
 
 ## 2.  Prerequisites
 - Completed  [Environment Setup](env-setup/wealth-mgr-env-setup.md) 
-
--  `customers_table` from the postgres_catalog and `accounts_table` and `holdings table` from the iceberg_data catalog
+- Completed Labs 1 and 2
   
 ## 3. Create and Deploy NL2SQL Agent
 
@@ -128,12 +127,13 @@ Who are the clients who have invested in IBM and are holding more than 10000.  G
 3. Click `Deploy` button from the top right corner, and `Deploy` to deploy the agent.
 
 ### 4.4 Test Deployed Agent
-1. Under the Hamberger menu, go to `Chat` and select your deployed agent from the `Agents` drop down 
+1. Under the hamburger menu, go to `Chat` and select your deployed agent from the `Agents` drop down 
 2. Interact with the Agent by asking different variations of questions
+  * `Who are the top 10 clients invested in Amazon and what their holdings are`
   * `Who are the top 3 clients invested in IBM`
   * `List the companies Kevin Wilcox has invested in`
-  * `Who are the top 10 clients invested in Amazon and what their holdings are`
+  
   ![alt text](./attachments/Deployed-Agent.png)
-3. Evaluate the responses, and reasoning.  
+1. Evaluate the responses, and reasoning.  
    * Click on `Show Reasoning`, then `Step 1` to see the logic and SQL queries created from natural language
    ![alt text](./attachments/2025-07-11_18-07-03.png)
