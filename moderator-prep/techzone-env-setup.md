@@ -22,7 +22,7 @@
 ## 1. Prerequisities
 ### 1.1 Environments
 
-The bootcamp will use a single shared Techzone environment for the backend watsonx.data components, shared by all students, to be created by the instructor. The [watsonx.data backend bundle](https://techzone.ibm.com/my/reservations/create/67e6c2a9bc768d343f1c08ea) uses the following services:
+The bootcamp will use a single shared Techzone environment for the watsonx.data components, shared by all students, to be created by the instructor.  The watsonx.data back-end Techzone environment uses the [watsonx.data ONLY bundle](https://techzone.ibm.com/collection/67d1edfa2aa18c25d43edb04) uses the following services:
 - Cloud Object storage
 - watsonx.data
 - watsonx.data intelligence
@@ -33,7 +33,7 @@ The bootcamp also requires individual Techzone environments for each student whe
 -  watsonx Orchestrate
 -  Cloud Object storage
 
-For instructor self education, you can use just the backend bundle to test the labs, as the bundle includes watsonx.ai studio, runtime and Orchestrate, but because Orchestrate is a trial service it should not be used for multiple students.
+For instructor self education, you can use just the back-end bundle to test the labs, as the bundle includes watsonx.ai studio, runtime and Orchestrate, but because Orchestrate is a trial service it should not be used for multiple students.
 
 
 ### 1.2 Data Sources
