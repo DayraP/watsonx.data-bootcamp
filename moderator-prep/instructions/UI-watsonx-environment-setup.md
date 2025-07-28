@@ -27,9 +27,7 @@
   - [3.6 Cloud Object Storage for Milvus](#36-cloud-object-storage-for-milvus)
   - [3.7 Add Milvus Service](#37-add-milvus-service)
 - [4. Verify](#4-verify)
-- [5 Add Restricted User to x.data](#5-add-restricted-user-to-xdata)
-  - [5.1. Add access to the infrastructure components](#51-add-access-to-the-infrastructure-components)
-- [6 Return to instructions](#6-return-to-instructions)
+- [5 Return to instructions](#5-return-to-instructions)
 
 
 # 1. Getting Started
@@ -453,70 +451,6 @@ should have something that looks like this:
 style="width:6.5in;height:3.82222in"
 alt="A screenshot of a computer AI-generated content may be incorrect." />
 
-# 5 Add Restricted User to x.data
+# 5 Return to instructions
 
-## 5.1. Add access to the infrastructure components
-
-In watsonx.data. go to Access Control, Add access
-
-- Select all, Next
-
-Under: Add access to infrastructure components, Select Data\_scientist
-and click Next
-
-<img src="../attachments/image30.png"
-style="width:6.5in;height:3.52361in"
-alt="A screenshot of a computer AI-generated content may be incorrect." />
-
-- Select User for all engines
-
-- Select Reader for any / all Storage buckets
-
-Example:
-
-<img src="../attachments/image31.png"
-style="width:6.5in;height:2.15903in"
-alt="A screenshot of a computer AI-generated content may be incorrect." />
-
-- Add Policy to grant access to iceberg table
-
-- Switch to Policies tab, click Add Policy
-
-  - Policy name: iceberg
-
-  - Change policy status after creation to Active, Click Next
-
-  - Under Data objects, Choose a resource to get started, Select
-iceberg\_data
-
-  - Under search schemas, select all, Click Next
-
-<img src="../attachments/image32.png"
-style="width:6.5in;height:3.15208in"
-alt="A screenshot of a computer AI-generated content may be incorrect." />
-
-- Select Add rule +
-
-- Rule type will be allow
-
-- Under Actions, Select all
-
-- On the right side of the screen, under Authorized users and groups,
-click Add +
-
-- Select Add users to rule
-
-- Select data\_scientist group
-
-- Click Add
-
-- Click Add
-
-- Click Review
-
-- Click Create
-
-
-# 6 Return to instructions
-
-Go back to [techzone-env-setup.md](../techzone-env-setup.md).
+Go back to [techzone-env-setup.md](../techzone-env-setup.md), and continue starting at step `2.2 Upload data (binary files and pdfs)`

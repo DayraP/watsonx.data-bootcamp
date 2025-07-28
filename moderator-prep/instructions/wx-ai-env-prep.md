@@ -52,4 +52,4 @@ Students will need to create watsonx.ai connections to Milvus and Presto for the
 
 ## 3 Return to the instructions
 
-Go back to [techzone-env-setup.md](../techzone-env-setup.md).
+Go back to [techzone-env-setup.md](../techzone-env-setup.md), and continue starting at step `2.4 Share the watsonx.data Techzone Environment`

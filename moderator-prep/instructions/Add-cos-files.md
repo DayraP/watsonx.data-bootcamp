@@ -49,9 +49,7 @@ After upload, you should see the files in the bucket.
 
 ### 2.1 Create and activate a virtual environment
 
-> In case you didn't provision Postgres before create a new environment for data preparation first. If you already have virtual env -> you can continue using it.
-
-- Create python venv in the root directory
+- Create python venv in the root directory.  If you already have virtual env -> you can continue using it.
 ```sh
 # create virtual environment
 python3 -m venv venv
@@ -70,7 +68,7 @@ source venv/bin/activate
 Install requirements for the add_data_postgres Notebook into python environment
 
 ```sh
-pip install -r ./requirements_data_prep.txt
+pip install -r moderator-prep/scripts/data-prep/requirements_data_prep.txt
 ```
 
 ### 2.3 Environment file
