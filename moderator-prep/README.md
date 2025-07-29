@@ -31,7 +31,7 @@ The **watsonx.data  Bootcamp** is a hands-on, modular learning experience design
 
 - Review the available [labs](lab-overview.md)
 
-- Review the available Murals (need link)
+- Review the available [Mural](https://app.mural.co/t/cecopxdataleadership7845/m/cecopxdataleadership7845/1753779948317/303a770343ab022ebe603782a54a695ddcf431c0?sender=u142a221e34613e898eeb8461)
 
 
 ## 🌍 2. Set up your environment
@@ -58,7 +58,6 @@ Run the client facing [labs](../Labs/README.md)
 
 ## 🚀 5.  Go!
 
--   placeholder for running bootcamp best practices?
 -   Gather feedback, share the short survey -->https://wkf.ms/3GRozh7
 -   Tell participants about the badge!  -->add link to badge how to once ready
 
