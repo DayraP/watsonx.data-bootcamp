@@ -237,6 +237,12 @@ should have something that looks like this:
 style="width:6.5in;height:3.82222in"
 alt="A screenshot of a computer AI-generated content may be incorrect." />
 
+1. Verify you can access the schemas in the nz_catalog
+    - Go to Data Manager
+    - Refresh and expand `nz_catalog` and verify you see schemas: `equity_transactions` and `equity_transactions_ly`
+2. Verify you can access the schema in the postgres_catalog
+   -  Refresh and expand `postgres_catalog`and verify you see the `bankdemo` schema. 
+
 
 # 6 Return to instructions
 
