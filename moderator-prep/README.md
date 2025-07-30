@@ -18,14 +18,24 @@ The **watsonx.data  Bootcamp** is a hands-on, modular learning experience design
 🚀 **Run by:** AI Engineers, BTLs, Designers from CE, Brand Technical Specialists, CSMs (as applicable), and more!
 
 
-## 🚗💨 Get started 
+## 🚗💨 1. Get started 
 
 - Pitch the bootcamp to your client using the external facing [flyer](https://ibm.box.com/s/i6pqhgl2b8n1p2rhn63t8muj9rq4it9c).
 - Learn more about the bootcamp using the [Instructor Starter Kit](https://ibm.box.com/s/aiuyc6c3ubdj1wg5feqop77zsnj1tn4z)
 
-- Create an ISC Project for your watsonx.data Bootcamp and tag it as ???. (Need process for x.data)
+- Create an ISC Project for your watsonx.data Bootcamp (see ISC Guidance)?. (Need process for x.data)
 
-## 📚 1. Review the Bootcamp Materials 
+## :registered: 2.  Register the Bootcamp
+
+-	Create an ISC Project for your watsonx.data Bootcamp (See ISC Guidance)
+
+- Register your bootcamp with IBM TechXchange (Link)
+  - Request funding and or site registration page (30 days in advance)
+  - Request badging (1 week in advance)
+  - Slide will be provided with QR Code to share with students to request badge
+
+
+## 📚 3. Review the Bootcamp Materials 
 
 - Study the [client facing presentations](https://ibm.box.com/s/um7lwpfdlqjrruz7gcnm5dcvd670szsc). You can pick and choose the topics that resonate the most to the client depending on their maturity and interests. 
 
@@ -34,13 +44,13 @@ The **watsonx.data  Bootcamp** is a hands-on, modular learning experience design
 - Review the available [Mural](https://app.mural.co/t/cecopxdataleadership7845/m/cecopxdataleadership7845/1753779948317/303a770343ab022ebe603782a54a695ddcf431c0?sender=u142a221e34613e898eeb8461)
 
 
-## 🌍 2. Set up your environment
+## 🌍 4. Set up your environment
 
 The bootcamp will use a single shared Techzone environment for the backend watsonx.data components, shared by all students, and individual Techzone environments for each student where they will work in projects and their own watsonx Orchestrate environment.   Follow [techzone-env-setup.md](./techzone-env-setup.md)
 
 
 
-## 🧪 3. Run the labs 
+## 🧪 5. Run the labs 
 
 Run the client facing [labs](../Labs/README.md)
 
@@ -49,18 +59,22 @@ Run the client facing [labs](../Labs/README.md)
 
 -  Update the sample [Agenda](../Agenda/README.md)
   
-## 📚 5. Share optional pre-work for clients new to watsonx.data
+## 📚 6. Share optional pre-work for clients new to watsonx.data
 
   - [IBM watsonx.data Technical Essentials Course](https://learn.ibm.com/course/view.php?id=16226) (3 hours).<br>
   - [What is a database Blog](https://www.ibm.com/think/topics/database) (20 mins)
   - [SQL and Relational Databases Course](https://cognitiveclass.ai/courses/learn-sql-relational-databases) (3 hours)
 
+## :computer: 7. Reserve student Environments
 
-## 🚀 5.  Go!
+  - Create a techzone workshop reservation to request the student environments a minimum of 8 days before the bootcamp.
+  - Follow [techzone-env-setup.md](./techzone-env-setup.md), step 3.1 Create a workshop reservation for the bootcamp
 
--   Gather feedback, share the short survey -->https://wkf.ms/3GRozh7
--   Tell participants about the badge!  -->add link to badge how to once ready
+## 🚀 6.  Go!
 
+-   Use Troubleshooting [guide](../Troubleshooting/README.md) for debug help during the bootcamp
+-   Ask for feedback, share the short Monday survey -->https://wkf.ms/3GRozh7
+-   Tell participants about the badge! Present slide at end of bootcamp for students to request badge (provided by TechXchange team after registration)
 
 ## 🤝 Need help or want to contribute?
 Ask on [**#ce-wxd-client-bootcamp**](https://ibm.enterprise.slack.com/archives/C095VBRBVUN).
