@@ -1,5 +1,10 @@
 # Content to share with students and wx.ai setup 
 
+- [Content to share with students and wx.ai setup](#content-to-share-with-students-and-wxai-setup)
+  - [1. Text file with credentials and configurations](#1-text-file-with-credentials-and-configurations)
+  - [2.  watsonx.data Engine connection information](#2--watsonxdata-engine-connection-information)
+  - [3. Return to the instructions](#3-return-to-the-instructions)
+
 ## 1. Text file with credentials and configurations
 
 Prepare text file that contains content below needed by students to perform the labs.
@@ -50,6 +55,6 @@ Students will need to create watsonx.ai connections to Milvus and Presto for the
 4.  Select Milvus Engine and select `Export Json`.   Save as `milvus.json`
 
 
-## 3 Return to the instructions
+## 3. Return to the instructions
 
 Go back to [techzone-env-setup.md](../techzone-env-setup.md), and continue starting at step `2.4 Share the watsonx.data Techzone Environment`

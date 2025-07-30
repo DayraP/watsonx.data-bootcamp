@@ -1,5 +1,16 @@
 # Add required files to COS
 
+- [Add required files to COS](#add-required-files-to-cos)
+  - [1. Option: Manually upload files](#1-option-manually-upload-files)
+    - [1.1 Upload files to COS for Lab 2](#11-upload-files-to-cos-for-lab-2)
+    - [1.2 Upload pdfs for Lab 4](#12-upload-pdfs-for-lab-4)
+  - [2. Option: Run the script](#2-option-run-the-script)
+    - [2.1 Create and activate a virtual environment](#21-create-and-activate-a-virtual-environment)
+    - [2.2 Install requirements](#22-install-requirements)
+    - [2.3 Environment file](#23-environment-file)
+    - [2.4 Run script in Jupyter Notebook](#24-run-script-in-jupyter-notebook)
+  - [3. Return to the instructions](#3-return-to-the-instructions)
+
 There are 2 options to upload files:
 
 1. Manually upload directories to the corresponding COS buckets using COS UI
@@ -43,7 +54,7 @@ After upload, you should see the files in the bucket.
 <img width="750" alt="api_key" src="../attachments/data_upload.png">
 
 
-## 2 Option: Run the script
+## 2. Option: Run the script
 
 
 
@@ -100,6 +111,6 @@ cp "moderator-prep/scripts/data-prep/env_load.example" "moderator-prep/scripts/d
 - Change the Kernel to venv python before running the notebook
 - Run all 
 
-## 3 Return to the instructions
+## 3. Return to the instructions
 
 Go back to [techzone-env-setup.md](../techzone-env-setup.md), and continue starting at step `2.3 Prepare handover configurations`

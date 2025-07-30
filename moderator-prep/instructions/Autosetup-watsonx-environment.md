@@ -13,7 +13,7 @@
 - [3. Credentials and configurations](#3-credentials-and-configurations)
   - [3.1 Create an API key](#31-create-an-api-key)
   - [3.2 Create COS Service Credentials](#32-create-cos-service-credentials)
-  - [3.3 Add watsonx.data configuraion to env file](#33-add-watsonxdata-configuraion-to-env-file)
+  - [3.3 Add watsonx.data configuration to env file](#33-add-watsonxdata-configuration-to-env-file)
   - [3.4 Copy Postgres credentials](#34-copy-postgres-credentials)
   - [3.5 Copy Netezza credentials](#35-copy-netezza-credentials)
 - [4 Run Auto setup script in Jupyter Notebook](#4-run-auto-setup-script-in-jupyter-notebook)
@@ -167,7 +167,7 @@ alt="A screenshot of a computer AI-generated content may be incorrect." />
 style="width:5.01389in;height:3.95833in"
 alt="A screenshot of a computer AI-generated content may be incorrect." />
 
-## 3.3 Add watsonx.data configuraion to env file
+## 3.3 Add watsonx.data configuration to env file
 
 Go to IBM Cloud `Resource List`, click on watsonx.data instance in the databases, scroll down and copy values in `moderator-prep/scripts/auto-setup/.env_setup`:
 * `CRN` as `WXD_INSTANCE_CRN`
