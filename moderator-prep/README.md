@@ -46,29 +46,30 @@ The **watsonx.data  Bootcamp** is a hands-on, modular learning experience design
 
 ## 🌍 4.  Set up your environment
 
-The bootcamp will use a single shared Techzone environment for the backend watsonx.data components, shared by all students, and individual Techzone environments for each student where they will work in projects and their own watsonx Orchestrate environment.   Follow [techzone-env-setup.md](./techzone-env-setup.md)
+- The bootcamp will use a single shared Techzone environment for the backend watsonx.data components, shared by all students, and individual Techzone environments for each student where they will work in projects and their own watsonx Orchestrate environment.   
+- Follow [techzone-env-setup.md](./techzone-env-setup.md) #2.1 Provision and setup watsonx.data backend Environment
 
 
 
 ## 🧪 5.  Run the labs 
 
-Run the client facing [labs](../Labs/README.md)
+- Run the client facing [labs](../Labs/README.md)
 
 ## :paintbrush: 6.  Customize it!
-  - **Build your own bootcamp curriculum**: pick your learning materials, hands-on labs, and other resources, and tailor the bootcamp to your Client or Business Partner, depending on their interests and skill levels.
+- **Build your own bootcamp curriculum**: pick your learning materials, hands-on labs, and other resources, and tailor the bootcamp to your Client or Business Partner, depending on their interests and skill levels.
 
 -  Update the sample [Agenda](../Agenda/README.md)
   
 ## 📚 7.  Share optional pre-work for clients new to watsonx.data
 
-  - [IBM watsonx.data Technical Essentials Course](https://learn.ibm.com/course/view.php?id=16226) (3 hours).<br>
-  - [What is a database Blog](https://www.ibm.com/think/topics/database) (20 mins)
-  - [SQL and Relational Databases Course](https://cognitiveclass.ai/courses/learn-sql-relational-databases) (3 hours)
+- [IBM watsonx.data Technical Essentials Course](https://learn.ibm.com/course/view.php?id=16226) (3 hours).<br>
+- [What is a database Blog](https://www.ibm.com/think/topics/database) (20 mins)
+- [SQL and Relational Databases Course](https://cognitiveclass.ai/courses/learn-sql-relational-databases) (3 hours)
 
 ## :computer: 8.  Reserve student Environments
 
-  - Create a techzone workshop reservation to request the student environments a minimum of 8 days before the bootcamp.
-  - Follow [techzone-env-setup.md](./techzone-env-setup.md), step 3.1 Create a workshop reservation for the bootcamp
+- Create a techzone workshop reservation to request the student environments a minimum of 8 days before the bootcamp.
+- Follow [techzone-env-setup.md](./techzone-env-setup.md), step 3.1 Create a workshop reservation for the bootcamp
 
 ## 🚀 9.  Go!
 
