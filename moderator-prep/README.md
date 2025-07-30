@@ -37,6 +37,8 @@ The **watsonx.data  Bootcamp** is a hands-on, modular learning experience design
 
 ## 📚 3.  Review the Bootcamp Materials 
 
+- Review the watsonx.data [Playbooks](https://ibm.seismic.com/Link/Content/DCgcq6DJRjbhT87Tmf7HGRcmFFg8#/?anchorId=03fa8f55-7f0e-4f59-8f84-845f2b94d69c)
+
 - Study the [client facing presentations](https://ibm.box.com/s/um7lwpfdlqjrruz7gcnm5dcvd670szsc). You can pick and choose the topics that resonate the most to the client depending on their maturity and interests. 
 
 - Review the available [labs](lab-overview.md)
