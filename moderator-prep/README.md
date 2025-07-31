@@ -27,10 +27,14 @@ The **watsonx.data  Bootcamp** is a hands-on, modular learning experience design
 
 ## :clipboard: 2.  Register the Bootcamp
 
--	Create an ISC Project for your watsonx.data Bootcamp (See ISC Guidance)
+-	Create an ISC Project for your watsonx.data Bootcamp
+  - For Bizdev Project (Set SalesPlay to “Hackathon”)
+  - For Pre-Sales Project (Add activity type “Hackathon”)
+  - For Post bootcamp conversions to Pilot, add activity type “Pilot” and use CE Tagging [tool](https://pages.github.ibm.com/skol/ce_watsonx_tagging/)
 
-- Register your bootcamp with IBM TechXchange (Link)
-  - Request funding and or site registration page (30 days in advance)
+
+- Register your bootcamp with IBM TechXchange @ https://ibm.biz/registermybootcamp for students to earn the `IBM TechXchange watsonx.data Bootcamp Level 2 badge!`
+  - Request [funding](https://ibm.seismic.com/Link/Content/DC8JgT738bDDXGMDTdfT9Jb43R9G) and or site registration page (30 days in advance)
   - Request badging (1 week in advance)
   - Slide will be provided with QR Code to share with students to request badge
 
