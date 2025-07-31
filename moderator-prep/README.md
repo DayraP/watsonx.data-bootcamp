@@ -53,7 +53,7 @@ The **watsonx.data  Bootcamp** is a hands-on, modular learning experience design
 ## 🌍 4.  Set up your environment
 
 - The bootcamp will use a single shared Techzone environment for the backend watsonx.data components, shared by all students, and individual Techzone environments for each student where they will work in projects and their own watsonx Orchestrate environment.   
-- Follow [techzone-env-setup.md](./techzone-env-setup.md) #2.1 Provision and setup watsonx.data backend Environment
+- Follow [techzone-env-setup.md](./techzone-env-setup.md)
 
 
 
