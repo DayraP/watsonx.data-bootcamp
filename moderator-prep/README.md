@@ -28,9 +28,9 @@ The **watsonx.data  Bootcamp** is a hands-on, modular learning experience design
 ## :clipboard: 2.  Register the Bootcamp
 
 -	Create an ISC Project for your watsonx.data Bootcamp
-  - For Bizdev Project (Set SalesPlay to “Hackathon”)
-  - For Pre-Sales Project (Add activity type “Hackathon”)
-  - For Post bootcamp conversions to Pilot, add activity type “Pilot” and use CE Tagging [tool](https://pages.github.ibm.com/skol/ce_watsonx_tagging/)
+    - For Bizdev Project (Set SalesPlay to “Hackathon”)
+    - For Pre-Sales Project (Add activity type “Hackathon”)
+    - For Post bootcamp conversions to Pilot, add activity type “Pilot” and use CE Tagging [tool](https://pages.github.ibm.com/skol/ce_watsonx_tagging/)
 
 
 - Register your bootcamp with IBM TechXchange @ https://ibm.biz/registermybootcamp for students to earn the `IBM TechXchange watsonx.data Bootcamp Level 2 badge!`
@@ -83,7 +83,16 @@ The **watsonx.data  Bootcamp** is a hands-on, modular learning experience design
 -   Ask for feedback, share the short Monday survey -->https://wkf.ms/3GRozh7
 -   Tell participants about the badge! Present slide at end of bootcamp for students to request badge (provided by TechXchange team after registration)
 
-## 🤝 Need help or want to contribute?
-Ask on [**#ce-wxd-client-bootcamp**](https://ibm.enterprise.slack.com/archives/C095VBRBVUN).
+## :telephone_receiver: Help!
+- Review [Troubleshooting Tips](../Troubleshooting/README.md)
+  
+- Ask on [**#ce-wxd-client-bootcamp**](https://ibm.enterprise.slack.com/archives/C095VBRBVUN)
 
-📝 [Open an **Issue**](https://github.ibm.com/skol/watsonx.data-bootcamp-2025/issues) in this repository if something's not working.
+- [Open an **Issue**](https://github.ibm.com/skol/watsonx.data-bootcamp-2025/issues) in this repository if something's not working.
+
+- Report defects to the product team in https://github.ibm.com/lakehouse/wxd-internal-support/issues/new/choose
+
+## 🤝 Want to contribute?
+
+Reach out to jennifer_wales@us.ibm.com or anna.istomina@ibm.com
+
