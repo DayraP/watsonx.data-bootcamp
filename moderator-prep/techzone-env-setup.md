@@ -6,8 +6,8 @@
     - [1.2 Data Sources](#12-data-sources)
       - [1.2.1 Netezza](#121-netezza)
       - [1.2.2 Postgres SQL](#122-postgres-sql)
-  - [2. Setup Overview](#2-setup-overview)
-    - [2.1 Provision and setup watsonx.data backend Environment](#21-provision-and-setup-watsonxdata-backend-environment)
+  - [2. watsonx.data Backend Environment Setup](#2-watsonxdata-backend-environment-setup)
+    - [2.1 Provision and setup watsonx.data Techzone Environment](#21-provision-and-setup-watsonxdata-techzone-environment)
     - [2.2 Upload data (binary files and pdfs)](#22-upload-data-binary-files-and-pdfs)
     - [2.3 Prepare handover configurations](#23-prepare-handover-configurations)
     - [2.4 Share the watsonx.data Techzone environment](#24-share-the-watsonxdata-techzone-environment)
@@ -68,13 +68,14 @@ Postgres xdata bootcamp credentials [here](https://ibm.box.com/s/k6iabvkkw4plh71
 Steps to provision Postgres and populate with data [here](./instructions/Postgres-provisioning.md)
 
 
-## 2. Setup Overview
+## 2. watsonx.data Backend Environment Setup
 The instructor will pre-setup the techzone environment and then share with the bootcamp participants.  All students will use the same the same watsonx.data service instance.
 
   
-### 2.1 Provision and setup watsonx.data backend Environment
+### 2.1 Provision and setup watsonx.data Techzone Environment
 
-1. Request a watsonx.data [environment](https://techzone.ibm.com/my/reservations/create/67e6c2a9bc768d343f1c08ea).  in Techzone, that will be shared with all bootcamp participants.  -Select option for  `Demo` with corresponding `opportunity ID`
+1. Request a watsonx.data [environment](https://techzone.ibm.com/my/reservations/create/67e6c2a9bc768d343f1c08ea) in Techzone, that will be shared with all bootcamp participants.  
+   -Select option for  `Demo` with corresponding `opportunity ID`
 2. Provision and setup watsonx.data bootcamp Environment**
 
    There are 2 options:
@@ -142,7 +143,7 @@ When creating a workshop reservation, you will need:
 - Number of attendees
 - ISC Opportunity code & customer name
 
-Please use any of the six bundles listed in [this collection](https://techzone.ibm.com/collection/client-engineering-agentic-ai-labs/journey-workshop-environments) for your TechZone workshop.
+Please use any of the bundles listed in [this collection](https://techzone.ibm.com/collection/client-engineering-agentic-ai-labs/journey-workshop-environments) for your TechZone workshop.
 
 Details on reserving your [workshop environment](https://ibm.ent.box.com/notes/1803626814108)! 
 If any of your environments fail to provision, simply contact support through the link on the workshop page. See additional [troubleshooting](troubleshooting.md) tips!
