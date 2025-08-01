@@ -45,6 +45,8 @@ During labs you will work both with structured and unstructured (text data).
 
 :exclamation: All of the structured and semi-structured data for this lab were generated and do not correspond to any real equity transactions or bank clients.
 
+For more information, see [Video walkthrough](https://ibm-my.sharepoint.com/:v:/p/jennifer_wales_us/ERTIg6GFN3NCrNipYqoUCc8BVpKmEE7ZBuMAqtxbQSuIVw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=yDHWiv)
+
 📁 Files required for labs execution could be found in `./data` folder:
    - `./data/customers.csv` is a text file with customers data information that will be in later steps uploaded into Postgres.
    - `./data/input_data_hive` - parquet files with the information on accounts, historical holdings and tax liability that will be used in Lab2, they will be linked to hive catalog -> as part of moderator prep you will this directory it at a later step in COS bucket;

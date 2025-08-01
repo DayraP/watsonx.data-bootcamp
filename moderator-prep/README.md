@@ -23,7 +23,6 @@ The **watsonx.data  Bootcamp** is a hands-on, modular learning experience design
 - Pitch the bootcamp to your client using the external facing [flyer](https://ibm.box.com/s/i6pqhgl2b8n1p2rhn63t8muj9rq4it9c).
 - Learn more about the bootcamp using the [Instructor Starter Kit](https://ibm.box.com/s/aiuyc6c3ubdj1wg5feqop77zsnj1tn4z)
 
-- Create an ISC Project for your watsonx.data Bootcamp (see ISC Guidance)?. (Need process for x.data)
 
 ## :clipboard: 2.  Register the Bootcamp
 

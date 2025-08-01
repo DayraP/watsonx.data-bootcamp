@@ -19,7 +19,7 @@ FinWin Bank is an established leader in US financial services with 50+ years of 
 
 Their IT infrastructure, however has grown organically, resulting in a hybrid environment spanning on-premises data centers and multpile cloud providers.
 
-FinWin Bank is seeking IBN's industry expertise and technology leadership to provide a cost-effective, easily managed solution that minimizes disruption to their existing IT Systems.
+FinWin Bank is seeking IBM's industry expertise and technology leadership to provide a cost-effective, easily managed solution that minimizes disruption to their existing IT Systems.
 
 ## 🤔 The Problem
 
