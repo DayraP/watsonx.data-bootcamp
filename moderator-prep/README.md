@@ -30,6 +30,7 @@ The **watsonx.data  Bootcamp** is a hands-on, modular learning experience design
     - For Bizdev Project (Set SalesPlay to “Hackathon”)
     - For Pre-Sales Project (Add activity type “Hackathon”)
     - For Post bootcamp conversions to Pilot, add activity type “Pilot” and use CE Tagging [tool](https://pages.github.ibm.com/skol/ce_watsonx_tagging/)
+    - For more information, see [details](https://ibm.seismic.com/Link/Content/DC67Tcd9JB3m48cP2Bd436D727XB) on Seismic
 
 
 - Register your bootcamp with IBM TechXchange @ https://ibm.biz/registermybootcamp for students to earn the `IBM TechXchange watsonx.data Bootcamp Level 2 badge!`
