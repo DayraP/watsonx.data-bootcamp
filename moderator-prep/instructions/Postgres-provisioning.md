@@ -16,7 +16,7 @@ Shared Postgres database instance needs to be created within one of IBM Cloud ac
 - Copy the template in the root folder with the name .env_all
 
 ```sh
-cp "moderator-prep/scripts/data-prep/env_load.example" "moderator-prep/scripts/data-prep/.env_load"
+cp "instructor-prep/scripts/data-prep/env_load.example" "instructor-prep/scripts/data-prep/.env_load"
 ```
 
 ### 3. Credentials
@@ -56,7 +56,7 @@ source venv/bin/activate
 Install requirements for the add_data_postgres Notebook into python environment
 
 ```sh
-pip install -r "moderator-prep/scripts/data-prep/requirements_data_prep.txt"
+pip install -r "instructor-prep/scripts/data-prep/requirements_data_prep.txt"
 ```
 
 ### 6. Add data to Postgres 

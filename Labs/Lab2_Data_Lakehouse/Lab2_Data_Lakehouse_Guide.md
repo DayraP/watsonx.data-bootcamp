@@ -50,7 +50,7 @@ In the Spark steps `Spark pre-processing` you will prepare holdings table :clipb
 **:card_file_box: Sources of data**
 
 - files in COS hive bucket
-  - Go to your COS instance https://cloud.ibm.com/objectstorage/instances -> select bucket that starts with `hive` like `hive-1753085729998611476` -> search for `input_data_hive` directory, there you should find folders/files that were pre-uploaded for you by moderator, if not raise concerns:
+  - Go to your COS instance https://cloud.ibm.com/objectstorage/instances -> select bucket that starts with `hive` like `hive-1753085729998611476` -> search for `input_data_hive` directory, there you should find folders/files that were pre-uploaded for you by instructor, if not raise concerns:
     - `accounts_ht` contains the list of account ids and customer ids from the internal system dump;
     - `holdings_ht`contains information on accounts and their stock holdings (unique by account_id and asset_ticker) for the previous period up to 2023, where `asset_ticker` is stock symbol, `holding_amt` is the total amount of a particular stock and `tax_liability` is the remaining tax liability still owed;
     - `tax_liability_ht` contains country specific tax rate;

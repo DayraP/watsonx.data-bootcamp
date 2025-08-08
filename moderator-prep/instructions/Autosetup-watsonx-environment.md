@@ -117,11 +117,11 @@ After quick initial setup you should have the following components available in 
 
 # 3. Credentials and configurations
 
-* Within `moderator-prep/scripts/auto-setup` folder create a subfolder `credentials` with 2 empty json files: `cos.json` and `postgres.json`. At later steps you will store there credentials for Cloud Object Storage `cos.json` and for Postgres database `postgres.json`.
+* Within `instructor-prep/scripts/auto-setup` folder create a subfolder `credentials` with 2 empty json files: `cos.json` and `postgres.json`. At later steps you will store there credentials for Cloud Object Storage `cos.json` and for Postgres database `postgres.json`.
 
 ![](attachments/2025-06-26-23-32-57-pasted-vscode.png)
 
-* Create env file in `moderator-prep/scripts/auto-setup` folder: copy `moderator-prep/scripts/auto-setup/env_setup.example` as `moderator-prep/scripts/auto-setup/.env_setup` where you will during the next steps fill values for:
+* Create env file in `instructor-prep/scripts/auto-setup` folder: copy `instructor-prep/scripts/auto-setup/env_setup.example` as `instructor-prep/scripts/auto-setup/.env_setup` where you will during the next steps fill values for:
   * `CLOUD_API_KEY`
   * `WXD_REGION`
   * `WXD_INSTANCE_CRN`  
@@ -135,7 +135,7 @@ From the IBM Cloud interface use to the top menu
 * Manage -> Access IAM 
 * From the Left Navigation click Manage Identities -> API Keys
 * Click on the Create button
-* Copy the key to `moderator-prep/scripts/auto-setup/.env_setup` as a value for `CLOUD_API_KEY`
+* Copy the key to `instructor-prep/scripts/auto-setup/.env_setup` as a value for `CLOUD_API_KEY`
 
 :warning: In case you create or re-create intial bucket manually for some reason, make sure to create **a regional bucket in the same location as watsonx.data** -> because location for COS instance is generated based on your region input for env file.
 
@@ -161,7 +161,7 @@ alt="A screenshot of a computer AI-generated content may be incorrect." />
 
 * Select the twistie to show your credentials
 
-* Copy and paste the credentials  in `moderator-prep/scripts/auto-setup/credentials/cos.json`
+* Copy and paste the credentials  in `instructor-prep/scripts/auto-setup/credentials/cos.json`
 
 <img src="../attachments/image12.png"
 style="width:5.01389in;height:3.95833in"
@@ -169,7 +169,7 @@ alt="A screenshot of a computer AI-generated content may be incorrect." />
 
 ## 3.3 Add watsonx.data configuration to env file
 
-Go to IBM Cloud `Resource List`, click on watsonx.data instance in the databases, scroll down and copy values in `moderator-prep/scripts/auto-setup/.env_setup`:
+Go to IBM Cloud `Resource List`, click on watsonx.data instance in the databases, scroll down and copy values in `instructor-prep/scripts/auto-setup/.env_setup`:
 * `CRN` as `WXD_INSTANCE_CRN`
 * `Region` as `WXD_REGION`
 
@@ -178,16 +178,16 @@ Go to IBM Cloud `Resource List`, click on watsonx.data instance in the databases
 ## 3.4 Copy Postgres credentials
 
 **If you are using Postgres provisioned to you by us**:  
-From [Box Folder](https://ibm.box.com/s/cp090jf3awquuxzwbvpocw6rd0p431hs) `postgres.json` file copy all content into `moderator-prep/scripts/auto-setup/postgres.json`.
+From [Box Folder](https://ibm.box.com/s/cp090jf3awquuxzwbvpocw6rd0p431hs) `postgres.json` file copy all content into `instructor-prep/scripts/auto-setup/postgres.json`.
 
 **If you provisioned Postgres yourself**:  
-You should have `postgres.json` available locally after running `moderator-prep/instructions/Postgres-provisioning.md`; now copy all content into `moderator-prep/scripts/auto-setup/postgres.json`.
+You should have `postgres.json` available locally after running `instructor-prep/instructions/Postgres-provisioning.md`; now copy all content into `instructor-prep/scripts/auto-setup/postgres.json`.
 
 ## 3.5 Copy Netezza credentials
 
-From [Box Note](https://ibm.box.com/s/gpi9i9qh89rmpag59qp6bx86rjsv99q0) copy the Netezza credential snippet and paste into  `moderator-prep/scripts/auto-setup/.env_setup`
+From [Box Note](https://ibm.box.com/s/gpi9i9qh89rmpag59qp6bx86rjsv99q0) copy the Netezza credential snippet and paste into  `instructor-prep/scripts/auto-setup/.env_setup`
 
-Now you should have `moderator-prep/scripts/auto-setup/.env_setup` and `moderator-prep/scripts/auto-setup/credentials` ready to run [Auto-setup.ipynb](../scripts/auto-setup/Auto-setup.ipynb) script.
+Now you should have `instructor-prep/scripts/auto-setup/.env_setup` and `instructor-prep/scripts/auto-setup/credentials` ready to run [Auto-setup.ipynb](../scripts/auto-setup/Auto-setup.ipynb) script.
 
 # 4 Run Auto setup script in Jupyter Notebook
 
@@ -218,14 +218,14 @@ source venv_prep/bin/activate
 * Install requirements for the current lab into python environment
 
 ```sh
-pip install -r moderator-prep/scripts/auto-setup/requirements_autosetup.txt
+pip install -r instructor-prep/scripts/auto-setup/requirements_autosetup.txt
 ```
 
 ## 4.2 Run Jupyter Notebook with the script
-*  Open `moderator-prep/scripts/auto-setup/Auto-setup.ipynb`
+*  Open `instructor-prep/scripts/auto-setup/Auto-setup.ipynb`
 *  Select kernel as `venv_prep`
 *  Run All
-*  As an output you should also get an output with some configuration prefilled for the contents to share with students and your own env file to test labs -> `moderator-prep/scripts/auto-setup/.env_output`
+*  As an output you should also get an output with some configuration prefilled for the contents to share with students and your own env file to test labs -> `instructor-prep/scripts/auto-setup/.env_output`
 
 
 # 5 Verify 

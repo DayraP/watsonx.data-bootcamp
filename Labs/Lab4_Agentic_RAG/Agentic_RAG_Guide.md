@@ -20,7 +20,7 @@ The application uses:
 - **LangChain**: For building the RAG pipeline
 - **LangGraph**: For orchestrating the RAG workflow
  
-The application leverages data that was uploaded to the <INPUT_BUCKET> in Cloud Object Storage by the moderator.
+The application leverages data that was uploaded to the <INPUT_BUCKET> in Cloud Object Storage by the instructor.
 
 ## 2.  Prerequisites
 - Completed  [Environment Setup](env-setup/wealth-mgr-env-setup.md)
@@ -29,7 +29,7 @@ The application leverages data that was uploaded to the <INPUT_BUCKET> in Cloud 
 ## 3. Ingest Data into Milvus
 
 Ingestion will be performed using python `langchain` library with customizable parameters for document loading and splitting. 
-In mulvus default database you will create a new collection corresponding to the pre-defined `MV_COLLECTION_NAME`, collection schema is defined in code:
+In milvus default database you will create a new collection corresponding to the pre-defined `MV_COLLECTION_NAME`, collection schema is defined in code:
 ![milvus-schema](attachments/2025-07-07-11-43-10-pasted-vscode.png)
 It contains five fields:
 * `id` that will be auto-generated;

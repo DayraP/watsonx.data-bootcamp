@@ -41,7 +41,7 @@ git clone git@github.ibm.com:skol/watsonx.data-client-bootcamp-2025.git
 
 If you are not setup for SSH, you can download via Browser instead:
 
-* Go to: [moderator add http link to classroom repo]
+* Go to: [instructor add http link to classroom repo]
 
 * Click on Code, Download Zip  
 

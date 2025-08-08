@@ -39,7 +39,7 @@ Because we are working in a shared watsonx.data intelligence (wxi) environment, 
 
 ## 2. Prerequisites:
 - Completed  [Environment Setup](env-setup/wealth-mgr-env-setup.md)
-- Moderator prepared Bootcamp Catalog, imported business glossary and created data protection rules.
+- instructor prepared Bootcamp Catalog, imported business glossary and created data protection rules.
  
 
 ## 3. Configure Service to Service Integration

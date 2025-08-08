@@ -16,7 +16,7 @@ There are 2 options to upload files:
 1. Manually upload directories to the corresponding COS buckets using COS UI
 2. Run the script with files upload (for more experienced users that know python)
 
-You need to upload data from local `moderator-prep/data` into COS buckets that you've created in the previous step:
+You need to upload data from local `instructor-prep/data` into COS buckets that you've created in the previous step:
 - `files` contain csvs and json files with structured data for Lab2 that are transformed and uploaded by the script;
 - `pdfs` contain text/ unstructured data on equity research for Lab4;
 - `input_data_hive` directory is used in UI manual upload only -> it contains transformed data in case you are not able to run the script and can upload this folder directly in COS hive bucket manually (as a backup)
@@ -31,7 +31,7 @@ Upload required files into COS hive bucket
 * Go to the bucket that starts with `hive` created during the environment setup
 * Inside the bucket, click `Upload` and then click `Upload folders`
 ![upload-files](../attachments/2025-06-15-20-45-54-pasted-vscode.png)
-* Navigate to `moderator-prep/data/input_data_hive` and upload it.  
+* Navigate to `instructor-prep/data/input_data_hive` and upload it.  
 ![select-folder](../attachments/2025-06-15-20-47-46-pasted-vscode.png) 
 
 After upload, you should see the following folder structure in `input_data_hive`:
@@ -45,7 +45,7 @@ We will begin by uploading the equity research data from the data folder to Clou
 
 * Go to the bucket that starts with `input-data` created during the environment setup
 * Inside the bucket, click `Upload` and then click `upload folders`
-* Navigate to the classroom Repo, `moderator-prep/data/pdfs` and select `pdfs` and upload it.
+* Navigate to the classroom Repo, `instructor-prep/data/pdfs` and select `pdfs` and upload it.
 
 <img width="750" alt="api_key" src="../attachments/click_upload.png">
 
@@ -79,7 +79,7 @@ source venv/bin/activate
 Install requirements for the add_data_postgres Notebook into python environment
 
 ```sh
-pip install -r moderator-prep/scripts/data-prep/requirements_data_prep.txt
+pip install -r instructor-prep/scripts/data-prep/requirements_data_prep.txt
 ```
 
 ### 2.3 Environment file
@@ -89,10 +89,10 @@ pip install -r moderator-prep/scripts/data-prep/requirements_data_prep.txt
 - Copy the template in the root folder with the name .env_all
 
 ```sh
-cp "moderator-prep/scripts/data-prep/env_load.example" "moderator-prep/scripts/data-prep/.env_load"
+cp "instructor-prep/scripts/data-prep/env_load.example" "instructor-prep/scripts/data-prep/.env_load"
 ```
 
-- Update env_load with the values for CLOUD_API_KEY and COS from `moderator-prep/scripts/auto-setup/.env_output` if you run `Auto-setup.ipynb` script, if not you can find them manually:
+- Update env_load with the values for CLOUD_API_KEY and COS from `instructor-prep/scripts/auto-setup/.env_output` if you run `Auto-setup.ipynb` script, if not you can find them manually:
   - Take CLOUD_API_KEY from your reference file (you've used it in auto setup)  
   
   CLOUD_API_KEY = "\<IAM CLOUD API KEY>"
@@ -107,7 +107,7 @@ cp "moderator-prep/scripts/data-prep/env_load.example" "moderator-prep/scripts/d
 
 ### 2.4 Run script in Jupyter Notebook
 
-- Open [moderator-prep/scripts/data-prep/add_files_cos.ipynb](../scripts/data-prep/add_files_cos.ipynb) by clicking the link or by navigating to the notebook
+- Open [instructor-prep/scripts/data-prep/add_files_cos.ipynb](../scripts/data-prep/add_files_cos.ipynb) by clicking the link or by navigating to the notebook
 - Change the Kernel to venv python before running the notebook
 - Run all 
 

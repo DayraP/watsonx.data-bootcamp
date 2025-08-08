@@ -49,9 +49,9 @@ For more information, see [Video walkthrough](https://ibm-my.sharepoint.com/:v:/
 
 📁 Files required for labs execution could be found in `./data` folder:
    - `./data/customers.csv` is a text file with customers data information that will be in later steps uploaded into Postgres.
-   - `./data/input_data_hive` - parquet files with the information on accounts, historical holdings and tax liability that will be used in Lab2, they will be linked to hive catalog -> as part of moderator prep you will this directory it at a later step in COS bucket;
+   - `./data/input_data_hive` - parquet files with the information on accounts, historical holdings and tax liability that will be used in Lab2, they will be linked to hive catalog -> as part of instructor prep you will this directory it at a later step in COS bucket;
       - `tax_liability.json` was created by LLM based on the list of countries and random persentage numbers -> do not correspond to the reality, serve only for educational purposes.
-  - `./data/pdfs` contain pdfs with equity market information for Agentic Rag, first you will ingest them from COS bucket during Lab4 -> as part of moderator prep you will upload those files at a later step in COS bucket.
+  - `./data/pdfs` contain pdfs with equity market information for Agentic Rag, first you will ingest them from COS bucket during Lab4 -> as part of instructor prep you will upload those files at a later step in COS bucket.
 
 🗄️ Data stores to make available for labs:
    #### 1.2.1 Netezza  
@@ -86,10 +86,10 @@ The instructor will pre-setup the techzone environment and then share with the b
 
 ### 2.2 Upload data (binary files and pdfs)
 
-Folder `moderator-prep/data` contains directories with files that are required for the second lab (`files` or `input_data_hive`) and for Lab4 - Rag Agent (`pdfs`).
+Folder `instructor-prep/data` contains directories with files that are required for the second lab (`files` or `input_data_hive`) and for Lab4 - Rag Agent (`pdfs`).
 
 Upload them to the corresponding COS buckets following [instructions](./instructions/Add-cos-files.md).  
-:warning: Make sure files are available at local directory [moderator-prep/data](./data).
+:warning: Make sure files are available at local directory [instructor-prep/data](./data).
 
 ### 2.3 Prepare handover configurations
 

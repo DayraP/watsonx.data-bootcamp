@@ -17,3 +17,13 @@ In this bootcamp, you will gain hands-on experience developing a solution around
 🚀 You'll learn how unify your data from various sources (both structured and unstructured) and create a single, trusted view
 
 🚀 You'll gain hand-on experience and learn best practices from top industry experts
+
+
+## Where to go next?
+
+
+[Agenda](Agenda/README.md)  <br>
+[Setup instructions for the labs](env-setup/README.md) <br>
+[Use Case and Lab Overview](Labs/Lab5_NL2SQL/README.md) <br>
+[Troubleshooting Tips](Troubleshooting/README.md)<br>
+[Instructor Guide](instructor-prep/README.md)<br>

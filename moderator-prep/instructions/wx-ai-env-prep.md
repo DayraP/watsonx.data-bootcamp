@@ -41,7 +41,7 @@ HIVE_CATALOG="hive_catalog"
 ICEBERG_CATALOG="iceberg_data"
 ```
 
-If you use auto-setup, then you can copy `SPARK_ENGINE_ID` and bucket names from the generated `moderator-prep/scripts/auto-setup/.env_output`.
+If you use auto-setup, then you can copy `SPARK_ENGINE_ID` and bucket names from the generated `instructor-prep/scripts/auto-setup/.env_output`.
 
 In case of manual setup, use bucket names from your reference file, and `SPARK_ENGINE_ID` is available in watsonx.data UI -> `Infrastructure Manager` -> click on spark engine -> Details -> `Engine Id`.
 
