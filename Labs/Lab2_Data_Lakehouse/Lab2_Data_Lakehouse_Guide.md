@@ -38,7 +38,7 @@ In `Presto data insertion` you will first :memo: register data located in hive b
 In the Spark steps `Spark pre-processing` you will prepare holdings table :clipboard: for 2024 and particular stocks based on tables offloaded in Lab 1 from Netezza. Then holdings for 2024 will be combined with holdings up to 2023 containing pre-defined set of stocks to get total `holdings_table` that will later be used along with `accounts_table` in Agentic Flow. Postgres `bankdemo.customers_table` is federated to watsonx.data `postgres_catalog` as part of the pre-requisites and does not require any additional changes and will be used AS IS in Agentic Flow.
 
 ## 2.  Prerequisites
-- Completed  [Environment Setup](env-setup/wealth-mgr-env-setup.md)
+- Completed  [Environment Setup](/env-setup/README.md)
 - Completed Lab 1
 
 
@@ -71,7 +71,7 @@ At the end of the lab you should have 2 tables in  `clients_schema_YourName_Firs
 ### 5.1  Open watsonx.ai Project (Labs Techzone Environment)
 1. Open watsonx.ai Studio Service - From [Cloud Resource list](https://cloud.ibm.com/resources) select `AI / Machine Learning` resources -> `watsonx.ai Studio` service -> open in `IBM watsonx`
 <img src="./attachments/2025-06-15-21-03-23-pasted-vscode.png" alt="alt text" width="75%"><br>
-2. Login and from the quick access page -> `Recent work` Select the project you created during [Environment Setup](../env-setup/wealth-mgr-env-setup.md).
+2. Login and from the quick access page -> `Recent work` Select the project you created during [Environment Setup](/env-setup/README.md).
 ![get-project-wx-studio](./attachments/2025-06-15-21-05-27-pasted-vscode.png)
 3. Check that you can see env.txt file in the list of all assets on `Assets` tab
 ![view-env.txt](./attachments/2025-06-15-12-39-24-pasted-vscode.png), if not upload via data files
@@ -135,7 +135,7 @@ At the end of the lab you should have 2 tables in  `clients_schema_YourName_Firs
 
 ### 6.1 Save spark script to COS bucket and generate payload json
 
-1.  Return to the watsonx.ai Project you created during [Environment Setup](env-setup/wealth-mgr-env-setup.md)
+1.  Return to the watsonx.ai Project you created during [Environment Setup](/env-setup/README.md)
 
 2. Load Script to the Project:
      * From `Assets` Tab click `Import assets`

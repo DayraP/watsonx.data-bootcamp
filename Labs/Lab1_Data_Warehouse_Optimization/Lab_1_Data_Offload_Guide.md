@@ -20,7 +20,7 @@
 
 
 ## Prerequisites
-- Completed  [Environment Setup](env-setup/wealth-mgr-env-setup.md)
+- Completed  [Environment Setup](/env-setup/README.md)
 
 
 ## 1. Objective: 

@@ -23,7 +23,7 @@ The application uses:
 The application leverages data that was uploaded to the <INPUT_BUCKET> in Cloud Object Storage by the instructor.
 
 ## 2.  Prerequisites
-- Completed  [Environment Setup](env-setup/wealth-mgr-env-setup.md)
+- Completed  [Environment Setup](/env-setup/README.md)
   
   
 ## 3. Ingest Data into Milvus
@@ -48,7 +48,7 @@ Then we load vectors into memory and test semantic search locally.
 ### 3.1. Open watsonx.ai Project
 1. Open watsonx.ai Studio Service - From [Cloud Resource list](https://cloud.ibm.com/resources) select `AI / Machine Learning` resources -> `watsonx.ai Studio` service -> open in `IBM watsonx`
 <img src="./attachments/2025-06-15-21-03-23-pasted-vscode.png" alt="alt text" width="75%"><br>
-2. Login and from the quick access page -> `Recent work` Select the project you created during [Environment Setup](../env-setup/wealth-mgr-env-setup.md).
+2. Login and from the quick access page -> `Recent work` Select the project you created during [Environment Setup](..//env-setup/README.md).
 ![get-project-wx-studio](attachments/2025-06-15-21-05-27-pasted-vscode.png)
 3. Check that you can see env.txt file in the list of all assets on `Assets` tab
 ![view-env.txt](attachments/2025-06-15-12-39-24-pasted-vscode.png)

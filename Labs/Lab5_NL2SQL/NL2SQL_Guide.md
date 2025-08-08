@@ -21,7 +21,7 @@ As part of this lab we will create an agent that can convert user Natural Langua
 This lab uses the `customers_table` from the postgres_catalog and the `accounts_table` and `holdings table` from the iceberg_data catalog for the data sources.
 
 ## 2.  Prerequisites
-- Completed  [Environment Setup](env-setup/wealth-mgr-env-setup.md) 
+- Completed  [Environment Setup](/env-setup/README.md) 
 - Completed Labs 1 and 2
   
 ## 3. Create and Deploy NL2SQL Agent
@@ -29,7 +29,7 @@ This lab uses the `customers_table` from the postgres_catalog and the `accounts_
 ### 3.1. Open watsonx.ai Project
 1. Open watsonx.ai Studio Service - From [Cloud Resource list](https://cloud.ibm.com/resources) select `AI / Machine Learning` resources -> `watsonx.ai Studio` service -> open in `IBM watsonx`
 <img src="./attachments/2025-06-15-21-03-23-pasted-vscode.png" alt="alt text" width="75%"><br>
-2. Login and from the quick access page -> `Recent work` Select the project you created during [Environment Setup](../env-setup/wealth-mgr-env-setup.md).
+2. Login and from the quick access page -> `Recent work` Select the project you created during [Environment Setup](..//env-setup/README.md).
 ![get-project-wx-studio](attachments/2025-06-15-21-05-27-pasted-vscode.png)
 3. Check that you can see env.txt file in the list of all assets on `Assets` tab
 ![view-env.txt](attachments/2025-06-15-12-39-24-pasted-vscode.png)
