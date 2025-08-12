@@ -139,3 +139,5 @@ Who are the clients who have invested in IBM and are holding more than 10000.  G
 1. Evaluate the responses, and reasoning.  
    * Click on `Show Reasoning`, then `Step 1` to see the logic and SQL queries created from natural language
    ![alt text](./attachments/2025-07-11_18-07-03.png)
+
+   These queries are accessing information from multiple backend systems and we are using watsonx.data Lakehouse to tie these together.  The agent first analyzes the question and understands what tables will need to be accessed or joined.   The agent then generates an executable SQL query that is sent to watsonx.data and the result is output to the wealth manager conveniently without having to go to multiple systems.  
