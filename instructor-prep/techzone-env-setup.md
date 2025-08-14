@@ -35,6 +35,8 @@ The bootcamp also requires individual Techzone environments for each student whe
 
 For instructor self education, you can use just the back-end bundle to test the labs, as the bundle includes watsonx.ai studio, runtime and Orchestrate, but because Orchestrate is a trial service it should not be used for multiple students.
 
+** Pro-Tip **
+Recommend to students to use different browsers for interacting with the two techzone environments.  One browser for watsonx.data components and another for the the client work in the project and watsonx Orchestrate.  This will minimize the amount of switching accounts which only works well if you close all browser windows each time.
 
 ### 1.2 Data Sources
 During labs you will work both with structured and unstructured (text data).  

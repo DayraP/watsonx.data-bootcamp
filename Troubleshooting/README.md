@@ -98,6 +98,8 @@ Now test connection and if successful, click `Create`.
 
 ## 3. Lab 2 - Presto and Spark
 
+Verify cos_connection in watsonx studio Project - it should be connecting to Server-side cloud object storage instance, not client side COS.
+
 ### 3.1 Failures running `1_add_data_presto.ipynb`
 
 ### 3.2 Environmental variables errors
