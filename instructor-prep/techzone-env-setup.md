@@ -73,7 +73,11 @@ Steps to provision Postgres and populate with data [here](./instructions/Postgre
 
 
 ## 2. watsonx.data Backend Environment Setup
-The instructor will pre-setup the techzone environment and then share with the bootcamp participants.  All students will use the same the same watsonx.data service instance.
+The instructor will pre-setup the techzone environment and then share with the bootcamp participants.  All students will use the same watsonx.data service instance.
+
+This is what the environment will look like once setup:
+![alt text](attachments/image29.png)
+
 
   
 ### 2.1 Provision and setup watsonx.data Techzone Environment
