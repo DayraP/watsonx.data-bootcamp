@@ -20,8 +20,10 @@ The **watsonx.data  Bootcamp** is a hands-on, modular learning experience design
 
 ## 🚗💨 1.  Get started 
 
+- Watch the Bootcamp [Enablement Replay](https://ec.yourlearning.ibm.com/w3/playback/10522793)
 - Pitch the bootcamp to your client using the external facing [flyer](https://ibm.box.com/s/i6pqhgl2b8n1p2rhn63t8muj9rq4it9c).
 - Learn more about the bootcamp using the [Instructor Starter Kit](https://ibm.box.com/s/aiuyc6c3ubdj1wg5feqop77zsnj1tn4z)
+
 
 
 ## :clipboard: 2.  Register the Bootcamp
