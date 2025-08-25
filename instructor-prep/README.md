@@ -62,6 +62,7 @@ The **watsonx.data  Bootcamp** is a hands-on, modular learning experience design
 ## 🧪 5.  Run the labs 
 
 - Run the client facing [labs](../Labs/README.md)
+- Prepare to explain the Lab [outcomes](<lab-overview with outcomes.md>)
 
 ## :paintbrush: 6.  Customize it!
 - **Build your own bootcamp curriculum**: pick your learning materials, hands-on labs, and other resources, and tailor the bootcamp to your Client or Business Partner, depending on their interests and skill levels.
@@ -84,6 +85,11 @@ The **watsonx.data  Bootcamp** is a hands-on, modular learning experience design
 -   Use Troubleshooting [guide](../Troubleshooting/README.md) for debug help during the bootcamp
 -   Ask for feedback, share the short Monday survey -->https://wkf.ms/3GRozh7
 -   Tell participants about the badge! Present slide at end of bootcamp for students to request badge (provided by TechXchange team after registration)
+
+## 10.  Post Bootcamp
+
+-  Create One-Pager with Bootcamp outcomes -->[Readout Template](https://ibm.box.com/s/1466zqha17t95wq1g6e17tvoja6likhr) 
+
 
 ## :telephone_receiver: Help!
 - Review [Troubleshooting Tips](../Troubleshooting/README.md)
