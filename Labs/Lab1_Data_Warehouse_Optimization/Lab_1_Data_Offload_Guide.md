@@ -65,14 +65,19 @@ graph TD
 - **Step 5 - Combined query**: Execute querys that combine the data from the iceberg tables in watsonx.data and the current year schema, `equity_transactions_ly` in Netezza.
 
 ### 4.1 - Check Netezza data source
-- Open your `watsonx.data` instance 
-- Go to watsonx your `Infrastructure Manager` check that Netezza is added as a data source and that data could be accessed in `Data manager`.
-- Netezza `equity_transactions` and `equity_transactions_ly` schemas should be synchronized via `nz_catalog`
+
+- From IBM Cloud `Resource List` <https://cloud.ibm.com/resources>
+- Select the watsonx.data instance (Under Databases) in `wxdata-`
+- Open web console
+- From the Hamburger menu in the top left, select `Infrastructure Manager` and verify check that Netezza is added as a data source
+- ![alt text](./attachments/verify-netezza.jpg)
+- From the Hamburger menu in the top left, select `Data manager`
+- Browse the nz_catalog and verify the Netezza schemas `equity_transactions` and `equity_transactions_ly` are available.
 
 ![](./attachments/Pasted%20image%2020250409145504.png)
 
 ### 4.2 - Create New schema and tables in watsonx.data
-1. Now go to `Query workspace` where you will be executing SQL queries.
+1. From the Hamburger menu in the top left, go to `Query workspace` where you will be executing SQL queries.
 ![alt text](./attachments/image-5.png)
 
 2. Create schema for Netezza offload and tables in watsonx.data iceberg catalog where you will offload data on transactions from Netezza `EQUITY_TRANSACTIONS`. 
