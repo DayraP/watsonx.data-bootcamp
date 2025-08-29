@@ -2,7 +2,7 @@
 
 - [Environment Setup](#environment-setup)
   - [1. Getting Started](#1-getting-started)
-    - [1.1 Clone the classroom Repo](#11-clone-the-classroom-repo)
+    - [1.1 Download the Classroom Repo](#11-download-the-classroom-repo)
     - [1.2 Access the bootcamp environment](#12-access-the-bootcamp-environment)
     - [1.3 Open your Techzone Reservation](#13-open-your-techzone-reservation)
     - [1.4 Login to your individual Techzone environment](#14-login-to-your-individual-techzone-environment)
@@ -27,23 +27,10 @@
 
 ## 1. Getting Started
 
-### 1.1 Clone the classroom Repo
+### 1.1 Download the Classroom Repo 
 
-Clone the classroom Repo via SSH  
-:warning: Update the repo according to the classroom repo
-```sh
-git clone git@github.ibm.com:skol/watsonx.data-client-bootcamp-2025.git
-```
+- Students will be provided with a zip file of the classroom Repo by the instructor with instructions and files needed for the Bootcamp.
 
-If you are not setup for SSH, you can download via Browser instead:
-
-* Go to: <add url of repo>
-
-* Click on Code, Download Zip  
-
-<img src="./attachments/image3.png"
-style="width:6.5in;height:2.94861in"
-alt="A screenshot of a computer AI-generated content may be incorrect." />
 
 ### 1.2 Access the bootcamp environment
 
