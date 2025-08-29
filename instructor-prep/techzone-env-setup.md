@@ -2,10 +2,11 @@
 
 - [Bootcamp watsonx.data Environment](#bootcamp-watsonxdata-environment)
   - [1. Prerequisities](#1-prerequisities)
-    - [1.1 Environments](#11-environments)
-    - [1.2 Data Sources](#12-data-sources)
-      - [1.2.1 Netezza](#121-netezza)
-      - [1.2.2 Postgres SQL](#122-postgres-sql)
+    - [1.1 Clone the classroom Repo](#11-clone-the-classroom-repo)
+    - [1.2 Environments](#12-environments)
+    - [1.3 Data Sources](#13-data-sources)
+      - [1.3.1 Netezza](#131-netezza)
+      - [1.3.2 Postgres SQL](#132-postgres-sql)
   - [2. watsonx.data Backend Environment Setup](#2-watsonxdata-backend-environment-setup)
     - [2.1 Provision and setup watsonx.data Techzone Environment](#21-provision-and-setup-watsonxdata-techzone-environment)
     - [2.2 Upload data (binary files and pdfs)](#22-upload-data-binary-files-and-pdfs)
@@ -16,11 +17,31 @@
   - [3. Client Environment Setup](#3-client-environment-setup)
     - [3.1 Create a workshop reservation for the bootcamp](#31-create-a-workshop-reservation-for-the-bootcamp)
     - [3.2 Share environment information with the Students](#32-share-environment-information-with-the-students)
+    - [3.3 Prepare Github Repo for the Students](#33-prepare-github-repo-for-the-students)
 
 
 
 ## 1. Prerequisities
-### 1.1 Environments
+
+### 1.1 Clone the classroom Repo
+
+Clone the classroom Repo via SSH  
+:warning: Update the repo according to the classroom repo
+```sh
+git clone git@github.ibm.com:skol/watsonx.data-client-bootcamp-2025.git
+```
+
+If you are not setup for SSH, you can download via Browser instead:
+
+* Go to: <add url of repo>
+
+* Click on Code, Download Zip  
+
+<img src="./attachments/image3.png"
+style="width:6.5in;height:2.94861in"
+alt="A screenshot of a computer AI-generated content may be incorrect." />
+
+### 1.2 Environments
 
 The bootcamp will use a single shared Techzone environment for the watsonx.data components, shared by all students, to be created by the instructor.  The watsonx.data back-end Techzone environment uses the [watsonx.data ONLY bundle](https://techzone.ibm.com/my/reservations/create/67e6c2a9bc768d343f1c08ea) uses the following services:
 - Cloud Object storage
@@ -38,7 +59,7 @@ For instructor self education, you can use just the back-end bundle to test the 
 ** Pro-Tip **
 Recommend to students to use different browsers for interacting with the two techzone environments.  One browser for watsonx.data components and another for the the client work in the project and watsonx Orchestrate.  This will minimize the amount of switching accounts which only works well if you close all browser windows each time.
 
-### 1.2 Data Sources
+### 1.3 Data Sources
 During labs you will work both with structured and unstructured (text data).  
 🗃️ Structured data include:
 - historic equity transactions for 2019 - 2025 (stored in `Netezza`);
@@ -56,12 +77,12 @@ For more information, see [Video walkthrough](https://ibm-my.sharepoint.com/:v:/
   - `./data/pdfs` contain pdfs with equity market information for Agentic Rag, first you will ingest them from COS bucket during Lab4 -> as part of instructor prep you will upload those files at a later step in COS bucket.
 
 🗄️ Data stores to make available for labs:
-   #### 1.2.1 Netezza  
+   #### 1.3.1 Netezza  
 To showcase DWH offload capability you will need Netezza connection with `INVESTMENTS` database that was created and filled with data. Currently we use NPS instance from @Daniel Hancock. There we have a user `STUDENT_01` generated with access limited to `INVESTMENTS` database (SELECT and LIST access for `equity_transactions` and `equity_transactions_ly` schemas).
 
 **Netezza credentials are in the boxnote [here](https://ibm.box.com/s/ic3jx96uck8t1s4gvs3wak3hliesjnuo).**  
 Data description in Netezza can be found [here](../Labs/Lab1_Data_Warehouse_Optimization/Data-description.md).
-   #### 1.2.2 Postgres SQL  
+   #### 1.3.2 Postgres SQL  
 Postgres SQL customer table will be used to demonstrate federation capabilities of watsonx.data Presto and will be added as a data source.  
 
 -  Currently we have a Postgres SQL instance available in the `watsonx-events` account.  
@@ -165,3 +186,16 @@ If any of your environments fail to provision, simply contact support through th
    -  milvus.json
    -  [Instructions](../env-setup/README.md) to setup their individual environments as part of the bootcamp.
   
+  ### 3.3 Prepare Github Repo for the Students   
+
+Students will not be able to access the internal repo hosted in https://github.ibm.com.  
+
+Instructors will need to make a copy of the Bootcamp repo available to the students either via an access controlled repo in https://github.com or as a zip file that can be shared during the bootcamp.  
+
+In your cloned copy of the Bootcamp Repo, perform the following tasks:
+   
+1. Update [Agenda](../Agenda/README.md) for your bootcamp
+2. Delete any Labs that are not going to be used, for example [Lab 3](../Labs/Lab3_Data_Governance)
+3. Delete the /instructor-prep folder as it contains information and links unavailable to the students.
+4. Optionally update [env.example](../env.example) with settings in the text file you prepared in Step 2.3 above. 
+5. Zip Repo and share during the bootcamp  (Teams, Shared Box, or other means supported by your client)
