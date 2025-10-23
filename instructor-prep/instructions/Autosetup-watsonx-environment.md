@@ -9,16 +9,16 @@
   - [1.3 Pull the latest changes](#13-pull-the-latest-changes)
   - [1.4 Login to your new Techzone environment](#14-login-to-your-new-techzone-environment)
   - [1.5 Verify you are in the right instance.](#15-verify-you-are-in-the-right-instance)
-- [2. watsonx.data Instance initial setup (12-15 mins)](#2-watsonxdata-instance-initial-setup-12-15-mins)
-- [3. Credentials and configurations](#3-credentials-and-configurations)
-  - [3.1 Create an API key](#31-create-an-api-key)
-  - [3.2 Create COS Service Credentials](#32-create-cos-service-credentials)
-  - [3.3 Add watsonx.data configuration to env file](#33-add-watsonxdata-configuration-to-env-file)
-  - [3.4 Copy Postgres credentials](#34-copy-postgres-credentials)
-  - [3.5 Copy Netezza credentials](#35-copy-netezza-credentials)
+- [2. Credentials and configurations](#2-credentials-and-configurations)
+  - [2.1 Create an API key](#21-create-an-api-key)
+  - [2.2 Create COS Service Credentials](#22-create-cos-service-credentials)
+  - [2.3 Add watsonx.data configuration to env file](#23-add-watsonxdata-configuration-to-env-file)
+  - [2.4 Copy Postgres credentials](#24-copy-postgres-credentials)
+  - [2.5 Copy Netezza credentials](#25-copy-netezza-credentials)
+- [3. watsonx.data Instance initial setup (15-30 mins)](#3-watsonxdata-instance-initial-setup-15-30-mins)
+  - [3.1 Prepare python environment](#31-prepare-python-environment)
+  - [3.2 Execute quick setup script](#32-execute-quick-setup-script)
 - [4 Run Auto setup script in Jupyter Notebook](#4-run-auto-setup-script-in-jupyter-notebook)
-  - [4.1 Create virtual environment and install requirements](#41-create-virtual-environment-and-install-requirements)
-  - [4.2 Run Jupyter Notebook with the script](#42-run-jupyter-notebook-with-the-script)
 - [5 Verify](#5-verify)
 - [6 Return to instructions](#6-return-to-instructions)
 
@@ -70,52 +70,7 @@ If it does not show the right name of the instance, you can select it from the d
 <font color="red">**CAUTION:**</font>  The instance at the top right tends to change to your default personal account every time you switch/go back to a new page. Thus, it's always good to check the top right corner **every time** you switch to a new page.
   
 
-# 2. watsonx.data Instance initial setup (12-15 mins)
-
-* From your IBM Cloud page Hamburger menu, go back to `Resource list`
-* Expand `Databases` and click on your watsonx.data instance, then select `Open web console`
-* At `Welcome` screen, click `Next`
-
-<img src="../attachments/image15.png"
-style="width:6.5in;height:3.50833in"
-alt="A screenshot of a computer AI-generated content may be incorrect." />
-
-* Under configure `Bucket`
-
-  * Select `Discover COS instance` and click `Next`
-
-![Discover COS instance](../attachments/2025-05-26-09-35-27-pasted-vscode.png)
-
-* Under Configure `Catalog`, 
-  Select Apache Iceberg and click Next
-
-<img src="../attachments/image17.png"
-style="width:6.5in;height:3.50833in"
-alt="A screenshot of a computer AI-generated content may be incorrect." />
-
-* Under Configure `Engine`
-
-  * Select Type: Presto Java, Size: Starter, Next
-
-<img src="../attachments/image18.png"
-style="width:6.5in;height:3.50833in"
-alt="A screenshot of a computer AI-generated content may be incorrect." />
-
-* Keep default for `Query` Monitoring and select Next
-
-* Review `Summary` and Select Finish and go
-
-<img src="../attachments/image19.png"
-style="width:4.84722in;height:4.94444in"
-alt="A screenshot of a computer AI-generated content may be incorrect." />
-
-:hourglass: **Wait while instance is provisioned – 12-20 minutes... do not close your browser**
-
-After quick initial setup you should have the following components available in Infrastructure manager
-
-![Infrastucture manager - initial setup](../attachments/2025-05-26-10-08-49-pasted-vscode.png)
-
-# 3. Credentials and configurations
+# 2. Credentials and configurations
 
 * Within `instructor-prep/scripts/auto-setup` folder create a subfolder `credentials` with 2 empty json files: `cos.json` and `postgres.json`. At later steps you will store there credentials for Cloud Object Storage `cos.json` and for Postgres database `postgres.json`.
 
@@ -128,7 +83,7 @@ After quick initial setup you should have the following components available in 
 
 ![](../attachments/2025-05-23-11-35-14-pasted-vscode.png)
 
-## 3.1 Create an API key
+## 2.1 Create an API key
 
 From the IBM Cloud interface use to the top menu
 ![Manage Access](../attachments/2025-04-23-11-24-04-pasted-vscode.png)
@@ -139,7 +94,7 @@ From the IBM Cloud interface use to the top menu
 
 :warning: In case you create or re-create intial bucket manually for some reason, make sure to create **a regional bucket in the same location as watsonx.data** -> because location for COS instance is generated based on your region input for env file.
 
-## 3.2 Create COS Service Credentials
+## 2.2 Create COS Service Credentials
 
 From you storage interface, go to your COS Instance, and go to the `Service Credentials` tab.
 
@@ -167,7 +122,7 @@ alt="A screenshot of a computer AI-generated content may be incorrect." />
 style="width:5.01389in;height:3.95833in"
 alt="A screenshot of a computer AI-generated content may be incorrect." />
 
-## 3.3 Add watsonx.data configuration to env file
+## 2.3 Add watsonx.data configuration to env file
 
 Go to IBM Cloud `Resource List`, click on watsonx.data instance in the databases, scroll down and copy values in `instructor-prep/scripts/auto-setup/.env_setup`:
 * `CRN` as `WXD_INSTANCE_CRN`
@@ -175,7 +130,7 @@ Go to IBM Cloud `Resource List`, click on watsonx.data instance in the databases
 
 ![](../attachments/2025-05-23-11-39-36-pasted-vscode.png)
 
-## 3.4 Copy Postgres credentials
+## 2.4 Copy Postgres credentials
 
 **If you are using Postgres provisioned to you by us**:  
 From [Box Folder](https://ibm.box.com/s/cp090jf3awquuxzwbvpocw6rd0p431hs) `postgres.json` file copy all content into `instructor-prep/scripts/auto-setup/postgres.json`.
@@ -183,15 +138,16 @@ From [Box Folder](https://ibm.box.com/s/cp090jf3awquuxzwbvpocw6rd0p431hs) `postg
 **If you provisioned Postgres yourself**:  
 You should have `postgres.json` available locally after running `instructor-prep/instructions/Postgres-provisioning.md`; now copy all content into `instructor-prep/scripts/auto-setup/postgres.json`.
 
-## 3.5 Copy Netezza credentials
+## 2.5 Copy Netezza credentials
 
 From [Box Note](https://ibm.box.com/s/gpi9i9qh89rmpag59qp6bx86rjsv99q0) copy the Netezza credential snippet and paste into  `instructor-prep/scripts/auto-setup/.env_setup`
 
 Now you should have `instructor-prep/scripts/auto-setup/.env_setup` and `instructor-prep/scripts/auto-setup/credentials` ready to run [Auto-setup.ipynb](../scripts/auto-setup/Auto-setup.ipynb) script.
 
-# 4 Run Auto setup script in Jupyter Notebook
+# 3. watsonx.data Instance initial setup (15-30 mins)
 
-## 4.1 Create virtual environment and install requirements
+## 3.1 Prepare python environment
+
 * Open new terminal in VSCode  
 ![alt text](../attachments/image-16.png)
 
@@ -221,7 +177,49 @@ source venv_prep/bin/activate
 pip install -r instructor-prep/scripts/auto-setup/requirements_autosetup.txt
 ```
 
-## 4.2 Run Jupyter Notebook with the script
+## 3.2 Execute quick setup script
+
+- In the same terminal run script `instructor-prep/scripts/auto-setup/quick-setup.py`
+
+  ```sh
+  python3 instructor-prep/scripts/auto-setup/quick-setup.py
+  ```
+
+  **Steps performed:**
+  1. Authentication & Setup
+     - Loads environment variables from .env_setup file
+     - Authenticates with watsonx.data API using API key and CRN
+     - Starts background token refresh (every 15 minutes)
+  2. Core Provisioning Steps
+     - PG Assign - Assigns PostgreSQL database infrastructure
+     - Wait for PG Assign - Polls until PostgreSQL assignment completes
+     - Patch MDS - Enables Metadata Service with quickstart configuration
+     - Wait for MDS - Waits for Metadata Service to reach RUNNING status
+     - Provision CAS and CPG - Provisions Compute and Storage (CAS) and Compute Processing Gateway (CPG) services
+     - Wait for Endpoints - Monitors until both CAS and CPG endpoints are RUNNING
+  3. Additional Features
+     - Automatic retries with configurable sleep intervals
+     - Logging to `provision_wxd.log` file and console
+     - Error handling for network failures and API errors
+     - Token regeneration
+
+  :hourglass: **Wait while instance is provisioned – 15-30 minutes... do not close your terminal**
+
+  In case of successful provisioning you should see in logs:
+  ```sh
+  [2025-10-23 10:35:48,566] WXD provisioning completed successfully!
+  [2025-10-23 10:35:48,566] Stopping background token refresh process...
+  ```
+- Check watsonx.data instance via UI
+
+  * From your IBM Cloud page Hamburger menu, go back to `Resource list`
+  * Expand `Databases` and click on your watsonx.data instance, then select `Open web console`
+  * After quick initial setup you should see be able to open watsonx.data Console and see empty `Infrastructure manager`
+
+  ![Infrastucture manager - initial setup](../attachments/2025-10-23-10-45-28-pasted-vscode.png)
+
+# 4 Run Auto setup script in Jupyter Notebook
+
 *  Open `instructor-prep/scripts/auto-setup/Auto-setup.ipynb`
 *  Select kernel as `venv_prep`
 *  Run All
