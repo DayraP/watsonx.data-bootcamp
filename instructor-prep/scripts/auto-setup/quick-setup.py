@@ -1,3 +1,4 @@
+# updated to version 3 of watsonx.data API as recieved from Maritta Stephen (translated from sh to python)
 import os
 import sys
 import time
@@ -20,11 +21,11 @@ class WXDProvisioner:
         self.crn = crn
         self.log_file = log_file
         
-        # Initialize API endpoints
-        self.base_url = f"https://{self.host_name}/lakehouse/api/v2"
+        # Initialize API endpoints - Updated to v3
+        self.base_url = f"https://{self.host_name}/lakehouse/api/v3"
         self.auth_api = f"{self.base_url}/auth/authenticate"
-        self.pg_assign_api = f"{self.base_url}/pg_assign"
-        self.pg_assign_status_api = f"{self.base_url}/pg_assign"
+        self.pg_assign_api = f"{self.base_url}/configure/pg_assign"
+        self.pg_assign_status_api = f"{self.base_url}/configure/pg_assign"
         self.mds_patch_api = f"{self.base_url}/configuration/mds"
         self.mds_get_api = f"{self.base_url}/configuration/mds"
         self.endpoints_api = f"{self.base_url}/endpoints"
