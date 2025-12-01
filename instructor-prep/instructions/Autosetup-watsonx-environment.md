@@ -1,8 +1,8 @@
-#  IBM watsonx.data Env. Setup (half-automated)
+#  IBM watsonx.data Env. Setup (automated)
 
 **Technical Hands-on Lab: Provision Environment**
 
-- [IBM watsonx.data Env. Setup (half-automated)](#ibm-watsonxdata-env-setup-half-automated)
+- [IBM watsonx.data Env. Setup (automated)](#ibm-watsonxdata-env-setup-automated)
 - [1. Getting Started](#1-getting-started)
   - [1.1 Open bootcamp main directory in VSCode or clone the repo if not yet](#11-open-bootcamp-main-directory-in-vscode-or-clone-the-repo-if-not-yet)
   - [1.2 Make sure you have correct remote repo](#12-make-sure-you-have-correct-remote-repo)
@@ -79,9 +79,11 @@ If it does not show the right name of the instance, you can select it from the d
 * Create env file in `instructor-prep/scripts/auto-setup` folder: copy `instructor-prep/scripts/auto-setup/env_setup.example` as `instructor-prep/scripts/auto-setup/.env_setup` where you will during the next steps fill values for:
   * `CLOUD_API_KEY`
   * `WXD_REGION`
+  * `WXD_INSTANCE_HOST` # be aware of a different syntax for Toronto DC
+  * `WXD_USERNAME`
   * `WXD_INSTANCE_CRN`  
 
-![](../attachments/2025-05-23-11-35-14-pasted-vscode.png)
+![](attachments/2025-12-01-18-47-11-pasted-vscode.png)
 
 ## 2.1 Create an API key
 
@@ -103,6 +105,8 @@ style="width:6.5in;height:2.46319in"
 alt="A screenshot of a computer AI-generated content may be incorrect." />
 
 * Select `+ New Credential`
+
+* Uncheck `Control by Secrets Manager` as it's not provided within the instance
 
 * Name: `cos_credentials`
 
@@ -127,6 +131,7 @@ alt="A screenshot of a computer AI-generated content may be incorrect." />
 Go to IBM Cloud `Resource List`, click on watsonx.data instance in the databases, scroll down and copy values in `instructor-prep/scripts/auto-setup/.env_setup`:
 * `CRN` as `WXD_INSTANCE_CRN`
 * `Region` as `WXD_REGION`
+* `Web console` between `https:\\` and next `\` for `WXD_INSTANCE_HOST`, e.g. `us-south.lakehouse.cloud.ibm.com`
 
 ![](../attachments/2025-05-23-11-39-36-pasted-vscode.png)
 
