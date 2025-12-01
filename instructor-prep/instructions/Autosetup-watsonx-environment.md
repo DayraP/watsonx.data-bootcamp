@@ -74,8 +74,6 @@ If it does not show the right name of the instance, you can select it from the d
 
 * Within `instructor-prep/scripts/auto-setup` folder create a subfolder `credentials` with 2 empty json files: `cos.json` and `postgres.json`. At later steps you will store there credentials for Cloud Object Storage `cos.json` and for Postgres database `postgres.json`.
 
-![](attachments/2025-06-26-23-32-57-pasted-vscode.png)
-
 * Create env file in `instructor-prep/scripts/auto-setup` folder: copy `instructor-prep/scripts/auto-setup/env_setup.example` as `instructor-prep/scripts/auto-setup/.env_setup` where you will during the next steps fill values for:
   * `CLOUD_API_KEY`
   * `WXD_REGION`
@@ -83,7 +81,7 @@ If it does not show the right name of the instance, you can select it from the d
   * `WXD_USERNAME`
   * `WXD_INSTANCE_CRN`  
 
-![](attachments/2025-12-01-18-47-11-pasted-vscode.png)
+![](../attachments/2025-12-01-18-47-11-pasted-vscode.png)
 
 ## 2.1 Create an API key
 
