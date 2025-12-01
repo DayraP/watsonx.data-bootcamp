@@ -1,0 +1,205 @@
+
+# ./provision_wxd.sh eu-de.lakehouse.dev.cloud.ibm.com ibmlhapikey_wxdconsole@ibm.com jMD4L2aPWzhi38eDkK0O2kMLe1AcvFswVq6DUbhWcgF7 crn:v1:staging:public:lakehouse:us-south:a/31ea76b5bcf6466183cc21d96417f000:4cc5f617-c9a8-4e1e-9fa6-288b84d241a9::
+# ./provision_wxd.sh us-east.lakehouse.dev.cloud.ibm.com ibmlhapikey_wxdconsole@ibm.com jMD4L2aPWzhi38eDkK0O2kMLe1AcvFswVq6DUbhWcgF7 crn:v1:staging:public:lakehouse:us-east:a/31ea76b5bcf6466183cc21d96417f000:f2cf7385-c8fc-4f31-bf14-054efff29bdc::
+# ./provision_wxd.sh console-ibm-cator.lakehouse.dev.saas.ibm.com ibmlhapikey_wxdconsole@ibm.com jMD4L2aPWzhi38eDkK0O2kMLe1AcvFswVq6DUbhWcgF7 crn:v1:staging:public:lakehouse:ca-tor:a/31ea76b5bcf6466183cc21d96417f000:d402b6a6-ed66-4fc3-9551-5e62e3911c81::
+# ./provision_wxd.sh console-ibm-useast.lakehouse.dev.saas.ibm.com ibmlhapikey_wxdconsole@ibm.com jMD4L2aPWzhi38eDkK0O2kMLe1AcvFswVq6DUbhWcgF7 crn:v1:staging:public:lakehouse:us-east:a/31ea76b5bcf6466183cc21d96417f000:a2b5d80e-1ea1-4243-a8a0-a2a8dadac2ce::
+#!/bin/bash
+
+# Input arguments
+HOST_NAME="$1"
+USERNAME="$2"
+APIKEY="$3"
+CRN="$4"
+TOKEN=""
+LOG_FILE="provision_wxd.log"
+
+echo "Started processing $CRN"
+
+
+
+AUTH_API="https://${HOST_NAME}/lakehouse/api/v3/auth/authenticate"
+PG_ASSIGN_API="https://${HOST_NAME}/lakehouse/api/v3/configure/pg_assign"
+PG_ASSIGN_STATUS_API="https://${HOST_NAME}/lakehouse/api/v3/configure/pg_assign"
+MDS_PATCH_API="https://${HOST_NAME}/lakehouse/api/v3/configuration/mds"
+MDS_GET_API="https://${HOST_NAME}/lakehouse/api/v3/configuration/mds"
+CAS_API="https://${HOST_NAME}/lakehouse/api/v3/cas/"
+CPG_API="https://${HOST_NAME}/lakehouse/api/v3/cpg/"
+ENDPOINTS_API="https://${HOST_NAME}/lakehouse/api/v3/endpoints"
+TOKEN_REFRESH_PID=-1
+# Function to log and print messages
+log() {
+  echo "[$(date)] $1" | tee -a "$LOG_FILE"
+}
+
+# Step 1: Authenticate and get token
+authenticate() {
+  log "Authenticating..."
+  RESPONSE=$(curl -s -X POST "$AUTH_API" \
+    -H 'Content-Type: application/json' \
+    -d "{\"username\":\"$USERNAME\",\"password\":\"$APIKEY\",\"instance_id\":\"$CRN\",\"instance_name\":\"\"}")
+
+  echo $RESPONSE
+
+  TOKEN=$(echo "$RESPONSE" | jq -r '.accessToken')
+
+  if [[ "$TOKEN" == "null" || -z "$TOKEN" ]]; then
+    log "Authentication failed: $RESPONSE"
+    exit 1
+  fi
+  log "Authentication successful. Token acquired."
+}
+
+# Refresh token every 15 mins
+start_token_refresh_loop() {
+  while true; do
+    sleep 900  # 15 minutes
+    authenticate
+  done &
+  TOKEN_REFRESH_PID=$!
+}
+
+# Step 2: Call pg_assign with retry
+pg_assign() {
+  while true; do
+    log "Calling PG Assign API..."
+    RESPONSE=$(curl -s -X POST "$PG_ASSIGN_API" \
+      -H "Authorization: Bearer $TOKEN" \
+      -H "authinstanceid: $CRN" \
+      -H "Content-Type: application/json")
+    
+     log $RESPONSE
+
+    SUCCESS=$(echo "$RESPONSE" | jq -r '.response.message_code')
+    if [[ "$SUCCESS" == "Success" ]]; then
+      log "PG Assign started."
+      break
+    else
+      log "PG Assign failed, retrying... Response: $RESPONSE"
+      sleep 5
+    fi
+  done
+}
+
+# Step 3: Poll PG Assign status
+wait_for_pg_assign() {
+  log "Waiting for PG Assign to complete..."
+  while true; do
+    RESPONSE=$(curl -s "$PG_ASSIGN_STATUS_API" \
+      -H "Authorization: Bearer $TOKEN" \
+      -H "authinstanceid: $CRN")
+
+    log $RESPONSE
+
+    STATUS=$(echo "$RESPONSE" | jq -r '.pg_assignresponse.pg_assign.status')
+    log "PG Assign status: $STATUS"
+    if [[ "$STATUS" == "SUCCESS" ]]; then
+      break
+    fi
+    sleep 5
+  done
+}
+
+# Step 4: Patch MDS with retry
+patch_mds() {
+  while true; do
+    log "Patching MDS..."
+    RESPONSE=$(curl -s -X PATCH "$MDS_PATCH_API" \
+      -H "Authorization: Bearer $TOKEN" \
+      -H "authinstanceid: $CRN" \
+      -H "Content-Type: application/json" \
+      --data '{"mds_enabled":true,"is_quickstart":true}')
+
+    ERROR_MSG=$(echo "$RESPONSE" | jq -r '.errors[0].message // empty')
+    STATUS=$(echo "$RESPONSE" | jq -r '.status // empty')
+    log $RESPONSE
+    if [[ "$STATUS" == "PROVISIONING" ]]; then
+      log "MDS provisioning started."
+      break
+    elif [[ "$ERROR_MSG" == "Metadata service is already in running state" ]]; then
+      log "MDS already provisioned. Skipping patch."
+      break
+    else
+      log "Retrying MDS patch... Response: $RESPONSE"
+      sleep 5
+    fi
+  done
+}
+
+
+# Step 5: Wait for MDS to be RUNNING
+wait_for_mds() {
+  log "Waiting for MDS to be RUNNING..."
+  while true; do
+    RESPONSE=$(curl -s "$MDS_GET_API" \
+     -H "Authorization: Bearer $TOKEN" \
+      -H "authinstanceid: $CRN")
+    log $RESPONSE
+    STATUS=$(echo "$RESPONSE" | jq -r '.mds_service.status')
+    log "MDS service status: $STATUS"
+    if [[ "$STATUS" == "RUNNING" ]]; then
+      break
+    fi
+    sleep 5
+  done
+}
+
+# Step 6 & 7: Provision CAS and CPG
+provision_cas_and_cpg() {
+  for SERVICE in cas cpg; do
+    URL="https://${HOST_NAME}/lakehouse/api/v3/${SERVICE}/"
+    log "Provisioning $SERVICE..."
+
+    RESPONSE=$(curl -s -X POST "$URL" \
+      -H "Authorization: Bearer $TOKEN" \
+      -H "authinstanceid: $CRN")
+    log $RESPONSE
+    MESSAGE=$(echo "$RESPONSE" | jq -r '.message // empty')
+    ERROR_MSG=$(echo "$RESPONSE" | jq -r '.errors[0].message // empty')
+
+   if [[ "$MESSAGE" == *"Success"* ]]; then
+      log "$SERVICE provisioning started successfully."
+    elif [[ "$ERROR_MSG" == *"$SERVICE service has already exits or is being provisioned"* ]]; then
+      log "$SERVICE already provisioned or being provisioned. Skipping..."
+    else
+      log "Unexpected $SERVICE response. Retrying... Response: $RESPONSE"
+      sleep 5
+    fi
+  done
+}
+
+
+# Step 8: Wait for CAS and CPG endpoints to be RUNNING
+wait_for_endpoints() {
+  log "Waiting for CAS and CPG endpoints to be RUNNING..."
+  while true; do
+    RESPONSE=$(curl -s "$ENDPOINTS_API" \
+      -H "Authorization: Bearer $TOKEN" \
+      -H "authinstanceid: $CRN")
+    log $RESPONSE
+    CAS_STATUS=$(echo "$RESPONSE" | jq -r '.endpoints[] | select(.service_type=="cas") | .service_status')
+    CPG_STATUS=$(echo "$RESPONSE" | jq -r '.endpoints[] | select(.service_type=="cpg") | .service_status')
+
+    log "CAS: $CAS_STATUS, CPG: $CPG_STATUS"
+
+    if [[ "$CAS_STATUS" == "running" && "$CPG_STATUS" == "running" ]]; then
+      break
+    fi
+    sleep 5
+  done
+}
+
+### Run all steps in order
+
+authenticate
+start_token_refresh_loop
+pg_assign
+wait_for_pg_assign
+patch_mds
+wait_for_mds
+provision_cas_and_cpg
+wait_for_endpoints
+
+log "WXD provisioning completed successfully!"
+
+log "Stopping background token refresh process (PID $TOKEN_REFRESH_PID)..."
+kill "$TOKEN_REFRESH_PID" 2>/dev/null || log "Failed to kill token refresh process (maybe already stopped)."
