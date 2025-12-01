@@ -8,11 +8,13 @@ WXD_REGION = ""
 # wxd host IP address under connection, information, instance details, e.g. "console-ibm-cator.lakehouse.saas.ibm.com"
 # wxd host IP address under connection, information, instance details, e.g. "us-south.lakehouse.cloud.ibm.com"
 WXD_INSTANCE_HOST = ""
+#wxd username consisting of ibmlhapikey_ and your login email
+WXD_USERNAME = "ibmlhapikey_YourEMAIL"
 
 # Cloud resource name (CRN)
 WXD_INSTANCE_CRN = ""
 
-# COS credentials json
+# COS credentials json -> paths to credentials
 COS_CREDENTIALS_PATH = "./credentials/cos.json"
 POSTGRES_CREDENTIALS_PATH = "./credentials/postgres.json"
 

@@ -87,7 +87,7 @@ class WXDProvisioner:
         # only for debug purposes return the full response
         self.logger.debug(json.dumps(data))
         
-        token = data.get("accessToken") if isinstance(data, dict) else None
+        token = data.get("access_token") if isinstance(data, dict) else None
         if not token:
             self.logger.error(f"Authentication failed: {data}")
             return False
