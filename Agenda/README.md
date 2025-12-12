@@ -4,7 +4,7 @@
 | Descripción| Duración Estimada|
 |:------------|----------------------------:|
 |Welcome & Introduction | 20 mins| 
-|[Setup de Ambiente](/env-setup/README.md) ||| add-date-and-time| 30 mins| ||| add-date-and-time| 20 mins|
+|[Setup de Ambiente](/env-setup/README.md) |20 mins|
 |watsonx.data overview | 30 mins|
 |[Caso de negocio](/Labs/README.md) |15 mins|
 |[Data Warehouse Optimization Lab](/Labs/Lab1_Data_Warehouse_Optimization/Lab_1_Data_Offload_Guide.md) |30 mins|
