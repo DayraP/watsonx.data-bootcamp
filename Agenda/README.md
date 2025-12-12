@@ -4,11 +4,9 @@
 | Session Description| Topics Covered | Speaker(s) | Data and Time| Estimated Duration|
 |:------------|------------------------|-------------|-------------|----------------------------:|
 |Welcome & Introduction ||| add-date-and-time| 20 mins| 
-|Client Perspective ||| add-date-and-time| 20 mins| 
-|Discovery ||| add-date-and-time| 60 mins|
+|Setup de Ambientes ||| add-date-and-time| 20 mins| 
 |watsonx.data overview ||| add-date-and-time| 30 mins|
-|Data Lakehouse ||| add-date-and-time| 30 mins|
-|[Overview of the labs and business scenario](/Labs/README.md) ||| add-date-and-time| 15 mins|
+|[Caso de negocio](/Labs/README.md) ||| add-date-and-time| 15 mins|
 |[Environment Setup](/env-setup/README.md) ||| add-date-and-time| 30 mins| ||| add-date-and-time| 20 mins|
 |[Data Warehouse Optimization Lab](/Labs/Lab1_Data_Warehouse_Optimization/Lab_1_Data_Offload_Guide.md) ||| add-date-and-time| 30 mins|
 |Data Warehouse Optimization Lab Recap ||| add-date-and-time| 5 mins|
