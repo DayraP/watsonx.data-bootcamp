@@ -25,10 +25,3 @@ In this bootcamp, you will gain hands-on experience developing a solution around
 [Agenda](Agenda/README.md)  <br>
 [Setup instructions for the labs](env-setup/README.md) <br>
 [Use Case and Lab Overview](Labs/README.md) <br>
-
-
-### Instructors:
-[Instructor Guide](instructor-prep/README.md)<br>
-[Agenda](Agenda/README.md)  <br>
-[Lab Overview](instructor-prep/lab-overview.md)  <br>
-[Troubleshooting Tips](Troubleshooting/README.md)<br>
