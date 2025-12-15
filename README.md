@@ -1,27 +1,26 @@
-# watsonx.data Client Bootcamp
+# Bootcamp para SBS de watsonx.data
 
 <!-- <img src="./assets1/class structure.png" width="100%"> -->
 
-## Objective
+## Objetivo
 
-Explore today’s data challenges, learn the strategies to overcome them and gain hands-on experience towards readying your data for Artificial Intelligence (AI) with watsonx.data.
+Explorar los desafíos actuales de los datos, aprender las estrategias para superarlos y obtener experiencia práctica para preparar sus datos para Inteligencia Artificial (IA) con watsonx.data.
 
-## Bootcamp Structure
+## Estructura del Bootcamp
 
-In this bootcamp, you will gain hands-on experience developing a solution around a real business scenario that our Financial Services clients face today.  
- 
-🚀 You'll learn how to make your data ready for AI with a modern Lakehouse
+En este bootcamp, obtendrás experiencia práctica desarrollando una solución basada en un escenario de negocio real que enfrentan actualmente nuestros clientes del sector de Servicios Financieros.  
 
-🚀 You'll learn how to build more accurate AI Agents by leveraging your enterprise data
+🚀 Aprenderás cómo preparar tus datos para IA utilizando un Lakehouse moderno  
 
-🚀 You'll learn how unify your data from various sources (both structured and unstructured) and create a single, trusted view
+🚀 Aprenderás cómo construir Agentes de IA más precisos aprovechando los datos empresariales  
 
-🚀 You'll gain hand-on experience and learn best practices from top industry experts
+🚀 Aprenderás cómo unificar datos provenientes de múltiples fuentes (tanto estructuradas como no estructuradas) y crear una vista única y confiable  
 
+🚀 Obtendrás experiencia práctica y aprenderás mejores prácticas de expertos líderes de la industria  
 
-## Where to go next?
+## ¿Qué sigue?
 
-### Students
 [Agenda](Agenda/README.md)  <br>
-[Setup instructions for the labs](env-setup/README.md) <br>
-[Use Case and Lab Overview](Labs/README.md) <br>
+[Instrucciones de configuración para los laboratorios](env-setup/README.md) <br>
+[Descripción del caso de uso y visión general de los laboratorios](Labs/README.md) <br>
+
