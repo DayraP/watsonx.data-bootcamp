@@ -1,4 +1,4 @@
-# Lab5: Natural Language to SQL Agent
+# Lab4: Natural Language to SQL Agent
 
 Este lab crea un agente que puede convertir consultas en lenguaje natural del usuario a consultas SQL y, aprovechando el motor presto en watsonx.data, consultar los datos y responder al usuario con la respuesta.  
 
