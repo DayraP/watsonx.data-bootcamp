@@ -1,6 +1,6 @@
-#  Environment Setup
+#  Configuración del Ambiente
 
-- [Environment Setup](#environment-setup)
+- [Configuración del Ambiente](#environment-setup)
   - [1. Getting Started](#1-getting-started)
     - [1.1 Download the Classroom Repo](#11-download-the-classroom-repo)
     - [1.2 Access the bootcamp environment](#12-access-the-bootcamp-environment)
