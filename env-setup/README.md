@@ -1,353 +1,427 @@
 #  Configuración del Ambiente
 
-- [Configuración del Ambiente](#environment-setup)
+- [Configuración del Ambiente](#configuracion-del-ambiente)
   - [1. Primeros Pasos](#1-primeros-pasos)
-    - [1.1 Download the Classroom Repo](#11-download-the-classroom-repo)
-    - [1.2 Access the bootcamp environment](#12-access-the-bootcamp-environment)
-    - [1.3 Open your Techzone Reservation](#13-open-your-techzone-reservation)
-    - [1.4 Login to your individual Techzone environment](#14-login-to-your-individual-techzone-environment)
-    - [1.5 Verify you are in the right instance.](#15-verify-you-are-in-the-right-instance)
-    - [1.6 Open a Text Editor of your choice](#16-open-a-text-editor-of-your-choice)
-  - [2. Configuring the Environment](#2-configuring-the-environment)
-    - [2.1 Create an API key](#21-create-an-api-key)
-    - [2.2 Create a new project](#22-create-a-new-project)
-    - [2.3 Associate a watsonx.ai Runtime instance](#23-associate-a-watsonxai-runtime-instance)
-    - [2.4 Create a project token](#24-create-a-project-token)
-    - [2.5 Create a User API Key](#25-create-a-user-api-key)
-    - [2.6 Create deployment space](#26-create-deployment-space)
-    - [2.7 Prepare env.txt](#27-prepare-envtxt)
-    - [2.8 Upload env.txt to the watsonx.ai Studio project](#28-upload-envtxt-to-the-watsonxai-studio-project)
-  - [3. Create Data Source Connections in the watsonx.ai Studio project](#3-create-data-source-connections-in-the-watsonxai-studio-project)
-    - [3.1 Add Presto Connection](#31-add-presto-connection)
-    - [3.2 Add milvus connection](#32-add-milvus-connection)
-    - [3.3 Add COS connection](#33-add-cos-connection)
-    - [3.4 Review connections in the project](#34-review-connections-in-the-project)
+    - [1.1 Descargar el repositorio del Bootcamp](#11-descargar-el-repositorio-del-bootcamp)
+    - [1.2 Acceder al ambiente del bootcamp](#12-acceder-al-ambiente-del-bootcamp)
+    - [1.3 Abrir tu reserva en Techzone](#13-abrir-tu-reserva-en-techzone)
+    - [1.4 Iniciar sesión en tu ambiente individual de Techzone](#14-iniciar-sesión-en-tu-ambiente-individual-de-techzone)
+    - [1.5 Verificar que estás en la instancia correcta](#15-verificar-que-estás-en-la-instancia-correcta)
+    - [1.6 Abrir un editor de texto de tu preferencia](#16-abrir-un-editor-de-texto-de-tu-preferencia)
+  - [2. Configuración del Ambiente](#2-configuración-del-ambiente)
+    - [2.1 Crear una clave de API](#21-crear-una-clave-de-api)
+    - [2.2 Crear un nuevo proyecto](#22-crear-un-nuevo-proyecto)
+    - [2.3 Asociar una instancia de watsonx.ai Runtime](#23-asociar-una-instancia-de-watsonxai-runtime)
+    - [2.4 Crear un token del proyecto](#24-crear-un-token-del-proyecto)
+    - [2.5 Crear una clave de API de usuario](#25-crear-una-clave-de-api-de-usuario)
+    - [2.6 Crear un espacio de despliegue](#26-crear-un-espacio-de-despliegue)
+    - [2.7 Preparar el archivo env.txt](#27-preparar-el-archivo-envtxt)
+    - [2.8 Cargar el archivo env.txt en el proyecto de watsonx.ai Studio](#28-cargar-el-archivo-envtxt-en-el-proyecto-de-watsonxai-studio)
+  - [3. Crear conexiones a fuentes de datos en el proyecto de watsonx.ai Studio](#3-crear-conexiones-a-fuentes-de-datos-en-el-proyecto-de-watsonxai-studio)
+    - [3.1 Agregar conexión Presto](#31-agregar-conexión-presto)
+    - [3.2 Agregar conexión Milvus](#32-agregar-conexión-milvus)
+    - [3.3 Agregar conexión a COS](#33-agregar-conexión-a-cos)
+    - [3.4 Revisar las conexiones en el proyecto](#34-revisar-las-conexiones-en-el-proyecto)
 
 
 
 ## 1. Primeros Pasos
 
-### 1.1 Download the Classroom Repo 
+### 1.1 Descargar el repositorio del Classroom
 
-- Students will be provided with a zip file of the classroom Repo by the instructor with instructions and files needed for the Bootcamp.
+- El instructor proporcionará a los estudiantes un archivo ZIP con el repositorio del Classroom, que incluye las instrucciones y los archivos necesarios para el Bootcamp.
 
 
-### 1.2 Access the bootcamp environment
+### 1.2 Acceder al ambiente del bootcamp
 
-For completing this bootcamp you will need access the following services.
-* watsonx.data (Shared back-end Environment)
-* Cloud Object Storage (COS) 
+Para completar este bootcamp, necesitarás acceso a los siguientes servicios:
+
+* watsonx.data (Ambiente back-end compartido)
+* Cloud Object Storage (COS)
 * watsonx.data Intelligence
 * watsonx.ai Studio & Runtime
 * watsonx Orchestrate
   
-Two techzone environments are needed for the labs.  A shared watsonx.data back-end environment used by all students and an individual labs environment where you will work.
+Para los laboratorios se requieren dos ambientes de Techzone:  
+un ambiente back-end compartido de watsonx.data, utilizado por todos los estudiantes, y un ambiente individual de laboratorios donde realizarás el trabajo práctico.
 
-To access the environments, look for email messages from IBM Technology Zone <noreply@techzone.ibm.com> inviting you to join the accounts where your environments are located.  
+Para acceder a los ambientes, busca los correos electrónicos enviados por IBM Technology Zone <noreply@techzone.ibm.com>, en los que se te invita a unirte a las cuentas donde se encuentran tus ambientes.
 
-In each email, Click on the `HERE` link to accept the invitation
-(Highlighted in the screenshot below.)
+En cada correo, haz clic en el enlace `HERE` para aceptar la invitación  
+(resaltado en la captura de pantalla a continuación).
 
 <img src="./attachments/image4.png"
 style="width:3.99858in;height:4.70288in"
-alt="A screenshot of a computer AI-generated content may be incorrect." />
+alt="Captura de pantalla de una computadora. El contenido generado por IA puede ser incorrecto." />
 
-Option: If you miss the email or don't receive it for any reason, you
-can find the invitation on your IBM Cloud account:
+**Opción:** Si no ves el correo o no lo recibes por algún motivo, puedes encontrar la invitación directamente en tu cuenta de IBM Cloud:  
 <https://cloud.ibm.com/notifications?type=account>
 
-Please select the **Join Now** link.
+Selecciona el enlace **Join Now**.
 
 <img src="./attachments/image5.png"
 style="width:4.96851in;height:2.75537in"
-alt="A screenshot of a computer AI-generated content may be incorrect." />
+alt="Captura de pantalla de una computadora. El contenido generado por IA puede ser incorrecto." />
 
-*You might have earlier worked with the same Techzone account / have access to it and you are able to see it in the list of your accounts in IBM Cloud. In that case, select it and check the list of available services for the current reservtion (based on the Group ID and Environment id in Techzone).*
+*Es posible que hayas trabajado anteriormente con la misma cuenta de Techzone o que ya tengas acceso a ella y puedas verla en la lista de tus cuentas en IBM Cloud. En ese caso, selecciónala y revisa la lista de servicios disponibles para la reserva actual (según el Group ID y el Environment ID en Techzone).*
 
 
-### 1.3 Open your Techzone Reservation 
+### 1.3 Abrir tu reserva de Techzone
 
-* Go to your techzone reservation list:
-<https://techzone.ibm.com/my/reservations>
+* Ve a la lista de tus reservas de Techzone:  
+  <https://techzone.ibm.com/my/reservations>
 
-* Look for your recently created reservation and click "Open this
-environment".
+* Busca tu reserva creada recientemente y haz clic en **"Open this environment"**.
 
-* Scroll down and look for the name of the Cloud Account (will be provided by instructor)
+* Desplázate hacia abajo y busca el nombre de la cuenta de Cloud  
+  (será proporcionado por el instructor).
 
 <img src="./attachments/image6.png"
 style="width:5.33333in;height:2.875in"
-alt="A screenshot of a computer AI-generated content may be incorrect." />
+alt="Captura de pantalla de una computadora. El contenido generado por IA puede ser incorrecto." />
 
-### 1.4 Login to your individual Techzone environment 
 
-* Go to: <https://cloud.ibm.com/resources>
+### 1.4 Iniciar sesión en tu ambiente individual de Techzone
 
-* Login with your IBM credentials
+* Ve a: <https://cloud.ibm.com/resources>
 
-### 1.5 Verify you are in the right instance. 
+* Inicia sesión con tus credenciales de IBM
 
-Check at the top right that you are in the right instance –
-**itz-watsonx-event-xxx** 
 
-If it does not show the right name of the instance, you can select it from the drop-down.
+### 1.5 Verificar que estás en la instancia correcta
 
-<font color="red">**CAUTION:**</font>  The instance at the top right tends to change to your default personal account every time you switch/go back to a new page. Thus, it's always good to check the top right corner **every time** you switch to a new page.
+Verifica en la esquina superior derecha que te encuentras en la instancia correcta:  
+**itz-watsonx-event-xxx**
 
-### 1.6 Open a Text Editor of your choice 
+Si no aparece el nombre correcto de la instancia, puedes seleccionarla desde el menú desplegable.
 
-Open a text-based notepad to use as a ready reference for the lab.  The labs will have call outs to copy information that will be needed for future configuration steps.
+<font color="red">**PRECAUCIÓN:**</font>  
+La instancia que aparece en la esquina superior derecha suele cambiar a tu cuenta personal predeterminada cada vez que navegas o regresas a una nueva página. Por ello, es recomendable verificar la esquina superior derecha **cada vez** que cambies de página.
 
-Examples: Notepad on Windows, TextEdit on Mac or use `.txt` file in VSCode.  
+
+### 1.6 Abrir un editor de texto de tu preferencia
+
+Abre un editor de texto para usarlo como referencia durante el laboratorio.  
+En los laboratorios se indicará cuándo copiar información que será necesaria para pasos posteriores de configuración.
+
+Ejemplos: Bloc de notas en Windows, TextEdit en Mac o un archivo `.txt` en VS Code.
  
 
-## 2. Configuring the Environment
+## 2. Configuración del Ambiente
 
-### 2.1 Create an API key
+### 2.1 Crear una clave de API
 
-From the IBM Cloud interface use the top menu
+Desde la interfaz de IBM Cloud, utiliza el menú superior:
+
 ![Manage Access](./attachments/2025-04-23-11-24-04-pasted-vscode.png)
-* Manage -> Access IAM 
-* From the Left Navigation click Manage Identities -> API Keys
-* Click on the Create button
-* Name you key **lab-api-key** and click Create with the defaults
-* Copy the key to your text Reference (you will use in a future step)
-* Download the file to your laptop / desktop.
+
+* Manage -> Access IAM  
+* En la navegación izquierda, haz clic en **Manage Identities -> API Keys**  
+* Haz clic en el botón **Create**  
+* Asigna el nombre **lab-api-key** y haz clic en **Create** utilizando los valores predeterminados  
+* Copia la clave en tu archivo de referencia de texto (la utilizarás en un paso posterior)  
+* Descarga el archivo en tu laptop o computadora de escritorio  
 
 <img src="./attachments/image8.png"
 style="width:4.58333in;height:2.125in"
-alt="A screenshot of a computer error AI-generated content may be incorrect." />
+alt="Captura de pantalla de una computadora. El contenido generado por IA puede ser incorrecto." />
 
 
-1. Log in to watsonx <a name="log-in-to-watsonx"></a>
+### 1. Iniciar sesión en watsonx <a name="log-in-to-watsonx"></a>
 ---
-Go to `IBM Cloud` -> `Resource list` -> In `AI/ Machine Learning` resources find `watsonx.ai Studio` instance and click on it -> Launch in IBM watsonx
+Ve a `IBM Cloud` -> `Resource list` -> en los recursos de `AI / Machine Learning`, busca la instancia de `watsonx.ai Studio` y haz clic sobre ella -> **Launch in IBM watsonx**
+
 ![](./attachments/2025-04-23-17-33-42-pasted-vscode.png)
 
 
-2. Check that you are in the right account and location <a name="check-instance"></a>
+### 2. Verificar que estás en la cuenta y ubicación correctas <a name="check-instance"></a>
 ---
-You should now be taken to the watsonx home screen. Check at the top right that you are in the right account and location (specified for your Labs account). If it does not show the right name of the account, you can select it in the dropdown. 
+Ahora deberías ver la pantalla principal de watsonx. Verifica en la esquina superior derecha que te encuentras en la cuenta y ubicación correctas (especificadas para tu cuenta de laboratorios).  
+Si no aparece el nombre correcto de la cuenta, puedes seleccionarlo desde el menú desplegable.
 
-If you do not know your account, go to your techzone reservations list https://techzone.ibm.com/my/reservations. Look for your recently created reservation and click on "Open this environment". Scroll down and look for a reservation name that looks similar to this:  `2709027 - watsonx-events`. 
+Si no conoces tu cuenta, ve a la lista de tus reservas de Techzone:  
+https://techzone.ibm.com/my/reservations  
 
-**Note:** The account at the top right tends to change to your default personal account every time you switch/go back to a new page. Thus, it's always good to check the top right corner every time you switch to a new page.
+Busca tu reserva creada recientemente y haz clic en **"Open this environment"**.  
+Desplázate hacia abajo y busca un nombre de reserva similar a:  
+`2709027 - watsonx-events`.
+
+**Nota:**  
+La cuenta que aparece en la esquina superior derecha suele cambiar a tu cuenta personal predeterminada cada vez que navegas o regresas a una nueva página. Por ello, es recomendable verificar la esquina superior derecha **cada vez** que cambies de página.
 
 ![check-right-instance](./attachments/check-right-instance.png)
 
 
-### 2.2 Create a new project<a name="new-project"></a>
 
-1. On the homepage, capture the `watsonx.ai URL` and save to your text based reference, you will need this for your env.txt file.
-2. Go to the **Projects** section at the bottom, and click the "+" symbol next to it to create a new project.
+### 2.2 Crear un nuevo proyecto<a name="new-project"></a>
+
+1. En la página principal, copia la `URL de watsonx.ai` y guárdala en tu archivo de referencia de texto; la necesitarás para el archivo `env.txt`.
+
+2. Ve a la sección **Projects** en la parte inferior y haz clic en el símbolo **“+”** que aparece junto a ella para crear un nuevo proyecto.
 
     ![create-new-project](./attachments/2025-07-13_08-30-16.png)
 
-3. Enter a **unique name** for your project, include both your first and last name and any other information you would like.
+3. Ingresa un **nombre único** para tu proyecto. Incluye tu nombre y apellido, así como cualquier otra información que desees agregar.
 
     ![unique-name](./attachments/unique-name.png)
 
-    **Cloud Object Storage (COS)**
-    It is likely there is also already a Cloud Object Storage instance selected for you, with a name that starts with "itzcos-..." If so, you don't have to do anything! 
+    **Cloud Object Storage (COS)**  
+    Es probable que ya tengas seleccionada una instancia de Cloud Object Storage, con un nombre que comienza con **“itzcos-...”**.  
+    Si es así, **no necesitas realizar ninguna acción adicional**.
 
-    Otherwise you may be prompted to select from multiple instances. Please consult with your bootcamp lead which COS instance to select.
+    En caso contrario, es posible que se te solicite seleccionar una instancia entre varias opciones.  
+    Por favor, consulta con el responsable del bootcamp cuál instancia de COS debes seleccionar.
 
     ![select-instance](./attachments/select-instance.png)
 
-4. Click Create to create the project. It may take a few seconds to officially be created.
+4. Haz clic en **Create** para crear el proyecto. El proceso puede tardar algunos segundos en completarse.
 
-5. Copy the `Project ID` to your text reference, you will need it for your Env file:
-![](./attachments/projectid.png)
+5. Copia el `Project ID` y guárdalo en tu archivo de referencia de texto; lo necesitarás para tu archivo `env`.
 
-1. Return to the watsonx.ai Studio homepage 
+    ![](./attachments/projectid.png)
+
+6. Regresa a la página principal de watsonx.ai Studio.
 
 
-### 2.3 Associate a watsonx.ai Runtime instance<a name="wml-instance"></a>
+### 2.3 Asociar una instancia de watsonx.ai Runtime<a name="wml-instance"></a>
 ---
-1.  Go to the `Manage` tab
-2.  Click on `Services and Integrations` in the left side-bar.  
-3.  Click on `Associate service`
+1. Ve a la pestaña `Manage`.
+2. En el panel lateral izquierdo, haz clic en `Services and Integrations`.
+3. Haz clic en `Associate service`.
 
 ![manage-tab](./attachments/manage-tab.png)
 
-4. Select the service listed with "Type" = `watsonx.ai Runtime` and click **Associate**. 
+4. Selecciona el servicio que tenga **"Type" = `watsonx.ai Runtime`** y haz clic en **Associate**.
 
 ![associate-wml](./attachments/2025-06-25-11-10-43-pasted-vscode.png)
 
-**Note:** If you can't find the service, remove all filters from the "Locations" and "Resource Groups" dropdown. If you see 2+ watsonx.ai Runtime services, select the one where "Group" = the same *environment* name of the instance. The *environment* name can be found on https://techzone.ibm.com/my/reservations. 
+**Nota:**  
+Si no encuentras el servicio, elimina todos los filtros de los menús desplegables **“Locations”** y **“Resource Groups”**.  
+Si aparecen dos o más servicios de watsonx.ai Runtime, selecciona aquel cuyo **“Group”** coincida con el nombre del *ambiente* de la instancia.  
+
+El nombre del *ambiente* puede encontrarse en:  
+https://techzone.ibm.com/my/reservations  
 
 ![techzone](./attachments/techzone.png)
 
-### 2.4 Create a project token 
 
-The Project token will be used by the notebook for accessing the assets in the project programatically. 
+### 2.4 Crear un token del proyecto
 
-1. Go to the `Manage` tab
-2. Under `Access Control` click on the `Access tokens` tab 
-3. If you do not have a token, create one by selecting `New access token`
-  ![project_token](./attachments/project_token.png)
-4. Give it a name, select `Editor` for `Access Role` and select `Create`  
+El token del proyecto será utilizado por el notebook para acceder de forma programática a los activos del proyecto.
+
+1. Ve a la pestaña `Manage`.
+2. En la sección `Access Control`, haz clic en la pestaña `Access tokens`.
+3. Si no tienes un token, crea uno seleccionando `New access token`.
+
+   ![project_token](./attachments/project_token.png)
+
+4. Asigna un nombre, selecciona `Editor` como `Access Role` y haz clic en `Create`.
+
    ![project_token](./attachments/access_token.png)
 
-### 2.5 Create a User API Key 
 
-The User API Key is a prerequisite for successful remote deployment and accessing deployments from other services (e.g. watsonx Orchestrate). This key is different from the Cloud API key you previously created.  If you have one already, you are all set.  If you do not, follow the steps below to create it.
+### 2.5 Crear una clave de API de usuario
 
-1. Go to `Profile and settings` for a given user (upper right corner with user initials) -> `User API Key` Tab:
-![profile-settings](./attachments/2025-06-25-11-33-52-pasted-vscode.png)
+La clave de API de usuario es un prerrequisito para realizar despliegues remotos exitosos y para acceder a despliegues desde otros servicios (por ejemplo, watsonx Orchestrate).  
+Esta clave es diferente de la clave de API de Cloud que creaste previamente.  
 
-1. Click `Create a key +` if you do not have one.
+Si ya cuentas con una, no necesitas realizar ninguna acción adicional.  
+Si no la tienes, sigue los pasos a continuación:
 
-### 2.6 Create deployment space
+1. Ve a `Profile and settings` del usuario (esquina superior derecha con las iniciales del usuario) y selecciona la pestaña `User API Key`.
+
+   ![profile-settings](./attachments/2025-06-25-11-33-52-pasted-vscode.png)
+
+2. Haz clic en `Create a key +` si aún no tienes una.
+
+### 2.6 Crear un espacio de despliegue
 ---
-1.  In the watsonx.ai Studio Hamburger menu, go to `Deployments` -> `New deployment space +`
-![Deployment space](./attachments/2025-04-25-16-06-17-pasted-vscode.png)
+1. En el menú hamburguesa de watsonx.ai Studio, ve a `Deployments` -> `New deployment space +`.
 
-2. Fill in `Name`, select `Development` Deployment Stage, select storage service from drop down as well as watsonx.ai Runtime, then click Create
-![Create deployment space](./attachments/2025-04-25-16-10-19-pasted-vscode.png)
+   ![Deployment space](./attachments/2025-04-25-16-06-17-pasted-vscode.png)
 
-3. Wait till created, then click `View new space`
-  ![View new space](./attachments/2025-04-25-16-12-02-pasted-vscode.png)
+2. Completa el campo `Name`, selecciona `Development` como **Deployment Stage**, elige el servicio de almacenamiento desde el menú desplegable, así como la instancia de `watsonx.ai Runtime`, y luego haz clic en **Create**.
 
-4. From `Manage` tab copy `Space GUID` to the reference note as Deployment space id
-![Deployment space id](./attachments/2025-04-25-16-15-12-pasted-vscode.png)
+   ![Create deployment space](./attachments/2025-04-25-16-10-19-pasted-vscode.png)
 
-### 2.7 Prepare env.txt
+3. Espera a que el espacio sea creado y luego haz clic en `View new space`.
 
-1. Copy the template [env.example](../env.example) in the root folder with the name env.txt and open it in any text editor of your choice.
+   ![View new space](./attachments/2025-04-25-16-12-02-pasted-vscode.png)
+
+4. Desde la pestaña `Manage`, copia el `Space GUID` y guárdalo en tu nota de referencia como **Deployment Space ID**.
+
+   ![Deployment space id](./attachments/2025-04-25-16-15-12-pasted-vscode.png)
+
+
+### 2.7 Preparar el archivo env.txt
+
+1. Copia la plantilla [env.example](../env.example) ubicada en la carpeta raíz y guárdala con el nombre `env.txt`.  
+   Ábrela en el editor de texto de tu preferencia.
 
     ```
     cp "./env.example" "./.env.txt"
     ```
 
-1. Update env.txt as follows
-    ```
-    # Spark Engine ID  -> Update with Engine ID provided by instructor
-    SPARK_ENGINE_ID=""
+2. Actualiza el archivo `.env.txt` de la siguiente manera:
 
-    # cloud user id / Update with your IBMID, usually your email  
-    CLOUD_USER_ID = ""
+    ``` 
+    # Spark Engine ID -> Actualizar con el Engine ID proporcionado por el instructor
+SPARK_ENGINE_ID=""
 
-    # COS buckets -> Update with COS buckets provided by instructor
-    HIVE_BUCKET=""
-    WXD_BUCKET=""
-    MILVUS_BUCKET=""
-    INPUT_BUCKET=""
+# ID de usuario de Cloud -> Actualizar con tu IBMID, normalmente tu correo electrónico
+CLOUD_USER_ID=""
 
-    # watsonx data catalogs -> Should not need to change unless provided by instructor
-    HIVE_CATALOG="hive_catalog"
-    ICEBERG_CATALOG="iceberg_data"
+# Buckets de COS -> Actualizar con los buckets de COS proporcionados por el instructor
+HIVE_BUCKET=""
+WXD_BUCKET=""
+MILVUS_BUCKET=""
+INPUT_BUCKET=""
+
+# Catálogos de watsonx.data -> No debería ser necesario cambiarlo, salvo indicación del instructor
+HIVE_CATALOG="hive_catalog"
+ICEBERG_CATALOG="iceberg_data"
 
 
-    # watsonx.data schemas -> Update schemas names to add your name and first 3 letter from surname
-    SCHEMA_DWH_OFFLOAD = "netezza_offload_YourName_First3LettersOfSurname"
-    SCHEMA_DATA_H = "input_data_hive_YourName_First3LettersOfSurname"
-    SCHEMA_DATA_I = "clients_schema_YourName_First3LettersOfSurname"
+# Esquemas de watsonx.data -> Actualiza los nombres de los esquemas agregando tu nombre
+# y las primeras 3 letras de tu apellido
+SCHEMA_DWH_OFFLOAD="netezza_offload_YourName_First3LettersOfSurname"
+SCHEMA_DATA_H="input_data_hive_YourName_First3LettersOfSurname"
+SCHEMA_DATA_I="clients_schema_YourName_First3LettersOfSurname"
 
-    # From watsonx.ai studio->  Copy from your Reference Note
-    WATSONX_URL = "watsonx.ai URL"
-    WATSONX_PROJECT_ID = "watsonx.ai Project ID"
-    WATSONX_DEPLOYMENT_SPACE_ID = "Deployment space GUID"
+# Desde watsonx.ai Studio -> Copiar desde tu nota de referencia
+WATSONX_URL="watsonx.ai URL"
+WATSONX_PROJECT_ID="watsonx.ai Project ID"
+WATSONX_DEPLOYMENT_SPACE_ID="Deployment space GUID"
 
-    # milvus ingestion parameters ->> Update collection name to add your name and first 3 letter from surname
-    MV_COLLECTION_NAME="equity_research_YourName_First3LettersOfSurname"
+# Parámetros de ingesta en Milvus -> Actualiza el nombre de la colección agregando
+# tu nombre y las primeras 3 letras de tu apellido
+MV_COLLECTION_NAME="equity_research_YourName_First3LettersOfSurname"
 
-    # COS folder with input pdf files for milvus ingestion -> should not need to change unless provided by instructor
-    COS_FOLDER = "pdfs"
+# Carpeta en COS con archivos PDF de entrada para la ingesta en Milvus
+# No debería ser necesario cambiarla, salvo indicación del instructor
+COS_FOLDER="pdfs"
 
-    # parameters for milvus ingestion -> should not need to change unless provided by instructor
-    SIMILARITY_METRIC="L2"
-    SENTENCE_TRANSFORMER = "sentence-transformers/all-minilm-l6-v2"
-    TEXT_SPLITTER_CHUNK_SIZE=1000
-    TEXT_SPLITTER_CHUNK_OVERLAP=200
-    TEXT_SPLITTER_SEPARATORS='[" \n", "\n"]'
-    TEXT_REPLACEMENTS='{"✔": "ok"}'
-    TEXT_SPLITTER_TYPE="RecursiveCharacterTextSplitter" 
-  
-### 2.8 Upload env.txt to the watsonx.ai Studio project
-:warning: Make sure you have all values filled in `env.txt` before uploading it to your project.
-> This file contains all the necessary configuration that will be uploaded into your kernel as environmental variables.  
+# Parámetros para la ingesta en Milvus -> No deberían requerir cambios,
+# salvo indicación del instructor
+SIMILARITY_METRIC="L2"
+SENTENCE_TRANSFORMER="sentence-transformers/all-minilm-l6-v2"
+TEXT_SPLITTER_CHUNK_SIZE=1000
+TEXT_SPLITTER_CHUNK_OVERLAP=200
+TEXT_SPLITTER_SEPARATORS='[" \n", "\n"]'
+TEXT_REPLACEMENTS='{"✔": "ok"}'
+TEXT_SPLITTER_TYPE="RecursiveCharacterTextSplitter"
 
-* Go to your Project in watsonx.ai by selecting the Hamburger menu -> Projects -> YourProject
-* Go to the `Assets` tab
-* Click on numbers in the right upper corner to upload data files
+### 2.8 Cargar el archivo env.txt en el proyecto de watsonx.ai Studio
+:warning: Asegúrate de haber completado **todos** los valores en `env.txt` antes de cargarlo en tu proyecto.
+
+> Este archivo contiene toda la configuración necesaria que se cargará en tu kernel como variables de entorno.
+
+* Ve a tu proyecto en watsonx.ai desde el menú hamburguesa -> `Projects` -> `TuProyecto`
+* Ve a la pestaña `Assets`
+* Haz clic en el ícono de carga en la esquina superior derecha para subir archivos de datos  
   ![](./attachments/add-asset.png)
 
-* Drag and drop your `env.txt` file to the dedicated area
-* Check that you can see this file in the list of all assets on `Assets` tab
+* Arrastra y suelta el archivo `env.txt` en el área designada
+* Verifica que el archivo aparezca en la lista de activos dentro de la pestaña `Assets`  
   ![view-env.txt](./attachments/2025-06-15-12-39-24-pasted-vscode.png)
 
 
-## 3. Create Data Source Connections in the watsonx.ai Studio project
-### 3.1 Add Presto Connection
-From watsonx.ai Studio Project -> `Assets` -> `New asset +` -> `Connect to a data source` -> Search for `IBM watsonx.data` -> Select `Presto` -> `Next`
-![ws-studio-assets](./attachments/2025-06-16-13-36-42-pasted-vscode.png)
+## 3. Crear conexiones a fuentes de datos en el proyecto de watsonx.ai Studio
+
+### 3.1 Agregar conexión Presto
+
+Desde el proyecto de watsonx.ai Studio:  
+`Assets` -> `New asset +` -> `Connect to a data source` -> buscar `IBM watsonx.data` -> seleccionar `Presto` -> `Next`
+
+![ws-studio-assets](./attachments/2025-06-16-13-36-42-pasted-vscode.png)  
 ![add-wxdata-connection](./attachments/2025-06-16-13-38-17-pasted-vscode.png)
 
-**Fill in your connection details**:  
-The easiest way will be to fill in connection details from JSON snippet provided by the instructor.
+**Completa los detalles de la conexión:**  
+La forma más sencilla es completar los datos de conexión utilizando el fragmento JSON proporcionado por el instructor.
 
-* Select `Enter JSON Snippet`
-* Select `Upload File`
-* Browse to the `presto.json` provided by the instructor and click `Enter`
+* Selecciona `Enter JSON Snippet`
+* Selecciona `Upload File`
+* Busca el archivo `presto.json` proporcionado por el instructor y haz clic en `Enter`
  
-You should see all connection details entered except for API key, enter it manually:  
-* Rename the name of the connection to (required): `presto_connection`
-* Paste the `watsonx.data Cloud API Key` provided by the instructor in the `API Key` field (Not the student Cloud API Key)
-* `Test connection` (upper right corner)and once successful, `Create` connection. 
+Deberías ver todos los detalles de la conexión completados, excepto la clave de API, que deberás ingresar manualmente:
+
+* Cambia el nombre de la conexión a (obligatorio): `presto_connection`
+* Pega la **Cloud API Key de watsonx.data** proporcionada por el instructor en el campo `API Key`  
+  *(no utilices la Cloud API Key del estudiante)*
+* Haz clic en `Test connection` (esquina superior derecha) y, una vez que sea exitosa, selecciona `Create` para crear la conexión.
   
-  **IMPORTANT** :  Use the instructor provided Cloud API Key, not your own Cloud API Key for the Presto connection
+**IMPORTANTE:**  
+Utiliza la Cloud API Key proporcionada por el instructor, **no** tu propia Cloud API Key, para la conexión Presto.
+
 ![test-create-connection](./attachments/2025-06-16-13-55-33-pasted-vscode.png)
 
-### 3.2 Add milvus connection
-Repeat the steps and create the Milvus Connection.
 
-From watsonx.ai Studio Project -> `Assets` -> `New asset +` -> `Connect to a data source` -> Search for `IBM watsonx.data` -> Select `Milvus`
-![ws-studio-assets](./attachments/2025-06-16-13-36-42-pasted-vscode.png)
+### 3.2 Agregar conexión Milvus
+
+Repite los pasos anteriores para crear la conexión a Milvus.
+
+Desde el proyecto de watsonx.ai Studio:  
+`Assets` -> `New asset +` -> `Connect to a data source` -> buscar `IBM watsonx.data` -> seleccionar `Milvus`
+
+![ws-studio-assets](./attachments/2025-06-16-13-36-42-pasted-vscode.png)  
 ![add-wxdata-connection-milvus](./attachments/2025-06-16-13-59-15-pasted-vscode.png)
 
-**Fill in your connection details**:  
-The easiest way will be to fill in connection details from JSON snippet provided by the instructor.
+**Completa los detalles de la conexión:**  
+La forma más sencilla es completar los datos de conexión utilizando el fragmento JSON proporcionado por el instructor.
 
-* Select `Enter JSON Snippet`
-* Select `Upload File`
-* Browse to the `milvus.json` provided by the instructor and click `Enter`
-You should see all connection details entered except for Username and Password
-* Rename the name of the connection to (required): `milvus_connection`
-* Enter the Username as: `ibmlhapikey`
-* Paste the `watsonx.data Cloud API Key` provided by the instructor as the password. (Not the student Cloud API Key)
-* `Test connection` (upper right corner)and once successful, `Create` connection. 
+* Selecciona `Enter JSON Snippet`
+* Selecciona `Upload File`
+* Busca el archivo `milvus.json` proporcionado por el instructor y haz clic en `Enter`
+
+Deberías ver todos los detalles de la conexión completados, excepto el **Username** y el **Password**:
+
+* Cambia el nombre de la conexión a (obligatorio): `milvus_connection`
+* Ingresa el **Username** como: `ibmlhapikey`
+* Pega la **Cloud API Key de watsonx.data** proporcionada por el instructor como **Password**  
+  *(no utilices la Cloud API Key del estudiante)*
+* Haz clic en `Test connection` (esquina superior derecha) y, una vez que sea exitosa, selecciona `Create` para crear la conexión.
   
-  **IMPORTANT** :  Use the instructor provided Cloud API Key, not your own Cloud API Key for the Milvus connection
-* `Test connection` (upper right corner)and once successful, `Create` connection.
+**IMPORTANTE:**  
+Utiliza la Cloud API Key proporcionada por el instructor, **no** tu propia Cloud API Key, para la conexión Milvus.
+
 ![test-create-connection-milvus](./attachments/2025-06-16-14-05-31-pasted-vscode.png)
 
-### 3.3 Add COS connection
-From watsonx.ai Studio Project -> `Assets` -> `New asset +` -> `Connect to a data source` -> Search for `IBM Cloud Object Storage` -> Select `IBM Cloud Object Storage`
-![ws-studio-assets](./attachments/2025-06-16-13-36-42-pasted-vscode.png)
+### 3.3 Agregar conexión a COS
+
+Desde el proyecto de watsonx.ai Studio:  
+`Assets` -> `New asset +` -> `Connect to a data source` -> buscar `IBM Cloud Object Storage` -> seleccionar `IBM Cloud Object Storage`
+
+![ws-studio-assets](./attachments/2025-06-16-13-36-42-pasted-vscode.png)  
 ![add-cos-connection](./attachments/2025-06-16-14-34-56-pasted-vscode.png)
-Fill in your connection details:
-* Name `cos_connection`
-* Leave `Bucket` name field empty
-* For Login URL, use `COS Bucket Public Endpoint` provided by Instructor without `https://`
-* Under Credentials, select `Resource Instance ID and API Key`
-* For Resource instance ID, enter `COS CRN` provided by Instructor
-* For API key, enter `COS API Key` provided by instructor.  Not Cloud API key(s)
+
+Completa los detalles de la conexión:
+
+* Nombre: `cos_connection`
+* Deja el campo **Bucket** vacío
+* En **Login URL**, utiliza el `COS Bucket Public Endpoint` proporcionado por el instructor **sin** `https://`
+* En **Credentials**, selecciona `Resource Instance ID and API Key`
+* En **Resource instance ID**, ingresa el `COS CRN` proporcionado por el instructor
+* En **API key**, ingresa la `COS API Key` proporcionada por el instructor  
+  *(no utilices Cloud API Key)*
 
   ![](../env-setup/attachments/2025-07-03-20-20-17-pasted-vscode.png)
 
-* `Test connection` (upper right corner)and once successful, `Create` connection.
+* Haz clic en `Test connection` (esquina superior derecha) y, una vez que sea exitosa, selecciona `Create` para crear la conexión.
+
 ![](../env-setup/attachments/2025-06-26-12-50-46-pasted-vscode.png)
 
-### 3.4 Review connections in the project
 
-1. Verify you have 3 connections using the recommended naming conventions (so we can use it in code)
-   * cos_connection
-   * milvus_connection
-   * presto_connection
+### 3.4 Revisar las conexiones en el proyecto
+
+1. Verifica que tengas **3 conexiones** creadas usando las convenciones de nombres recomendadas  
+   (esto es necesario para poder utilizarlas en el código):
+
+   * `cos_connection`
+   * `milvus_connection`
+   * `presto_connection`
 
 ![connections-overview](./attachments/connections-overview.png)
 
-**Congratulations!  You are ready for the labs.**
+**¡Felicitaciones! Ya estás listo para comenzar con los laboratorios.**
 
-Return back to [Labs/README.md](../Labs/README.md)
+Regresa a [Labs/README.md](../Labs/README.md)
