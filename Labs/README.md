@@ -8,9 +8,8 @@
     - [Labs](#labs)
       - [1. Data Warehouse Lab](#1-data-warehouse-lab)
       - [2. Data Lakehouse Lab](#2-data-lakehouse-lab)
-      - [3. Data Governance Lab](#3-data-governance-lab)
-      - [4. Agentic RAG Lab](#4-agentic-rag-lab)
-      - [5. Natural Language to SQL Lab](#5-natural-language-to-sql-lab)
+      - [3. Agentic RAG Lab](#4-agentic-rag-lab)
+      - [4. Natural Language to SQL Lab](#5-natural-language-to-sql-lab)
 
 
 # 🥇 Caso de Uso de Wealth Manager
@@ -56,6 +55,5 @@ Para ejecutar los pasos de esta parte práctica del bootcamp, necesitas acceso a
 ### Labs
 #### 1. [Data Warehouse Lab](Lab1_Data_Warehouse_Optimization/Lab_1_Data_Offload_Guide.md)
 #### 2. [Data Lakehouse Lab](Lab2_Data_Lakehouse/Lab2_Data_Lakehouse_Guide.md) 
-#### 3. [Data Governance Lab](<Lab3_Data_Governance/Lab 3 wdi Data Protection Guide v2.md>)
-#### 4. [Agentic RAG Lab](Lab4_Agentic_RAG/Agentic_RAG_Guide.md)
-#### 5. [Natural Language to SQL Lab](Lab5_NL2SQL/NL2SQL_Guide.md)
+#### 3. [Agentic RAG Lab](Lab4_Agentic_RAG/Agentic_RAG_Guide.md)
+#### 4. [Natural Language to SQL Lab](Lab5_NL2SQL/NL2SQL_Guide.md)
