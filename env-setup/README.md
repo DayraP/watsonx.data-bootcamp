@@ -311,6 +311,8 @@ TEXT_SPLITTER_SEPARATORS='[" \n", "\n"]'
 TEXT_REPLACEMENTS='{"✔": "ok"}'
 TEXT_SPLITTER_TYPE="RecursiveCharacterTextSplitter"
 
+    ``` 
+
 ### 2.8 Cargar el archivo env.txt en el proyecto de watsonx.ai Studio
 :warning: Asegúrate de haber completado **todos** los valores en `env.txt` antes de cargarlo en tu proyecto.
 
