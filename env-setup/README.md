@@ -264,54 +264,51 @@ Si no la tienes, sigue los pasos a continuación:
 
 2. Actualiza el archivo `.env.txt` de la siguiente manera:
 
-    ``` 
+    ```
     # Spark Engine ID -> Actualizar con el Engine ID proporcionado por el instructor
-SPARK_ENGINE_ID="spark256"
+    SPARK_ENGINE_ID="spark256"
 
-      # ID de usuario de Cloud -> Actualizar con tu IBMID, normalmente tu correo electrónico
-CLOUD_USER_ID=""
+    # ID de usuario de Cloud -> Actualizar con tu IBMID, normalmente tu correo electrónico
+    CLOUD_USER_ID=""
 
-      # Buckets de COS -> Actualizar con los buckets de COS proporcionados por el instructor
-HIVE_BUCKET="hive-1765401354499711144"
-WXD_BUCKET="wxd-1765401354499711842"
-MILVUS_BUCKET="milvus-1765401354499711473"
-INPUT_BUCKET="input-data-1765401354499711902"
+    # Buckets de COS -> Actualizar con los buckets de COS proporcionados por el instructor
+    HIVE_BUCKET="hive-1765401354499711144"
+    WXD_BUCKET="wxd-1765401354499711842"
+    MILVUS_BUCKET="milvus-1765401354499711473"
+    INPUT_BUCKET="input-data-1765401354499711902"
 
-      # Catálogos de watsonx.data -> No debería ser necesario cambiarlo, salvo indicación del instructor
-HIVE_CATALOG="hive_catalog"
-ICEBERG_CATALOG="iceberg_data"
+    # Catálogos de watsonx.data -> No debería ser necesario cambiarlo, salvo indicación del instructor
+    HIVE_CATALOG="hive_catalog"
+    ICEBERG_CATALOG="iceberg_data"
 
+    # Esquemas de watsonx.data -> Actualiza los nombres de los esquemas agregando tu nombre
+    # y las primeras 3 letras de tu apellido
+    SCHEMA_DWH_OFFLOAD="netezza_offload_TuNombre_3PrimerasLetrasDeApellido"
+    SCHEMA_DATA_H="input_data_hive_TuNombre_3PrimerasLetrasDeApellido"
+    SCHEMA_DATA_I="clients_schema_TuNombre_3PrimerasLetrasDeApellido"
 
-      # Esquemas de watsonx.data -> Actualiza los nombres de los esquemas agregando tu nombre
-      # y las primeras 3 letras de tu apellido
-SCHEMA_DWH_OFFLOAD="netezza_offload_TuNombre_3PrimerasLetrasDeApellido"
-SCHEMA_DATA_H="input_data_hive_TuNombre_3PrimerasLetrasDeApellido"
-SCHEMA_DATA_I="clients_schema_TuNombre_3PrimerasLetrasDeApellido"
+    # Desde watsonx.ai Studio -> Copiar desde tu nota de referencia
+    WATSONX_URL="watsonx.ai URL"
+    WATSONX_PROJECT_ID="watsonx.ai Project ID"
+    WATSONX_DEPLOYMENT_SPACE_ID="Deployment space GUID"
 
-      # Desde watsonx.ai Studio -> Copiar desde tu nota de referencia
-WATSONX_URL="watsonx.ai URL"
-WATSONX_PROJECT_ID="watsonx.ai Project ID"
-WATSONX_DEPLOYMENT_SPACE_ID="Deployment space GUID"
-
-      # Parámetros de ingesta en Milvus -> Actualiza el nombre de la colección agregando
-      # tu nombre y las primeras 3 letras de tu apellido
-MV_COLLECTION_NAME="equity_research_TuNombre_3PrimerasLetrasDeApellido"
+    # Parámetros de ingesta en Milvus -> Actualiza el nombre de la colección agregando
+    # tu nombre y las primeras 3 letras de tu apellido
+    MV_COLLECTION_NAME="equity_research_TuNombre_3PrimerasLetrasDeApellido"
   
     # Carpeta en COS con archivos PDF de entrada para la ingesta en Milvus
     # No debería ser necesario cambiarla, salvo indicación del instructor
-COS_FOLDER="pdfs"
+    COS_FOLDER="pdfs"
 
     # Parámetros para la ingesta en Milvus -> No deberían requerir cambios,
     # salvo indicación del instructor
-SIMILARITY_METRIC="L2"
-SENTENCE_TRANSFORMER="sentence-transformers/all-minilm-l6-v2"
-TEXT_SPLITTER_CHUNK_SIZE=1000
-TEXT_SPLITTER_CHUNK_OVERLAP=200
-TEXT_SPLITTER_SEPARATORS='[" \n", "\n"]'
-TEXT_REPLACEMENTS='{"✔": "ok"}'
-TEXT_SPLITTER_TYPE="RecursiveCharacterTextSplitter"
-
-    ``` 
+    SIMILARITY_METRIC="L2"
+    SENTENCE_TRANSFORMER="sentence-transformers/all-minilm-l6-v2"
+    TEXT_SPLITTER_CHUNK_SIZE=1000
+    TEXT_SPLITTER_CHUNK_OVERLAP=200
+    TEXT_SPLITTER_SEPARATORS='[" \n", "\n"]'
+    TEXT_REPLACEMENTS='{"✔": "ok"}'
+    TEXT_SPLITTER_TYPE="RecursiveCharacterTextSplitter" 
 
 ### 2.8 Cargar el archivo env.txt en el proyecto de watsonx.ai Studio
 :warning: Asegúrate de haber completado **todos** los valores en `env.txt` antes de cargarlo en tu proyecto.
