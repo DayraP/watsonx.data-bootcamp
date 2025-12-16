@@ -2,495 +2,488 @@
 # watsonx.data intelligence 
 
 - [watsonx.data intelligence](#watsonxdata-intelligence)
-  - [1. Introduction](#1-introduction)
-  - [2. Prerequisites:](#2-prerequisites)
-  - [3. Configure Service to Service Integration](#3-configure-service-to-service-integration)
-  - [4. Create Catalog in watsonx.data Intelligence](#4-create-catalog-in-watsonxdata-intelligence)
-  - [5. Data Curation](#5-data-curation)
-    - [5.1 Open watsonx.data Intelligence service](#51-open-watsonxdata-intelligence-service)
-    - [5.2. Create a Project](#52-create-a-project)
-  - [6. Add a Connection to the watsonx.data Data Source](#6-add-a-connection-to-the-watsonxdata-data-source)
-    - [6.1 Copy watsonx.data connection info](#61-copy-watsonxdata-connection-info)
-    - [6.2 Open Bootcamp Catalog](#62-open-bootcamp-catalog)
-    - [6.3 Add a Connection to your watsonx.data Instance](#63-add-a-connection-to-your-watsonxdata-instance)
-  - [7. Add the watsonx.data connected asset to the watsonx.data Intelligence Catalog](#7-add-the-watsonxdata-connected-asset-to-the-watsonxdata-intelligence-catalog)
-  - [8. Browse the imported Asset](#8-browse-the-imported-asset)
-  - [9. Profile Data for Imported Asset](#9-profile-data-for-imported-asset)
-  - [10. Enrich Data for Imported Asset](#10-enrich-data-for-imported-asset)
-    - [10.1 Set Enrichment Options](#101-set-enrichment-options)
-    - [10.2 Create Metadata Enrichment Job](#102-create-metadata-enrichment-job)
-    - [10.3  Review Enrichment Results](#103--review-enrichment-results)
-    - [10.4  Add Enriched data back to the Catalog](#104--add-enriched-data-back-to-the-catalog)
-  - [11. Create Data Protection Rule in Cloud Pak for Data](#11-create-data-protection-rule-in-cloud-pak-for-data)
-  - [12. Add Service Integration in watsonx.data to watsonx.data Intelligence](#12-add-service-integration-in-watsonxdata-to-watsonxdata-intelligence)
-  - [13. Add restricted user access to watsonx.data](#13-add-restricted-user-access-to-watsonxdata)
-    - [13.1 Add access to Infrastructure Components](#131-add-access-to-infrastructure-components)
-    - [13.2 Add Policy to iceberg data](#132-add-policy-to-iceberg-data)
-  - [14 Verify Data Protection Rule is being enforced (Demonstration)](#14-verify-data-protection-rule-is-being-enforced-demonstration)
+  - [1. Introducción](#1-introducción)
+  - [2. Prerrequisitos:](#2-prerrequisitos)
+  - [3. Configurar la integración servicio a servicio](#3-configurar-la-integración-servicio-a-servicio)
+  - [4. Crear catálogo en watsonx.data Intelligence](#4-crear-catálogo-en-watsonxdata-intelligence)
+  - [5. Curación de datos](#5-curación-de-datos)
+    - [5.1 Abrir el servicio watsonx.data Intelligence](#51-abrir-el-servicio-watsonxdata-intelligence)
+    - [5.2. Crear un proyecto](#52-crear-un-proyecto)
+  - [6. Agregar una conexión a la fuente de datos de watsonx.data](#6-agregar-una-conexión-a-la-fuente-de-datos-de-watsonxdata)
+    - [6.1 Copiar información de conexión de watsonx.data](#61-copiar-información-de-conexión-de-watsonxdata)
+    - [6.2 Abrir el Bootcamp Catalog](#62-abrir-el-bootcamp-catalog)
+    - [6.3 Agregar una conexión a tu instancia de watsonx.data](#63-agregar-una-conexión-a-tu-instancia-de-watsonxdata)
+  - [7. Agregar el asset conectado de watsonx.data al catálogo de watsonx.data Intelligence](#7-agregar-el-asset-conectado-de-watsonxdata-al-catálogo-de-watsonxdata-intelligence)
+  - [8. Navegar el asset importado](#8-navegar-el-asset-importado)
+  - [9. Generar perfil de datos para el asset importado](#9-generar-perfil-de-datos-para-el-asset-importado)
+  - [10. Enriquecer datos para el asset importado](#10-enriquecer-datos-para-el-asset-importado)
+    - [10.1 Configurar opciones de enriquecimiento](#101-configurar-opciones-de-enriquecimiento)
+    - [10.2 Crear un job de Metadata Enrichment](#102-crear-un-job-de-metadata-enrichment)
+    - [10.3  Revisar resultados de enriquecimiento](#103--revisar-resultados-de-enriquecimiento)
+    - [10.4  Agregar los datos enriquecidos de vuelta al catálogo](#104--agregar-los-datos-enriquecidos-de-vuelta-al-catálogo)
+  - [11. Crear regla de protección de datos en Cloud Pak for Data](#11-crear-regla-de-protección-de-datos-en-cloud-pak-for-data)
+  - [12. Agregar integración de servicio en watsonx.data hacia watsonx.data Intelligence](#12-agregar-integración-de-servicio-en-watsonxdata-hacia-watsonxdata-intelligence)
+  - [13. Agregar acceso restringido de usuario a watsonx.data](#13-agregar-acceso-restringido-de-usuario-a-watsonxdata)
+    - [13.1 Agregar acceso a componentes de infraestructura](#131-agregar-acceso-a-componentes-de-infraestructura)
+    - [13.2 Agregar política a datos iceberg](#132-agregar-política-a-datos-iceberg)
+  - [14 Verificar que la regla de protección de datos se está aplicando (demostración)](#14-verificar-que-la-regla-de-protección-de-datos-se-está-aplicando-demostración)
 
-## 1. Introduction
+## 1. Introducción
 
-Lab 3 will take you through the high level steps below to demonstrate how to implement data protection rule enforcement in watsonx.data.
+Lab 3 te guiará por los pasos de alto nivel a continuación para demostrar cómo implementar la aplicación de reglas de protección de datos en watsonx.data.
 
-Because we are working in a shared watsonx.data intelligence (wxi) environment, some of the steps were done for you in advance (steps in dark blue).  
+Como estamos trabajando en un entorno compartido de watsonx.data intelligence (wxi), algunos pasos se completaron de antemano (los pasos en azul oscuro).  
 
 <img src="./attachments/image1.png" alt="alt text" width="75%">
 
 
-## 2. Prerequisites:
-- Completed  [Environment Setup](/env-setup/README.md)
-- instructor prepared Bootcamp Catalog, imported business glossary and created data protection rules.
+## 2. Prerrequisitos:
+- Haber completado la [configuración de ambiente](/env-setup/README.md)
+- El instructor preparó el Bootcamp Catalog, importó el glosario de negocio y creó las reglas de protección de datos.
  
-
-## 3. Configure Service to Service Integration
+ 
+## 3. Configurar la integración servicio a servicio
 
 [Documentation link](https://dataplatform.cloud.ibm.com/docs/content/wsj/governance/wkc-wxd-integration.html?context=cpdaas&locale=en&audience=wdp)
 
 
-Before you can start working with data protection rules on watsonx.data
-assets, you must authorize the `watsonx.data` and `watsonx.data intelligence` services to access each other. For
-ease of use, these authorizations for the bootcamp have been
-pre-configured for you.
+Antes de comenzar a trabajar con reglas de protección de datos en los assets de watsonx.data, debes autorizar a los servicios `watsonx.data` y `watsonx.data intelligence` para que se accedan entre sí. Para facilitar el uso, estas autorizaciones para el bootcamp ya están preconfiguradas.
 
-* To verify, in IBM Cloud, Go to `Manage` -> `Access IAM`, then from left menu `Authorizations`.
+* Para verificar, en IBM Cloud ve a `Manage` -> `Access IAM`, luego en el menú izquierdo `Authorizations`.
 ![](./attachments/2025-04-24-12-09-12-pasted-vscode.png)
 
-  You should find authorizations similar to below with your techzone instance
+  Deberías encontrar autorizaciones similares a las siguientes con tu instancia de techzone
 
   <img src="./attachments/image4.png" alt="alt text" width="100%">
 
   <img src="./attachments/image5.png" alt="alt text" width="100%">
 
 
-## 4. Create Catalog in watsonx.data Intelligence
+## 4. Crear catálogo en watsonx.data Intelligence
 
-The Catalog is the place where we will make watson.data connections and
-data assets available to the business users.  
+El catálogo es el lugar donde pondremos las conexiones de watsonx.data y los assets de datos a disposición de los usuarios de negocio.  
 
-When creating a catalog it's required to enable the option to `Enforce data
-protection and data location rules` if data protection rules will be used between the two services 
+Al crear un catálogo es necesario habilitar la opción `Enforce data protection and data location rules` si se usarán reglas de protección de datos entre los dos servicios 
 
 <img src="./attachments/image6.png" alt="alt text" width="100%"><br>
 
 
-For the bootcamp, the catalog has been created for you and will be shared by all students. For this reason, it’s important that the connections and assets that we add in the lab are uniquely named.  
+Para el bootcamp, el catálogo ya fue creado para ti y será compartido por todos los estudiantes. Por esta razón, es importante que las conexiones y los assets que agreguemos en el lab tengan nombres únicos.  
 
-We will do this by pre-pending `FirstInitial+Lastname` for content we add to the catalog.
+Lo haremos anteponiendo `FirstInitial+Lastname` para el contenido que agreguemos al catálogo.
 
-## 5. Data Curation
+## 5. Curación de datos
 
-Note:  The data curation process will also use a project like Lab 2, however this project will be created within the watsonx.data Intelligence Service instead of watsonx.ai Studio in order to leverage the data fabric capabilities of the service.
+Nota: el proceso de curación de datos también usará un proyecto como en el Lab 2; sin embargo, este proyecto se creará dentro del servicio watsonx.data Intelligence en lugar de watsonx.ai Studio para aprovechar las capacidades de data fabric del servicio.
 
-### 5.1 Open watsonx.data Intelligence service
+### 5.1 Abrir el servicio watsonx.data Intelligence
 
-* From IBM Cloud `Resource List` <https://cloud.ibm.com/resources>
+* Desde IBM Cloud `Resource List` <https://cloud.ibm.com/resources>
 
-* Select watsonx.data Intelligence for your region (Under AI/ Machine Learning) in `IBM Cloud Pak for Data`
+* Selecciona watsonx.data Intelligence para tu región (en AI/ Machine Learning) en `IBM Cloud Pak for Data`
   
   <img src="./attachments/ikc-resources.png" alt="alt text" width="75%">
 
-* Launch service
+* Inicia el servicio
   
   <img src="./attachments/intelligence.png" alt="alt text" width="75%">
 
-* Click `Cancel` if prompted with the get started window
+* Haz clic en `Cancel` si aparece la ventana de inicio
 
 
-### 5.2. Create a Project 
+### 5.2. Crear un proyecto 
 
-* From the Hamburger menu, select `Projects`, `View all Projects`
+* Desde el menú Hamburguesa, selecciona `Projects`, `View all Projects`
 
-* Select `New Project`
-* Name:  `Lab 3 Data Protection`
-* Select your Cloud Object Storage from the list
-* Select `Create`
+* Selecciona `New Project`
+* Nombre:  `Lab 3 Data Protection`
+* Selecciona tu Cloud Object Storage de la lista
+* Selecciona `Create`
 
 
-## 6. Add a Connection to the watsonx.data Data Source
-### 6.1 Copy watsonx.data connection info 
+## 6. Agregar una conexión a la fuente de datos de watsonx.data
+### 6.1 Copiar información de conexión de watsonx.data 
 
-* From IBM Cloud `Resource list` <https://cloud.ibm.com/resources>
+* Desde IBM Cloud `Resource list` <https://cloud.ibm.com/resources>
 
-* Launch `watsonx.data` (Under `Databases`) (into a new window)
+* Inicia `watsonx.data` (en `Databases`) en una nueva ventana
 
-* From the Hamburger menu, select `Configurations`, `Connection information`
+* Desde el menú Hamburguesa, selecciona `Configurations`, `Connection information`
 
   <img src="./attachments/image2.png" alt="alt text" width="25%">
 
-* Under Engine and service connection details
+* En Engine and service connection details
 
-* Select your presto engine
+* Selecciona tu motor presto
 
-* `Copy JSON snippet` (to clipboard)
+* `Copy JSON snippet` (al portapapeles)
 
   <img src="./attachments/image3.png" alt="alt text" width="75%"> <br>
 
-* Paste to your text Reference notes (you will use this in the next step)
+* Pega en tu nota de referencia (lo usarás en el siguiente paso)
 
-### 6.2 Open Bootcamp Catalog
+### 6.2 Abrir el Bootcamp Catalog
 
-* Go back to the `watsonx.data Intelligence` service.  
+* Regresa al servicio `watsonx.data Intelligence`.  
   
-* From the Hamburger menu, select `Catalogs`, `View all Catalogs`
+* Desde el menú Hamburguesa, selecciona `Catalogs`, `View all Catalogs`
   
-* Select the `Bootcamp Catalog`
+* Selecciona el `Bootcamp Catalog`
   
-### 6.3 Add a Connection to your watsonx.data Instance
+### 6.3 Agregar una conexión a tu instancia de watsonx.data
   
-* Select `Add to Catalog`, `Connection` in the right corner
+* Selecciona `Add to Catalog`, `Connection` en la esquina derecha
 
-* Search for and select `IBM watsonx.data` from left hand set of connectors
+* Busca y selecciona `IBM watsonx.data` en el conjunto de conectores de la izquierda
 
-* Select `IBM watsonx.data Presto` and click Next
+* Selecciona `IBM watsonx.data Presto` y haz clic en Next
 
   <img src="./attachments/image8.png" alt="alt text" width="60%"> 
 
-* Select `Enter JSON snippet`
+* Selecciona `Enter JSON snippet`
 
-* Paste the watsonx.data connection info from your Reference note (that you copied earlier from watsonx.data Presto) and select `Enter`
+* Pega la información de conexión de watsonx.data desde tu nota de referencia (que copiaste antes desde watsonx.data Presto) y selecciona `Enter`
 
   <img src="./attachments/image9.png" alt="alt text" width="75%">
 
-* Under Name, prepend with your **FirstInitialLastName**, ie `Jwales Presto`
-* Scroll down and paste your `cloud-api-key` (created during the environment setup)
+* En Name, antepone tu **FirstInitialLastName**, por ejemplo `Jwales Presto`
+* Desplázate hacia abajo y pega tu `cloud-api-key` (creada durante la configuración del ambiente)
 
-* Click `Test connection` (Upper right hand corner)
+* Haz clic en `Test connection` (esquina superior derecha)
 
-* When test is successful, select Create
+* Cuando la prueba sea exitosa, selecciona Create
 
   <img src="./attachments/image10.png" alt="alt text" width="75%">
 
-##  7. Add the watsonx.data connected asset to the watsonx.data Intelligence Catalog
+##  7. Agregar el asset conectado de watsonx.data al catálogo de watsonx.data Intelligence
 
-* From the left hand corner select `Add to catalog`, `Connected Asset`
+* Desde la esquina izquierda selecciona `Add to catalog`, `Connected Asset`
 
   <img src="./attachments/image11.png" alt="alt text" width="25%">
 
-* Click on `Select Source`
+* Haz clic en `Select Source`
 
   <img src="./attachments/image12.png" alt="alt text" width="50%">
 
-* Under available `Connections`, select [your Presto Connection], select `postgres_catalog`, select the `bankdemo` schema and finally the `customers_table` and click `Select`
+* En las `Connections` disponibles, selecciona [tu conexión Presto], selecciona `postgres_catalog`, selecciona el esquema `bankdemo` y finalmente la `customers_table` y haz clic en `Select`
 
   <img src="./attachments/customertable.png" alt="alt text" width="75%"><br>
 
-* In the `Add asset from connection` window, prepend your name to the table name, for example: **jwales-customers-table**.  
-* Leave the remaining fields as default and Click `Add`
+* En la ventana `Add asset from connection`, antepone tu nombre al nombre de la tabla, por ejemplo: **jwales-customers-table**.  
+* Deja el resto de los campos con los valores predeterminados y haz clic en `Add`
   <img src="./attachments/addasset.png" alt="alt text" width="75%"><br>
 
 
-* You should see your connection and data asset in `Recently added` Assets
+* Deberías ver tu conexión y asset de datos en `Recently added` Assets
 
   <img src="./attachments/image14.png" alt="alt text" width="25%"><br>
 
-##  8. Browse the imported Asset
+##  8. Navegar el asset importado
 
-* Select your Data Asset that you just imported
+* Selecciona el Data Asset que acabas de importar
   
-* Notice the table has no data quality, no business terms, no classifications.
+* Observa que la tabla no tiene calidad de datos, términos de negocio ni clasificaciones.
   <img src="./attachments/nometadata.png" alt="alt text" width="75%"><br>
 
-* Select `Assets` tab and preview column info
-* Here we see SSN and Email addresses that we will want to protect.
+* Selecciona la pestaña `Assets` y previsualiza la información de las columnas
+* Aquí vemos SSN y direcciones de correo electrónico que queremos proteger.
    <img src="./attachments/protectcolumns.png" alt="alt text" width="75%"><br>
 
 
-##  9. Profile Data for Imported Asset
+##  9. Generar perfil de datos para el asset importado
 
-Profiling in Watsonx.data intelligence involves analyzing columns of data assets to understand their structure and content. This analysis includes computing statistics about the data, determining data types and formats, classifying the data, and capturing frequency distributions. 
+El profiling en watsonx.data intelligence consiste en analizar las columnas de los assets de datos para entender su estructura y contenido. Este análisis incluye calcular estadísticas sobre los datos, determinar tipos y formatos, clasificar los datos y capturar distribuciones de frecuencia. 
 
-* Select `Profile` tab to start profiling (takes 5-10 mins)
+* Selecciona la pestaña `Profile` para iniciar el profiling (toma de 5 a 10 minutos)
 
   <img src="./attachments/image16.png" alt="alt text" width="75%"><br>
 
-* When finished, Select option to `Add to project` 
+* Al finalizar, selecciona la opción `Add to project` 
 
   <img src="./attachments/addtoproject.png" alt="alt text" width="75%"><br>
 
-* In the `Add to project` window, select `I Understand`, 
-* Select the project you created in step 3  
-* `Next` and then `Add`
+* En la ventana `Add to project`, selecciona `I Understand`, 
+* Selecciona el proyecto que creaste en el paso 3  
+* `Next` y luego `Add`
 
   <img src="./attachments/addtoproject1.png" alt="alt text" width="75%"><br>
 
-**Note**  The preferred method of enriching a data asset would be to work directly in the project, performing a Metadata Import (MDI) followed by a Metadata Enrichment (MDE), then add to the Catalog.  Due to a bug with Profiling data after importing with MDI, we are taking the extra step of profiling in the catalog first.  This is a short term workaround until the issue is resolved. 
+**Nota**: el método preferido para enriquecer un asset de datos sería trabajar directamente en el proyecto, realizando un Metadata Import (MDI) seguido de un Metadata Enrichment (MDE), y luego agregarlo al catálogo. Debido a un bug con el profiling después de importar con MDI, estamos tomando el paso adicional de perfilar primero en el catálogo. Esto es una solución temporal hasta que se resuelva el problema. 
 
 
-##  10. Enrich Data for Imported Asset
+##  10. Enriquecer datos para el asset importado
 
-This step uses the automated Metadata enrichment tool to enrich the watsonx.data  asset that was just imported via the Catalog.
+Este paso usa la herramienta automatizada de Metadata Enrichment para enriquecer el asset de watsonx.data que acabas de importar a través del catálogo.
 
-Metadata enrichment uses defined data classes and business terms to automatically assign or make suggestions during the metadata enrichment process. This saves organizations a tremendous amount of time and resources by alleviating the manual effort that would have been involved to accomplish the same result.
+El metadata enrichment utiliza data classes definidas y términos de negocio para asignar o sugerir automáticamente durante el proceso de enriquecimiento. Esto ahorra a las organizaciones una gran cantidad de tiempo y recursos al reducir el esfuerzo manual necesario para lograr el mismo resultado.
 
-### 10.1 Set Enrichment Options
+### 10.1 Configurar opciones de enriquecimiento
 
-* Go to your project by selecting the Hamburger menu,  `Projects`, `View all Projects`, `Lab 3 Data Protection` 
+* Ve a tu proyecto seleccionando el menú Hamburguesa, `Projects`, `View all Projects`, `Lab 3 Data Protection` 
 
-  You should see 2 imported assets; your connection to watsonx.data and the imported table
+  Deberías ver 2 assets importados: tu conexión a watsonx.data y la tabla importada.
 
   <img src="./attachments/importedtoproject.png" alt="alt text" width="75%"><br>
   
-* Set Enrichment Options by selecting `Manage`, `Metadata enrichment`, and scroll down to Term assignment methods and select: 
+* Configura las opciones de enriquecimiento seleccionando `Manage`, `Metadata enrichment`, y desplázate hacia abajo hasta los métodos de asignación de términos y selecciona: 
   
-  * Machine learning (A machine learning model is used to assign terms.)
-  * Data-class-based assignments (Terms are assigned based on the data class assignment for a column)
-  * Name matching (Terms are assigned based on the similarity between a term and the name of the asset or column.)
+  * Machine learning (se usa un modelo de machine learning para asignar términos).
+  * Data-class-based assignments (los términos se asignan según la data class de la columna).
+  * Name matching (los términos se asignan según la similitud entre un término y el nombre del asset o columna).
   
   <img src="./attachments/enrichmentoptions.png" alt="alt text" width="75%"><br>
 
-    Gen AI based term assignment, (Semantic Enrichment) is an enrichment option available to a SaaS service with either a trial or Premium license.  With Gen AI based term assigment, domain-specific business terms are assigned and suggested by using the slate.30m.semantic-automation.c2c model. The model takes into account names and descriptions of assets and columns, and semantically matches terms with that metadata, assigning terms even if they aren't exact matches.  
+    La asignación de términos basada en Gen AI (Semantic Enrichment) es una opción disponible en un servicio SaaS con licencia de prueba o Premium. Con esta opción, se asignan y sugieren términos de negocio específicos del dominio usando el modelo slate.30m.semantic-automation.c2c. El modelo toma en cuenta nombres y descripciones de assets y columnas, y hace coincidir semánticamente términos con ese metadata, asignándolos incluso si no son coincidencias exactas.  
 
-    For the lab, we are using an essentials license, so Gen AI will not be used. 
+    Para el lab estamos usando una licencia essentials, por lo que Gen AI no se utilizará. 
 
-### 10.2 Create Metadata Enrichment Job
+### 10.2 Crear un job de Metadata Enrichment
 
-* Switch back to the `Assets` Tab
-* Select `New Asset`
-* Select `Enrich data assets with metadata`
-* Enter Name:  `MDE` and select `Next`
-* Select `Select data from project` 
-* Under Asset types, select `Data asset`, and `Your Table Name` and `Select`
+* Cambia a la pestaña `Assets`
+* Selecciona `New Asset`
+* Selecciona `Enrich data assets with metadata`
+* Ingresa el nombre:  `MDE` y selecciona `Next`
+* Selecciona `Select data from project` 
+* En Asset types, selecciona `Data asset`, y `Your Table Name` y `Select`
    <img src="./attachments/selectdataasset.png" alt="alt text" width="75%"><br>
-* Your asset should be selected.  Select `Next`
-* Set Enrichment Objectives by enabling the following options:
+* Tu asset debería estar seleccionado. Selecciona `Next`
+* Configura los objetivos de enriquecimiento habilitando las siguientes opciones:
   * Profile Data
   * Assign terms and classifications
   * Run basic quality analysis  
   <img src="./attachments/objectives.png" alt="alt text" width="75%"><br>
-  * Scroll down, Select  `Select categories + `
-  * Select [uncategorized]  and `Customer` and `Select`
+  * Desplázate hacia abajo, selecciona `Select categories + `
+  * Selecciona [uncategorized] y `Customer` y `Select`
   <img src="./attachments/selectcategories.png" alt="alt text" width="75%"><br>
-* Keep defaults for Sampling, Schedule enrichment Job and click `Next`
+* Mantén los valores predeterminados para Sampling y Schedule enrichment Job y haz clic en `Next`
   <img src="./attachments/sampling.png" alt="alt text" width="75%"><br>
-* Keep defaults to run the job now and click `Next`
+* Mantén los valores predeterminados para ejecutar el job ahora y haz clic en `Next`
  <img src="./attachments/schedulejob.png" alt="alt text" width="75%"><br>
-* Enrichment options will be displayed.  Select `Create` to start job
+* Se mostrarán las opciones de enriquecimiento. Selecciona `Create` para iniciar el job
   <img src="./attachments/confirmenrich.png" alt="alt text" width="75%"><br>
 
 
-The Data Scope will be analyzing one data asset imported from watsonx.data with an enrichment objective to Profile the data, analyze quality and assign terms across 2 categories using the Basic sampling method.
+El Data Scope analizará un asset de datos importado desde watsonx.data con el objetivo de perfilar los datos, analizar su calidad y asignar términos en 2 categorías usando el método de muestreo Basic.
 
-The enrichment process will take approximately 2-3 minutes to complete. <br>The status will change from `Not analyzed` to `In progress` to `Finished`.
+El proceso de enriquecimiento tomará aproximadamente 2-3 minutos. <br>El estado cambiará de `Not analyzed` a `In progress` y luego a `Finished`.
 
-### 10.3  Review Enrichment Results  
+### 10.3  Revisar resultados de enriquecimiento  
 
-Based on the enrichment scope and objectives, the Metadata enrichment tool automatically profiled the data, analyzed and assessed data quality, assigned and suggested business terms, and assigned data classes to all columns for the data assets included in the metadata enrichment job.
+Según el alcance y los objetivos, la herramienta de Metadata Enrichment perfiló automáticamente los datos, analizó y evaluó la calidad, asignó y sugirió términos de negocio, y asignó data classes a todas las columnas para los assets incluidos en el job.
 
-As the data steward, you will now review the proposed enrichment before publishing to the catalog for others to consume.
+Como data steward, ahora revisarás el enriquecimiento propuesto antes de publicarlo en el catálogo para que otros lo consuman.
 
 
-* Select the `Refresh` button to show the metadata enrichment or optionally browse to it: Select the `Project-Name` , Select the `Assets` tab and select `MDE`
+* Selecciona el botón `Refresh` para mostrar el metadata enrichment o navega hasta él: selecciona el `Project-Name`, selecciona la pestaña `Assets` y selecciona `MDE`
 
-* Go to the Columns tab
+* Ve a la pestaña Columns
   
   <img src="./attachments/refresh.png" alt="alt text" width="75%"><br>
 
 
-The table now has metadata! <br>
+¡La tabla ahora tiene metadata! <br>
 <img src="./attachments/metadata.png" alt="alt text" width="75%"><br>
 
-Where watsonx.data intelligence met confidence thresholds, it automatically assigned business terms, data classes, and classifications.   
+Cuando watsonx.data intelligence alcanzó los umbrales de confianza, asignó automáticamente términos de negocio, data classes y clasificaciones.   
 
-When the model fails to meet the enrichment threshold set, it will make a suggestion (in purple).  Let's explore
+Cuando el modelo no cumple el umbral de enriquecimiento definido, hará una sugerencia (en morado). Veamos:
 
  <img src="./attachments/suggestion.png" alt="alt text" width="75%"><br>
 
 
-* Click on the purple `1 suggested` bubble next to `risk_score`, then select the `Governance` tab on the right side and review the suggestion.
-* Select the  `Assign` button to accept the suggestion.
+* Haz clic en la burbuja morada `1 suggested` junto a `risk_score`, luego selecciona la pestaña `Governance` en el lado derecho y revisa la sugerencia.
+* Selecciona el botón `Assign` para aceptar la sugerencia.
 <img src="./attachments/risk-score.png" alt="alt text" width="75%"><br>
 
-In the case where there may be ambiguity in the business term, the model may not make a suggestion. 
+En el caso de que haya ambigüedad en el término de negocio, el modelo puede no hacer una sugerencia. 
 
-* Hover over the business term column for `Address` and select `View more`  
-* Select the `Governance` tab on the right side and select the `+` button
+* Pasa el cursor sobre la columna de business term para `Address` y selecciona `View more`  
+* Selecciona la pestaña `Governance` en el lado derecho y selecciona el botón `+`
 <img src="./attachments/address.png" alt="alt text" width="75%"><br>
-* In the search bar, type `address`
-* Select `Work Address` and `Assign`
+* En la barra de búsqueda, escribe `address`
+* Selecciona `Work Address` y `Assign`
 <img src="./attachments/assignworkaddr.png" alt="alt text" width="75%"><br>
 
-Take a moment to explore the `Data Class` and `Classifications` metadata attributes that were assigned/suggested. 
+Tómate un momento para explorar los atributos de metadata `Data Class` y `Classifications` que se asignaron o sugirieron. 
 
-A data steward would continue and assign values for all columns, but in the interest of time we are going to focus on what's needed to protect the data in the `SSN` and `Email Address` columns.
+Un data steward continuaría asignando valores para todas las columnas, pero en aras del tiempo nos concentraremos en lo necesario para proteger los datos en las columnas `SSN` y `Email Address`.
 
-**Verify Data Classes** 
+**Verificar Data Classes** 
 
-Data protection rules require a criteria for the rule to fire on and can include user attributes and data asset properties.  <br>
-For our lab, we are going to use the `Data class` attribute to classify the content in the columns to be protected. 
+Las reglas de protección de datos requieren criterios para que la regla se active y pueden incluir atributos de usuario y propiedades del asset de datos.  <br>
+Para nuestro lab, usaremos el atributo `Data class` para clasificar el contenido en las columnas a proteger. 
 
-* On the `SSN` row, review the assigned `Data Class` and set it to `US Social Security Number` if it was not automatically assigned. 
-* Optionally review and the `Classifications` and set to `Sensitive Personal Information`.
+* En la fila `SSN`, revisa la `Data Class` asignada y establécela en `US Social Security Number` si no se asignó automáticamente. 
+* Opcionalmente revisa las `Classifications` y configúralas en `Sensitive Personal Information`.
 
 <img src="./attachments/dataclasses.png" alt="alt text" width="100%"><br>
   
-* On the `email` row, review the assigned `Data Class` and set it to `Email Address` if it was not automatically assigned. 
-* Optionally review and the `Classifications` and set to ` Personally Identifiable Information`.  
+* En la fila `email`, revisa la `Data Class` asignada y establécela en `Email Address` si no se asignó automáticamente. 
+* Opcionalmente revisa las `Classifications` y configúralas en `Personally Identifiable Information`.  
 
-When you are happy that your data is now properly identified and ready to be governed, you can add the enriched version back to the catalog
+Cuando estés satisfecho con que tus datos estén correctamente identificados y listos para ser gobernados, puedes agregar la versión enriquecida de vuelta al catálogo.
 
-### 10.4  Add Enriched data back to the Catalog
+### 10.4  Agregar los datos enriquecidos de vuelta al catálogo
 
-* Navigate back to the asset view by clicking on the Asset tab
+* Navega de regreso a la vista del asset haciendo clic en la pestaña Asset
 
   <img src="./attachments/returntoasset.png" alt="alt text" width="25%"><br>
-* Select the checkbox next to the Data asset and click `Publish` in the blue bar
+* Selecciona la casilla junto al Data asset y haz clic en `Publish` en la barra azul
   <img src="./attachments/publish.png" alt="alt text" width="75%"><br>
-* Select the `Bootcamp Catalog` and select `Next`
+* Selecciona el `Bootcamp Catalog` y selecciona `Next`
   <img src="./attachments/publish2.png" alt="alt text" width="75%"><br>
-* On Review Assets Page, select `Publish`  
-* This will take a few minutes and when finished you will see a message `Request to publish assets completed`
+* En la página Review Assets, selecciona `Publish`  
+* Esto tomará unos minutos y, al finalizar, verás un mensaje `Request to publish assets completed`
   
-Before
+Antes
 
    <img src="./attachments/nometadata.png" alt="alt text" width="75%"><br>
 
-After
+Después
   
   <img src="./attachments/after2.png" alt="alt text" width="75%"><br>
 
-## 11. Create Data Protection Rule in Cloud Pak for Data 
+## 11. Crear regla de protección de datos en Cloud Pak for Data 
 
-Now that Data has been curated, it's time to apply data protection rules.  For our use case, we want to protect Social Security numbers and email addresses from being viewable in the catalog.  
+Ahora que los datos han sido curados, es momento de aplicar reglas de protección. Para nuestro caso de uso, queremos proteger los números de Social Security y las direcciones de correo electrónico para que no sean visibles en el catálogo.  
 
-Because we are working in a shared watsonx.data Intelligence environment, this step has already been done for you.  Let's take a look at the rules that have been setup.
+Como trabajamos en un entorno compartido de watsonx.data Intelligence, este paso ya se realizó por ti. Veamos las reglas configuradas.
 
-* Go to your `watsonx.data Intelligence` instance
+* Ve a tu instancia de `watsonx.data Intelligence`
 
-* From the Hamburger menu, select `Governance`, `Rules`
+* Desde el menú Hamburguesa, selecciona `Governance`, `Rules`
 
-  1. Preview the Protect US SSN and Email Rules
+  1. Previsualiza las reglas Protect US SSN y Email
 
-      For the lab, we’ve chosen to mask the SSN with the character X, and for the Email we will substitute data but could have also chosen to obfuscate or deny access instead.
+      Para el lab, elegimos enmascarar el SSN con el carácter X, y para el Email sustituiremos datos, aunque también podríamos haber optado por ofuscar o denegar el acceso.
 
       <img src="./attachments/protectssn.png" alt="alt text" width="75%"><br>
        
      <img src="./attachments/protect-email.png" alt="alt text" width="75%"><br>
 
 
-##  12. Add Service Integration in watsonx.data to watsonx.data Intelligence
+##  12. Agregar integración de servicio en watsonx.data hacia watsonx.data Intelligence
 
-* Go to `watsonx.data` service instance
+* Ve a la instancia del servicio `watsonx.data`
 
-* From the Hamburger menu, select `Access Control`
+* Desde el menú Hamburguesa, selecciona `Access Control`
 
-* Select `Integrations` tab<br>
+* Selecciona la pestaña `Integrations`<br>
   <img src="./attachments/integrations.png" alt="alt text" width="75%"><br>
 
-* Click `Integrate service +` button
+* Haz clic en el botón `Integrate service +`
 
-* Select `IBM Knowledge Catalog`
+* Selecciona `IBM Knowledge Catalog`
 
-* Under `Storage catalogs`, select all catalogs
+* En `Storage catalogs`, selecciona todos los catálogos
 
-* Add the watsonx.data Intelligence endpoint for your catalog by prepending api to your host: <br>
-    https://api.dataplatform.cloud.ibm.com (for SaaS Dallas)<br>
-    https://api.eu-gb.dataplatform.cloud.ibm.com (for London)
+* Agrega el endpoint de watsonx.data Intelligence para tu catálogo anteponiendo api a tu host: <br>
+    https://api.dataplatform.cloud.ibm.com (para SaaS Dallas)<br>
+    https://api.eu-gb.dataplatform.cloud.ibm.com (para London)
 
-* Click `Integrate`
+* Haz clic en `Integrate`
 
-* :exclamation:Note: The service will not be activated by default.
+* :exclamation:Nota: el servicio no se activará de forma predeterminada.
 
 
-* Click 3 dots to the right of the service integration and select `Activate`
+* Haz clic en los 3 puntos a la derecha de la integración de servicio y selecciona `Activate`
 
   <img src="./attachments/integrate.png" alt="alt text" width="75%"><br>
 
-* Click `Confirm` when prompted
+* Haz clic en `Confirm` cuando se solicite
 
-* The integration will restart the presto engine.
+* La integración reiniciará el motor presto.
 
   <img src="./attachments/integratecomplete.png" alt="alt text" width="75%"><br>
 
-## 13. Add restricted user access to watsonx.data
+## 13. Agregar acceso restringido de usuario a watsonx.data
 
-Data protection rules are enforced for users who are not administrators of the data resource.  For the lab, our business users will belong to the `Data_Scientist` user group.  
+Las reglas de protección de datos se aplican a usuarios que no son administradores del recurso de datos. Para el lab, nuestros usuarios de negocio pertenecerán al grupo de usuarios `Data_Scientist`.  
 
   
-### 13.1 Add access to Infrastructure Components
+### 13.1 Agregar acceso a componentes de infraestructura
 
-* From the Hamburger menu, select `Access control` from `watsonx.data` 
+* Desde el menú Hamburguesa, selecciona `Access control` en `watsonx.data` 
 
-* In `Infrastructure` Tab, Click `Add Access +`
+* En la pestaña `Infrastructure`, haz clic en `Add Access +`
 
-* Select checkbox next to `Items` to select all and click Next
+* Selecciona la casilla junto a `Items` para seleccionar todo y haz clic en Next
 
   <img src="./attachments/image19.png" alt="alt text" width="75%"><br>
 
-* Add data\_scientist, click Next
+* Agrega data\_scientist, haz clic en Next
 
   <img src="./attachments/image20.png" alt="alt text" width="75%"><br>
 
-* Select the drop down and scroll to the right to select the appropriate roles for the restricted user group.
-  * Select the `User` role for `Engines`
-  * Select the `Reader` role for `storage` 
-  * Select the `User` role for `catalogs`  you may have to scroll right to find them all
-* Click Save
+* Selecciona el menú desplegable y desplázate a la derecha para seleccionar los roles apropiados para el grupo de usuarios restringidos.
+  * Selecciona el rol `User` para `Engines`
+  * Selecciona el rol `Reader` para `storage` 
+  * Selecciona el rol `User` para `catalogs`; puede que debas desplazarte a la derecha para encontrarlos todos
+* Haz clic en Save
 
   <img src="./attachments/assignroles.png" alt="alt text" width="75%"><br>
 
-### 13.2 Add Policy to iceberg data
+### 13.2 Agregar política a datos iceberg
 
-* Switch to the `Policies` Tab
+* Cambia a la pestaña `Policies`
 
   <img src="./attachments/image21.png" alt="alt text" width="50%"><br>
 
-* Click `Add Policy +`
+* Haz clic en `Add Policy +`
 
-* Name policy `postgres_allow`, and select `Policy status after creation` to `Active`, click Next
+* Nombra la política `postgres_allow`, y selecciona `Policy status after creation` en `Active`, haz clic en Next
 
-* Under Choose a resource to get started, Select all `postgres_catalog` 
+* En Choose a resource to get started, selecciona todo `postgres_catalog` 
 
-* Under Search tables enable `all` box
+* En Search tables habilita la casilla `all`
 
-* Click Next
+* Haz clic en Next
 
-* Click `Add rule +`
+* Haz clic en `Add rule +`
 
-* Under Details select Allow -> select all actions
+* En Details selecciona Allow -> selecciona todas las acciones
 
-* On the right, under Choose users or groups, click `Add +`
+* A la derecha, en Choose users or groups, haz clic en `Add +`
 
-* Select `Data_Scientist` Group and select Add
+* Selecciona el grupo `Data_Scientist` y selecciona Add
 
-* Click `Add`, `Add`, `Review` and `Create`
+* Haz clic en `Add`, `Add`, `Review` y `Create`
 
 
-## 14 Verify Data Protection Rule is being enforced (Demonstration)
+## 14 Verificar que la regla de protección de datos se está aplicando (demostración)
 
-* To demonstrate the data protection rule is being enforced, we must login to the environment with a user who is not an owner of the data.
+* Para demostrar que la regla de protección de datos se está aplicando, debemos iniciar sesión en el entorno con un usuario que no sea propietario de los datos.
 
-* For the bootcamp, this is any user who has been added to the
-Data\_Scientist group.
+* Para el bootcamp, esto corresponde a cualquier usuario que haya sido agregado al grupo Data\_Scientist.
 
-* :teacher to Demonstrate:
+* :teacher para demostrar:
 
-  * Login as restricted user
+  * Inicia sesión como usuario restringido
 
-  * Go to `watsonx.data Intelligence` Instance
+  * Ve a la instancia de `watsonx.data Intelligence`
 
-  * Open the `Bootcamp Catalog`
+  * Abre el `Bootcamp Catalog`
 
-  * Open Data Asset from watsonx.data
+  * Abre el Data Asset de watsonx.data
 
-  * Click `Asset` tab
+  * Haz clic en la pestaña `Asset`
 
     <img src="./attachments/image23.png" alt="alt text" width="75%"><br>
 
-  * In another window, go to `watsonx.data` instance
+  * En otra ventana, ve a la instancia de `watsonx.data`
 
-  * Go to `Query Workspace`
+  * Ve a `Query Workspace`
 
-  * Navigate to iceberg table and generate Select Statement and select to
-  Run on Presto engine
+  * Navega hasta la tabla iceberg y genera un Select Statement y selecciona ejecutar en el motor Presto
 
     <img src="./attachments/image24.png" alt="alt text" width="75%"><br>
 
-  * Scroll over to SSN column to view masking in place:
+  * Desplázate hasta la columna SSN para ver el enmascaramiento aplicado:
 
     <img src="./attachments/image25a.png" alt="alt text" width="75%"><br>
 
 
-In this lab you have demonstrated that watsonx.data allows data stewards to enrich and catalog data just like any other data in their enterprise.
+En este lab has demostrado que watsonx.data permite a los data stewards enriquecer y catalogar datos como cualquier otro dato en su empresa.
 
 
-Finished!
+¡Terminado!

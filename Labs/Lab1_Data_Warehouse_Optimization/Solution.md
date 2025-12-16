@@ -1,8 +1,8 @@
-# Optimizing the Netezza Data Warehouse Cost
+# Optimización del costo del Data Warehouse Netezza
 
-**Solution to the business questions**
+**Solución a las preguntas de negocio**
 
-1. Calculate top 10 accounts by the volume of traded per year.
+1. Calcular el top 10 de cuentas por volumen negociado por año.
 
 ```sql
 -- Top 10 accounts by total volume traded (quantity) per year
@@ -26,7 +26,7 @@ GROUP BY da.account_id, dd.year
 ORDER BY total_quantity DESC
 LIMIT 10;
 ```
-2. Identify the Top 10 accounts by transaction value per year.
+2. Identificar el top 10 de cuentas por valor de transacción por año.
 
 ```sql
 -- Top 10 accounts by total value per year
@@ -51,7 +51,7 @@ ORDER BY total_value DESC
 LIMIT 10;
 
 ```
-3. Determine the Average transaction price for each of the stocks, including current year (2025) trades.
+3. Determinar el precio promedio de transacción para cada acción, incluyendo las operaciones del año actual (2025).
 
 ```sql
 SELECT ds.stock_id, AVG(ft.price) AS avg_price
@@ -73,7 +73,7 @@ JOIN (
 GROUP BY ds.stock_id
 ORDER BY ds.stock_id;
 ```
-4. Determine the Number of transactions the took place in each of exchange by year.
+4. Determinar el número de transacciones que tuvieron lugar en cada bolsa por año.
 
 ```sql
 SELECT de.exchange_name, dd.year, COUNT(ft.transaction_id) AS transaction_count
@@ -96,7 +96,7 @@ GROUP BY de.exchange_name, dd.year
 ORDER BY de.exchange_name, dd.year;
 ```
 
-5. List all of the stocks traded by account_id, 215 during the year 2024 and 2025.
+5. Listar todas las acciones negociadas por la `account_id` 215 durante los años 2024 y 2025.
 
 ```sql
 SELECT DISTINCT ds.stock_symbol
@@ -118,12 +118,12 @@ JOIN (
 WHERE ft.account_id = 215 AND dd.year BETWEEN 2024 AND 2025;
 ```
 
-## Review the Explain Plan
-- From the watsonx.data left navigation menu select `Query History`.
-- Select one of the query that you like to analyze
-- Review the content in the Logical Execution Plan, Distributed Execution and Explain analyze tabs. 
+## Revisar el Explain Plan
+- Desde el menú de navegación izquierdo de watsonx.data selecciona `Query History`.
+- Selecciona una de las consultas que quieras analizar.
+- Revisa el contenido en las pestañas Logical Execution Plan, Distributed Execution y Explain analyze. 
 
 
-## How to improve the ETL / Query Design ?
+## ¿Cómo mejorar el diseño de ETL o de consultas?
 
-- Post at least one ETL or query design change that you think will help in improving the query performance.  Post your response in the [Slack Channel](https://ibm.enterprise.slack.com/archives/C08JNKDRTGB).
+- Publica al menos un cambio de ETL o de diseño de consultas que creas que ayudará a mejorar el rendimiento. Comparte tu respuesta en el [Slack Channel](https://ibm.enterprise.slack.com/archives/C08JNKDRTGB).

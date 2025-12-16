@@ -1,72 +1,72 @@
-# Data Netezza description
-> Data is generated and does not relate stock market situation
+# Descripción de datos Netezza
+> Los datos son generados y no están relacionados con la situación real del mercado de valores
 
 `INVESTMENTS` database `EQUITY_TRANSACTIONS` schema  
-Contains information on stock market trading for 2019 - 2025 for different exchanges and stocks.
+Contiene información sobre operaciones de mercado bursátil de 2019 a 2025 para diferentes bolsas y acciones.
 
 ![ERD](attachments/2025-04-25-10-34-28-pasted-vscode.png)
 
-## 📁 `fact_transactions` — Central fact table that logs all stock transactions
-Total number of transactions is set to 1 200 000, we consider prices to be in one currency (USD) and will not calculate any conversions or exchange rate effects.
+## 📁 `fact_transactions` — Tabla de hechos central que registra todas las transacciones de acciones
+El número total de transacciones se establece en 1 200 000. Consideramos los precios en una sola moneda (USD) y no calcularemos conversiones ni efectos de tipo de cambio.
 
-| Column Name       | Type           | Description                                                  | Possible Values / Notes                        |
+| Nombre de columna | Tipo           | Descripción                                                  | Posibles valores / Notas                       |
 |-------------------|----------------|--------------------------------------------------------------|------------------------------------------------|
-| `transaction_id`  | INT            | Unique identifier for each transaction                      | Auto-increment or generated                    |
-| `account_id`      | INT            | Reference to the `dim_account` table                        | Foreign key                                     |
-| `stock_id`        | INT            | Reference to the `dim_stock` table                          | Foreign key                                     |
-| `exchange_id`     | INT            | Reference to the `dim_exchange` table                       | Foreign key                                     |
-| `date_id`         | INT            | Reference to the `dim_date` table                           | Foreign key                                     |
-| `order_type`| VARCHAR(10)    | Type of transaction                                         | `'BUY'`, `'SELL'`                               |
-| `quantity`          | INT            | Number of shares traded                                     | Positive integers                               |
-| `price`           | DECIMAL(10,2)  | Price per share at time of transaction                      | Positive decimals                               |
-| `total_value`     | DECIMAL(18,2)  | Calculated total value (`quantity * price`)                  | Auto-calculated                                 |
+| `transaction_id`  | INT            | Identificador único de cada transacción                      | Auto-incremental o generado                    |
+| `account_id`      | INT            | Referencia a la tabla `dim_account`                          | Foreign key                                     |
+| `stock_id`        | INT            | Referencia a la tabla `dim_stock`                            | Foreign key                                     |
+| `exchange_id`     | INT            | Referencia a la tabla `dim_exchange`                         | Foreign key                                     |
+| `date_id`         | INT            | Referencia a la tabla `dim_date`                             | Foreign key                                     |
+| `order_type`| VARCHAR(10)    | Tipo de transacción                                         | `'BUY'`, `'SELL'`                               |
+| `quantity`          | INT            | Número de acciones negociadas                                | Enteros positivos                               |
+| `price`           | DECIMAL(10,2)  | Precio por acción al momento de la transacción               | Decimales positivos                             |
+| `total_value`     | DECIMAL(18,2)  | Valor total calculado (`quantity * price`)                   | Calculado automáticamente                       |
 
-## 👤 `dim_account` — Account metadata including customer and trading details
-Customers might have several accounts opened, in current dataset we have 123 000 customers and 246 301 accounts.
+## 👤 `dim_account` — Metadatos de cuentas, incluidos detalles del cliente y de trading
+Los clientes pueden tener varias cuentas abiertas; en el conjunto de datos actual hay 123 000 clientes y 246 301 cuentas.
 
-| Column Name         | Type           | Description                                                | Possible Values / Notes                      |
+| Nombre de columna   | Tipo           | Descripción                                                | Posibles valores / Notas                     |
 |---------------------|----------------|------------------------------------------------------------|----------------------------------------------|
-| `account_id`        | INT            | Unique identifier for the account                         | Primary key                                   |
-| `account_type`      | VARCHAR(50)    | Type of account                                           | `'Retail'`, `'Institutional'`, `'Margin'`     |
-| `status`            | VARCHAR(20)    | Current status of the account                             | `'Active'`, `'Suspended'`, `'Closed'`         |
-| `opening_date`      | DATE           | Date the account was opened                               | Past dates                                    |
-| `risk_level`        | VARCHAR(10)    | Assigned risk profile                                     | `'Low'`, `'Medium'`, `'High'`                 |
-| `balance`           | DECIMAL(18,2)  | Current account balance                                   | `$1,000 - $1,000,000`                          |
-| `margin_enabled`    | BOOLEAN        | Indicates if margin trading is enabled                    | `True`, `False`                               |
-| `trading_experience`| VARCHAR(20)    | User’s self-assessed trading experience                   | `'Beginner'`, `'Intermediate'`, `'Expert'`    |
+| `account_id`        | INT            | Identificador único de la cuenta                           | Primary key                                   |
+| `account_type`      | VARCHAR(50)    | Tipo de cuenta                                             | `'Retail'`, `'Institutional'`, `'Margin'`     |
+| `status`            | VARCHAR(20)    | Estado actual de la cuenta                                 | `'Active'`, `'Suspended'`, `'Closed'`         |
+| `opening_date`      | DATE           | Fecha de apertura de la cuenta                             | Fechas pasadas                                |
+| `risk_level`        | VARCHAR(10)    | Perfil de riesgo asignado                                  | `'Low'`, `'Medium'`, `'High'`                 |
+| `balance`           | DECIMAL(18,2)  | Saldo actual de la cuenta                                  | `$1,000 - $1,000,000`                         |
+| `margin_enabled`    | BOOLEAN        | Indica si el margin trading está habilitado                | `True`, `False`                               |
+| `trading_experience`| VARCHAR(20)    | Experiencia de trading autoevaluada por el usuario         | `'Beginner'`, `'Intermediate'`, `'Expert'`    |
 
-## 📈 `dim_stock` — Information about individual stocks
-Most of the stocks apart from four (BAC, IBM, AMZN, HD) that we will be used in the subsequent Labs. The stock symbols expect for the four mentioned are synthetic data (non existing companies), there are 100 fake companies.
+## 📈 `dim_stock` — Información sobre acciones individuales
+La mayoría de las acciones, aparte de cuatro (BAC, IBM, AMZN, HD) que usaremos en los labs posteriores, son datos sintéticos (empresas inexistentes); hay 100 empresas ficticias.
 
-| Column Name     | Type           | Description                                            | Possible Values / Notes            |
+| Nombre de columna | Tipo           | Descripción                                            | Posibles valores / Notas           |
 |------------------|----------------|--------------------------------------------------------|------------------------------------|
-| `stock_id`       | INT            | Unique ID for each stock                              | Primary key                         |
-| `stock_symbol`   | VARCHAR(10)    | Stock ticker symbol                                   | `'YATE'`, `'IBM'`, etc.             |
-| `stock_name`     | VARCHAR(255)   | Full name of the stock/company                        | `'Yates-Rhodes.'`, etc.                |
-| `sector`         | VARCHAR(100)   | Broad sector classification                           | `'Technology'`, `'Healthcare'`, etc.|
-| `industry`       | VARCHAR(100)   | Specific industry                                     | `'Software'`, `'Banking'`, etc.     |
-| `market_cap`     | DECIMAL(18,2)  | Market capitalization in USD                          | `$1B`, `$100M`, etc.                |
+| `stock_id`       | INT            | ID único de cada acción                               | Primary key                         |
+| `stock_symbol`   | VARCHAR(10)    | Símbolo ticker de la acción                           | `'YATE'`, `'IBM'`, etc.             |
+| `stock_name`     | VARCHAR(255)   | Nombre completo de la acción/compañía                 | `'Yates-Rhodes.'`, etc.             |
+| `sector`         | VARCHAR(100)   | Clasificación de sector                               | `'Technology'`, `'Healthcare'`, etc.|
+| `industry`       | VARCHAR(100)   | Industria específica                                  | `'Software'`, `'Banking'`, etc.     |
+| `market_cap`     | DECIMAL(18,2)  | Capitalización de mercado en USD                      | `$1B`, `$100M`, etc.                |
 
-## 📅 `dim_date` — Date dimension for querying by different date granularity
+## 📅 `dim_date` — Dimensión de fechas para consultar con diferentes granularidades
 
-In our current (full) data set we have dates from 1.1.2019 till 31.3.2025.
+En el conjunto de datos actual (completo) tenemos fechas desde el 1.1.2019 hasta el 31.3.2025.
 
-| Column Name        | Type         | Description                                    | Possible Values / Notes            |
+| Nombre de columna  | Tipo         | Descripción                                    | Posibles valores / Notas           |
 |--------------------|--------------|------------------------------------------------|------------------------------------|
-| `date_id`          | INT          | Surrogate key for the date                    | Primary key                        |
-| `date` | DATE         | Actual date of the transaction execution                                   | `'2024-04-01'`, etc.               |
-| `year`             | INT          | Year part                                     | `2024`, etc.                       |
-| `quarter`          | INT          | Quarter of the year                           | `1`, `2`, `3`, `4`                  |
-| `month`            | INT          | Month of the year                             | `1` to `12`                         |
-| `day_of_week`              | INT          | Day of the month                              | `0` to `6`                         |
-| `is_weekend`          | VARCHAR(15)  | If the day is a weekend                               | `True`, `False`, etc.      |
+| `date_id`          | INT          | Clave sustituta de la fecha                     | Primary key                        |
+| `date` | DATE         | Fecha real de ejecución de la transacción                                     | `'2024-04-01'`, etc.               |
+| `year`             | INT          | Año                                             | `2024`, etc.                       |
+| `quarter`          | INT          | Trimestre del año                               | `1`, `2`, `3`, `4`                 |
+| `month`            | INT          | Mes del año                                     | `1` a `12`                         |
+| `day_of_week`              | INT          | Día de la semana                                | `0` a `6`                          |
+| `is_weekend`          | VARCHAR(15)  | Indica si el día es fin de semana                        | `True`, `False`, etc.              |
 
-## 🏛️ `dim_exchange` — Stock exchange details
-Information about stock exchanges were transactions were carries out -> information will be used later to calculate tax liability based on exchange country.
-| Column Name     | Type           | Description                                      | Possible Values / Notes               |
+## 🏛️ `dim_exchange` — Detalles de bolsas de valores
+Información sobre las bolsas donde se realizaron las transacciones; se usará más adelante para calcular obligaciones fiscales según el país de la bolsa.
+| Nombre de columna | Tipo           | Descripción                                      | Posibles valores / Notas              |
 |------------------|----------------|--------------------------------------------------|---------------------------------------|
-| `exchange_id`    | INT            | Unique ID for the exchange                      | Primary key                            |
-| `exchange_name`  | VARCHAR(100)   | Name of the stock exchange                      | `'NYSE'`, `'NASDAQ'`, `'SGX'`         |
-| `country`        | VARCHAR(50)    | Country where the exchange is located           | `'USA'`, `'Singapore'`, `'UK'`, etc.  |
-| `timezone`       | VARCHAR(10)    | Local timezone of the exchange                  | `'EST'`, `'GMT'`, `'SGT'`, etc.       |
-| `currency`       | VARCHAR(10)    | Default trading currency                        | `'USD'`, `'SGD'`, `'GBP'`, etc.       |
+| `exchange_id`    | INT            | ID único de la bolsa                            | Primary key                            |
+| `exchange_name`  | VARCHAR(100)   | Nombre de la bolsa                              | `'NYSE'`, `'NASDAQ'`, `'SGX'`         |
+| `country`        | VARCHAR(50)    | País donde se ubica la bolsa                    | `'USA'`, `'Singapore'`, `'UK'`, etc.  |
+| `timezone`       | VARCHAR(10)    | Zona horaria local de la bolsa                  | `'EST'`, `'GMT'`, `'SGT'`, etc.       |
+| `currency`       | VARCHAR(10)    | Moneda predeterminada de negociación            | `'USD'`, `'SGD'`, `'GBP'`, etc.       |

@@ -1,163 +1,161 @@
 # Agentic RAG Application
 
 - [Agentic RAG Application](#agentic-rag-application)
-  - [1. Introduction](#1-introduction)
-  - [2.  Prerequisites](#2--prerequisites)
-  - [3. Ingest Data into Milvus](#3-ingest-data-into-milvus)
-    - [3.1. Open watsonx.ai Project](#31-open-watsonxai-project)
-    - [3.2 Import Jupyter Notebook with the script from local folder](#32-import-jupyter-notebook-with-the-script-from-local-folder)
-    - [3.3 Open and run the Jupyter Notebook](#33-open-and-run-the-jupyter-notebook)
-  - [4. Integrate agent into watsonx Orchestrate](#4-integrate-agent-into-watsonx-orchestrate)
-  - [5. Chat with the deployed Agent](#5-chat-with-the-deployed-agent)
+  - [1. Introducción](#1-introducción)
+  - [2.  Prerrequisitos](#2--prerrequisitos)
+  - [3. Ingestar datos en Milvus](#3-ingestar-datos-en-milvus)
+    - [3.1. Abrir el proyecto watsonx.ai](#31-abrir-el-proyecto-watsonxai)
+    - [3.2 Importar el Jupyter Notebook con el script desde la carpeta local](#32-importar-el-jupyter-notebook-con-el-script-desde-la-carpeta-local)
+    - [3.3 Abrir y ejecutar el Jupyter Notebook](#33-abrir-y-ejecutar-el-jupyter-notebook)
+  - [4. Integrar el agente en watsonx Orchestrate](#4-integrar-el-agente-en-watsonx-orchestrate)
+  - [5. Conversar con el agente desplegado](#5-conversar-con-el-agente-desplegado)
 
 
 
-## 1. Introduction
-This lab implements an Agentic RAG pipeline using watsonx.data Milvus vector database, and watsonx Orchestrate as the user interface for interacting with the agent. 
+## 1. Introducción
+Este lab implementa un pipeline de Agentic RAG usando la base de datos vectorial Milvus de watsonx.data y watsonx Orchestrate como la interfaz de usuario para interactuar con el agente. 
 
-The application uses:
-- **watsonx.data Milvus**: For vector database storage and similarity search
-- **LangChain**: For building the RAG pipeline
-- **LangGraph**: For orchestrating the RAG workflow
+La aplicación usa:
+- **watsonx.data Milvus**: Para almacenamiento en base de datos vectorial y búsqueda por similitud
+- **LangChain**: Para construir el pipeline de RAG
+- **LangGraph**: Para orquestar el flujo de trabajo de RAG
  
-The application leverages data that was uploaded to the <INPUT_BUCKET> in Cloud Object Storage by the instructor.
+La aplicación aprovecha datos que el instructor subió al <INPUT_BUCKET> en Cloud Object Storage.
 
-## 2.  Prerequisites
-- Completed  [Environment Setup](/env-setup/README.md)
+## 2.  Prerrequisitos
+- Haber completado la [configuración de ambiente](/env-setup/README.md)
   
   
-## 3. Ingest Data into Milvus
+## 3. Ingestar datos en Milvus
 
-Ingestion will be performed using python `langchain` library with customizable parameters for document loading and splitting. 
-In milvus default database you will create a new collection corresponding to the pre-defined `MV_COLLECTION_NAME`, collection schema is defined in code:
+La ingesta se realizará usando la librería de python `langchain` con parámetros personalizables para la carga y división de documentos. 
+En la base de datos predeterminada de Milvus crearás una nueva colección correspondiente al `MV_COLLECTION_NAME` predefinido; el esquema de la colección está definido en el código:
 ![milvus-schema](attachments/2025-07-07-11-43-10-pasted-vscode.png)
-It contains five fields:
-* `id` that will be auto-generated;
-* `text_embedding` will contain vectors of embedded chunks;
-* `title` of the document;
-* `page` where corresponding text chunk is located;
-* `text` full chunk of text to be embedded.
+Contiene cinco campos:
+* `id` que se generará automáticamente;
+* `text_embedding` contendrá los vectores de los chunks embebidos;
+* `title` del documento;
+* `page` donde se ubica el chunk de texto correspondiente;
+* `text` chunk completo de texto a embeber.
 
-Embedding model is specified in `SENTENCE_TRANSFORMER` env variable and will be available from HuggingFace using `HuggingFaceEmbeddings` from langchain.
+El modelo de embedding se especifica en la variable de entorno `SENTENCE_TRANSFORMER` y estará disponible desde HuggingFace usando `HuggingFaceEmbeddings` de langchain.
 
-After performing text embeddings, we insert data into collection and create index to perform vector search. Currently, parameters of vector-search are pre-defined in the code:
+Después de realizar los embeddings de texto, insertamos datos en la colección y creamos el índice para hacer búsquedas vectoriales. Actualmente, los parámetros de la búsqueda vectorial están predefinidos en el código:
 ![vector-index](attachments/2025-07-07-11-50-27-pasted-vscode.png)
 
-Then we load vectors into memory and test semantic search locally.
+Luego cargamos los vectores en memoria y probamos la búsqueda semántica localmente.
   
-### 3.1. Open watsonx.ai Project
-1. Open watsonx.ai Studio Service - From [Cloud Resource list](https://cloud.ibm.com/resources) select `AI / Machine Learning` resources -> `watsonx.ai Studio` service -> open in `IBM watsonx`
+### 3.1. Abrir el proyecto watsonx.ai
+1. Abre el servicio de watsonx.ai Studio: en la [Cloud Resource list](https://cloud.ibm.com/resources) selecciona los recursos de `AI / Machine Learning` -> servicio `watsonx.ai Studio` -> abrir en `IBM watsonx`
 <img src="./attachments/2025-06-15-21-03-23-pasted-vscode.png" alt="alt text" width="75%"><br>
-2. Login and from the quick access page -> `Recent work` Select the project you created during [Environment Setup](..//env-setup/README.md).
+2. Inicia sesión y desde la página de acceso rápido -> `Recent work` selecciona el proyecto que creaste durante la [configuración de ambiente](..//env-setup/README.md).
 ![get-project-wx-studio](attachments/2025-06-15-21-05-27-pasted-vscode.png)
-3. Check that you can see env.txt file in the list of all assets on `Assets` tab
+3. Verifica que puedas ver el archivo env.txt en la lista de todos los assets en la pestaña `Assets`
 ![view-env.txt](attachments/2025-06-15-12-39-24-pasted-vscode.png)
-4. Check that Connections are available, we will be using them in the lab
+4. Verifica que las conexiones estén disponibles; las usaremos en el lab
 ![](attachments/2025-06-16-16-07-01-pasted-vscode.png)
 
-### 3.2 Import Jupyter Notebook with the script from local folder
+### 3.2 Importar el Jupyter Notebook con el script desde la carpeta local
 
-1. Go to project Assets, select `New asset +`:
+1. Ve a los Assets del proyecto y selecciona `New asset +`:
   [new-asset](attachments/2025-06-11-13-32-03-pasted-vscode.png)
 
-2. Select `Work with data and models in Python or R notebooks` asset type
+2. Selecciona el tipo de asset `Work with data and models in Python or R notebooks`
 ![select-asset](attachments/2025-06-11-13-44-23-pasted-vscode.png)
 
-3. Import Jupyter Notebook from local file:
+3. Importa el Jupyter Notebook desde un archivo local:
 ![browse-jn](attachments/2025-06-11-13-50-39-pasted-vscode.png)
 
-4. Select [1_add_data_milvus_collection_wxai.ipynb](1_add_data_milvus_collection_wxai.ipynb)
+4. Selecciona [1_add_data_milvus_collection_wxai.ipynb](1_add_data_milvus_collection_wxai.ipynb)
 
-5. Append name with your initials: `-name-first3lettersSurname` and click `Create`
+5. Agrega al nombre tus iniciales: `-name-first3lettersSurname` y haz clic en `Create`
   ![add-jn](attachments/2025-06-11-17-07-04-pasted-vscode.png)
 
-### 3.3 Open and run the Jupyter Notebook
+### 3.3 Abrir y ejecutar el Jupyter Notebook
 
-1. It should open automatically right after creation, if not then from `Your Project` -> `Assets`:
-    * click on the Jupyter Notebook
-    * and then click on pencil to Edit, it will open Jupyter Notebook in edit mode
+1. Debería abrirse automáticamente justo después de crearlo; si no, ve a `Your Project` -> `Assets`:
+    * haz clic en el Jupyter Notebook
+    * y luego haz clic en el lápiz para editar; se abrirá el Jupyter Notebook en modo edición
     ![edit-notebook](attachments/2025-06-15-23-41-37-pasted-vscode.png) 
 
-2. Trust Jupyter Notebook in the right upper corner:
+2. Márcalo como confiable en la esquina superior derecha:
   ![trust-jn](attachments/2025-06-11-14-04-09-pasted-vscode.png)
-3. Add a Project Token to reach assets from the Project
+3. Agrega un Project Token para acceder a los assets del proyecto
 
-     * Click on the second cell with import so it's active
-     * Insert cell below by clicking on `+` sign
+     * Haz clic en la segunda celda con imports para activarla
+     * Inserta una celda debajo haciendo clic en el signo `+`
     ![](attachments/2025-06-12-16-50-45-pasted-vscode.png)
-     * From the upper menu select 3 dots sign to insert a project token snippet:
+     * En el menú superior selecciona los 3 puntos para insertar el snippet de project token:
     ![insert-project-token](attachments/2025-06-16-16-17-01-pasted-vscode.png)
-     * So now it should look like this (sequence is important):
+     * Ahora debería verse así (el orden es importante):
     ![](attachments/2025-06-16-16-18-26-pasted-vscode.png)
-4. Run all cells consequtively starting from packages installations in the first cell and check outputs
+4. Ejecuta todas las celdas consecutivamente comenzando por la instalación de paquetes en la primera celda y revisa las salidas
 
-## 4. Integrate agent into watsonx Orchestrate
+## 4. Integrar el agente en watsonx Orchestrate
 
-1. Launch `watsonx Orchestrate` from cloud resources: https://cloud.ibm.com/resources
+1. Inicia `watsonx Orchestrate` desde cloud resources: https://cloud.ibm.com/resources
 
    <img width="750" alt="proj_id" src="./attachments/Launch_Orchestrate.png">
 
-2. From the Hamburger menu on the top left go to `Build`, `Agent Builder` 
-3. From the manage agents screen click `Create Agent`
-   * Choose `Create from Scratch`
-   * Name the agent,`Equity Research -{your name}`
-   * Under `Profile`, `Description`, paste the text below.  
+2. Desde el menú Hamburguesa en la esquina superior izquierda ve a `Build`, `Agent Builder` 
+3. En la pantalla de administración de agentes haz clic en `Create Agent`
+   * Elige `Create from Scratch`
+   * Nombra el agente, `Equity Research -{your name}`
+   * En `Profile`, `Description`, pega el texto siguiente.  
      ```
      An agent to help researching the Equity market based on the past, and current market performance.  This agent will also provide insights into the emerging trends.   By analyzing market research documents details, the agent answers questions about equity market trends.  If the answer to the question is not contained in your knowledge base, instead of responding you should initiate a transfer to the supervisor agent, copying the users query verbatim.
      ```
-   * Click `Create`
-   * Select `Choose Knowledge`, `Milvus`, `Next`
+   * Haz clic en `Create`
+   * Selecciona `Choose Knowledge`, `Milvus`, `Next`
    * Add
 add host, port, ibmlhapi key and backend cloud api key, next
 
 
-   * Provide the Milvus connection credentials
+   * Proporciona las credenciales de conexión a Milvus
 
-     * For GRPC Host - use `MILVUS_HOST` from milvus.json
-     * For GRPC Port - use `MILVUS_PORT` from milvus.json
-     * For Authentication Type - choose `Basic Authentication`
-     * For `Username`, enter `ibmlhapikey`
-     * For `Password`, use `watsonx.data Cloud API Key` provided by the instructor.  (Do not use your own Cloud API Key)
-     * Click `Next`
+     * Para GRPC Host - usa `MILVUS_HOST` de milvus.json
+     * Para GRPC Port - usa `MILVUS_PORT` de milvus.json
+     * Para Authentication Type - elige `Basic Authentication`
+     * Para `Username`, ingresa `ibmlhapikey`
+     * Para `Password`, usa la `watsonx.data Cloud API Key` proporcionada por el instructor. (No uses tu propia Cloud API Key)
+     * Haz clic en `Next`
 
-   * Provide the Milvus Configuration details
+   * Proporciona los detalles de configuración de Milvus
 
-     * For `Database`, enter `default`
-     * For `Collection or Alias`, choose `Collection`
-     * For `Collection`, enter your `MV_COLLECTION_NAME` from env.txt, example, `equity_research_YourName_First3LettersOfSurname`
-     * For `Index` enter `text_embedding`
-     * For `embedding_model_id`, select `all-minilm-l6-v2`
-     * For `Title`, enter `title`
-     * For `Body`, enter `body`
-     * Click `Save`
+     * En `Database`, ingresa `default`
+     * En `Collection or Alias`, elige `Collection`
+     * En `Collection`, ingresa tu `MV_COLLECTION_NAME` de env.txt, por ejemplo, `equity_research_YourName_First3LettersOfSurname`
+     * En `Index` ingresa `text_embedding`
+     * En `embedding_model_id`, selecciona `all-minilm-l6-v2`
+     * En `Title`, ingresa `title`
+     * En `Body`, ingresa `body`
+     * Haz clic en `Save`
 
-    * Under `Knowledge` ,`Description`, paste the text below.  
+    * En `Knowledge`, `Description`, pega el texto siguiente.  
 
      ```
      These  knowledge file had the details of the Equity market and can be used to answer questions to users.   Contains information about market trends and insights for the past and current performance.  If the answer to the question is not contained in your knowledge base, instead of responding you should initiate a transfer to the supervisor agent, copying the users query verbatim.
      ```
 
-     * Under `Behavior` section, **ensure** Chat with Documents is enabled .<br>
+     * En la sección `Behavior`, **asegúrate** de que Chat with Documents esté habilitado .<br>
       
 
-1. Deploy the agent by clicking the `Deploy` button on the top right 
+1. Despliega el agente haciendo clic en el botón `Deploy` en la esquina superior derecha 
 <img width="750" alt="proj_id" src="./attachments/Deploy_Agent.png"><br>
 
-## 5. Chat with the deployed Agent
+## 5. Conversar con el agente desplegado
 
-  1. Click the Hamburger menu on the top left and choose Chat
-  2. Select the agent you want the chat with, e.g., Equity Research
+  1. Haz clic en el menú Hamburguesa en la esquina superior izquierda y elige Chat
+  2. Selecciona el agente con el que quieras conversar, por ejemplo, Equity Research
    <img width="750" alt="proj_id" src="./attachments/Chat_with_Agent.png">
 
-  3. Test the agent by asking questions related to the Equity Research documents.  Here are some sample questions :<br>
+  3. Prueba el agente haciendo preguntas relacionadas con los documentos de Equity Research. Aquí tienes algunas preguntas de ejemplo:<br>
 
       ```What are the main insights from the equity market in 2024?```<br>
       ```Which commodity has the highest percentage change in 2024?```<br>
       ```What is an ETF?```<br>
 
-  4. Evaluate the responses, reasoning and document sources 
+  4. Evalúa las respuestas, el razonamiento y las fuentes de los documentos 
 
       <img width="750" alt="proj_id" src="./attachments/reasoning.png">
       <img width="750" alt="proj_id" src="./attachments/view_sources.png">
-
-

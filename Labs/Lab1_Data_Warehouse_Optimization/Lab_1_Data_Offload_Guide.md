@@ -4,28 +4,28 @@
 > Ten en cuenta que los datos utilizados en este laboratorio son generados y no reflejan de ninguna manera el movimiento del mercado de valores.
 
 
-## Table of content
-- [Optimizing the Netezza Data Warehouse Cost](#optimizing-the-netezza-data-warehouse-cost)
-  - [Table of content](#table-of-content)
-  - [Prerequisites](#prerequisites)
-  - [1. Objective:](#1-objective)
-  - [2. Solution Approach:](#2-solution-approach)
-  - [3. Netezza data schema](#3-netezza-data-schema)
-  - [4. 🚀 Lab Flow](#4--lab-flow)
-    - [4.1 - Check Netezza data source](#41---check-netezza-data-source)
-    - [4.2 - Create New schema and tables in watsonx.data](#42---create-new-schema-and-tables-in-watsonxdata)
-    - [4.3 - Insert Historic Data into watsonx.data](#43---insert-historic-data-into-watsonxdata)
-    - [4.4 - Review the Data in watsonx.data](#44---review-the-data-in-watsonxdata)
-    - [4.5 - Run Analytical Queries using the Presto engine](#45---run-analytical-queries-using-the-presto-engine)
-  - [5. Review the Explain Plan](#5-review-the-explain-plan)
-  - [6. How to improve the ETL / Query Design?](#6-how-to-improve-the-etl--query-design)
+## Tabla de contenido
+- [Optimización del costo del Data Warehouse Netezza](#optimizacion-del-costo-del-data-warehouse-netezza)
+  - [Tabla de contenido](#tabla-de-contenido)
+  - [Prerrequisitos](#prerrequisitos)
+  - [1. Objetivo:](#1-objetivo)
+  - [2. Enfoque de la solución:](#2-enfoque-de-la-solución)
+  - [3. Esquema de datos de Netezza](#3-esquema-de-datos-de-netezza)
+  - [4. 🚀 Flujo del Lab](#4--flujo-del-lab)
+    - [4.1 - Verificar la fuente de datos de Netezza](#41---verificar-la-fuente-de-datos-de-netezza)
+    - [4.2 - Crear un nuevo esquema y tablas en watsonx.data](#42---crear-un-nuevo-esquema-y-tablas-en-watsonxdata)
+    - [4.3 - Insertar datos históricos en watsonx.data](#43---insertar-datos-históricos-en-watsonxdata)
+    - [4.4 - Revisar los datos en watsonx.data](#44---revisar-los-datos-en-watsonxdata)
+    - [4.5 - Ejecutar consultas analíticas usando el motor Presto](#45---ejecutar-consultas-analíticas-usando-el-motor-presto)
+  - [5. Revisar el Explain Plan](#5-revisar-el-explain-plan)
+  - [6. ¿Cómo mejorar el diseño de ETL o consultas?](#6-¿cómo-mejorar-el-diseño-de-etl-o-consultas)
 
 
-## Prerequisites
-- Completed  [Environment Setup](/env-setup/README.md)
+## Prerrequisitos
+- Haber completado la [configuración de ambiente](/env-setup/README.md)
 
 
-## 1. Objectivo: 
+## 1. Objetivo: 
 El objetivo de este laboratorio es demostrar cómo reducir el costo operativo de ejecutar el entorno de Data Warehouse. Además de reducir el costo operativo del Data Warehouse, los datos se unificarán en el **Open Hybrid Lakehouse**, plataforma **watsonx.data** para aplicaciones analíticas y de IA.
 
 ## 2. Enfoque de la solución: 
@@ -49,7 +49,7 @@ Debido a las limitaciones del entorno del laboratorio, realizaremos lo siguiente
 
 
 
-## 4. 🚀 Lab Flow
+## 4. 🚀 Flujo del Lab
 
 ```mermaid
 graph TD
@@ -57,7 +57,7 @@ graph TD
     A --> B(🗂️ Paso 2 :Crear nuevo esquema <br> y tablas)
     B --> C(📥 Paso 3: Inserción de datos)
     C --> D(🔍 Paso 4: Revisar datos)
-    D --> E(🧠  Step 5: Query combinado)
+    D --> E(🧠  Paso 5: Query combinado)
 ```
 
 - **Paso 1 - Conexión a Netezza**: Verificar la conexión a Netezza;
@@ -78,24 +78,24 @@ graph TD
 
 ![](./attachments/Pasted%20image%2020250409145504.png)
 
-### 4.2 - Create New schema and tables in watsonx.data
-1. From the Hamburger menu in the top left, go to `Query workspace` where you will be executing SQL queries.
+### 4.2 - Crear un nuevo esquema y tablas en watsonx.data
+1. Desde el menú Hamburguesa en la esquina superior izquierda, ve a `Query workspace`, donde ejecutarás las consultas SQL.
 ![alt text](./attachments/image-5.png)
 
-2. Create schema for Netezza offload and tables in watsonx.data iceberg catalog where you will offload data on transactions from Netezza `EQUITY_TRANSACTIONS`. 
+2. Crea el esquema para la descarga de Netezza y las tablas en el catálogo iceberg de watsonx.data donde descargarás datos de transacciones desde Netezza `EQUITY_TRANSACTIONS`. 
   
-   *  Modify the SQL command below with your `<SCHEMA_DWH_OFFLOAD>` and  `WXD_BUCKET` values in your environment file and paste into the `Query Workspace` (values should be unique accross Cloud Account so you will have a different one).  
-   *  For the bootcamp, the convention for <SCHEMA_DWH_OFFLOAD> is `netezza_offload_<YourName_First3LettersOfSurname>`
+   *  Modifica el comando SQL a continuación con tus valores `<SCHEMA_DWH_OFFLOAD>` y `WXD_BUCKET` en tu archivo de entorno y pégalo en el `Query Workspace` (los valores deben ser únicos en la cuenta de Cloud, así que tendrás uno diferente).  
+   *  Para el bootcamp, la convención para <SCHEMA_DWH_OFFLOAD> es `netezza_offload_<YourName_First3LettersOfSurname>`
 
 ```sql
 CREATE SCHEMA IF NOT EXISTS iceberg_data.<SCHEMA_DWH_OFFLOAD> WITH (location = 's3a://<WXD_BUCKET>/<SCHEMA_DWH_OFFLOAD>');
 ```
-3. Check that query execution was successful:
+3. Verifica que la ejecución de la consulta fue exitosa:
 ![successful-query](attachments/2025-06-27-12-21-19-pasted-vscode.png)
 
-4. Create tables in the newly added schema.
+4. Crea las tablas en el esquema recién agregado.
    
-   * Modify the SQL command below with your `<SCHEMA_DWH_OFFLOAD>` value and paste into the `Query Workspace`.
+   * Modifica el comando SQL a continuación con tu valor `<SCHEMA_DWH_OFFLOAD>` y pégalo en el `Query Workspace`.
    
 ```sql
 
@@ -171,16 +171,16 @@ WITH (
 );
   ``` 
 
-5. After creating tables, refresh `iceberg_data` catalog and check that schema and tables exist in the schema for data offload
+5. Después de crear las tablas, actualiza el catálogo `iceberg_data` y verifica que el esquema y las tablas existan en el esquema para la descarga de datos
 
 <img src="./attachments/image-6.png" alt="alt text" width="50%"><br>
 ![created-tables-iceberg](attachments/2025-06-27-12-25-11-pasted-vscode.png)
 
-### 4.3 - Insert Historic Data into watsonx.data
+### 4.3 - Insertar datos históricos en watsonx.data
 
-1. Insert data into created tables for Netezza filtered by year by using presto federated query
+1. Inserta datos en las tablas creadas para Netezza filtrados por año utilizando una consulta federada de Presto
    
-   * Modify the SQL command below with your `<SCHEMA_DWH_OFFLOAD>` value and paste into the `Query Workspace`.
+   * Modifica el comando SQL a continuación con tu valor `<SCHEMA_DWH_OFFLOAD>` y pégalo en el `Query Workspace`.
 
 ```sql
 -- Insert into dim_date
@@ -214,15 +214,15 @@ FROM nz_catalog.equity_transactions.dim_exchange e
 JOIN iceberg_data.<SCHEMA_DWH_OFFLOAD>.fact_transactions ft ON e.exchange_id = ft.exchange_id;
 ```
 
-### 4.4 - Review the Data in watsonx.data
+### 4.4 - Revisar los datos en watsonx.data
 
-1. Generate SELECTs to view data sample in some tables 
+1. Genera SELECTs para ver muestras de datos en algunas tablas 
 
     <img src="./attachments/Pasted%20image%2020250409213618.png" alt="alt text" width="75%"><br>
 
-1. Count the number of rows transferred from Netezza
+1. Cuenta el número de filas transferidas desde Netezza
   
-   * Modify the SQL command below with your `<SCHEMA_DWH_OFFLOAD>` value and paste into the `Query Workspace`.
+   * Modifica el comando SQL a continuación con tu valor `<SCHEMA_DWH_OFFLOAD>` y pégalo en el `Query Workspace`.
 ```sql
 SELECT 'transactions_count', COUNT(*) AS count
 FROM  "iceberg_data"."<SCHEMA_DWH_OFFLOAD>"."fact_transactions" as ft
@@ -247,38 +247,38 @@ UNION
 SELECT 'accounts_count', COUNT(*) AS count
 FROM "iceberg_data"."<SCHEMA_DWH_OFFLOAD>"."dim_account" as da;
 ```
-Expected output:
+Salida esperada:
 ![count-rows-nz](attachments/2025-06-27-12-36-39-pasted-vscode.png)
 
 
-Due to the lab limitations (we have only one Netezza instance for all participants) => we will use `equity_transactions_ly` where only current year (2025) data exists. The same schema and table definitions are identical to `equity_transactions` schema that we've offloaded in previous steps 4.3.
+Debido a las limitaciones del laboratorio (solo tenemos una instancia de Netezza para todos los participantes), utilizaremos `equity_transactions_ly`, donde solo existen los datos del año en curso (2025). El esquema y las definiciones de tablas son idénticos al esquema `equity_transactions` que descargamos en los pasos 4.3 anteriores.
 
-### 4.5 - Run Analytical Queries using the Presto engine
+### 4.5 - Ejecutar consultas analíticas usando el motor Presto
 
-Now the data has be prepared and ready to be consumed by the business users and data scientists for analytical and AI purpose.  Let's develop some queries that will answer business questions listed below.
+Ahora los datos están preparados y listos para que los usuarios de negocio y los data scientists los consuman con fines analíticos y de IA. Desarrollemos algunas consultas que responderán las preguntas de negocio que se listan a continuación.
 
-**Tip :** 
+**Tip:** 
 
-1. Use the `iceberg_data.<SCHEMA_DWH_OFFLOAD>` schema for the historic data and `nz_catalog.equity_transactions_ly` for the current data.
-2. Make sure you are working from the `Query workspace`.
+1. Usa el esquema `iceberg_data.<SCHEMA_DWH_OFFLOAD>` para los datos históricos y `nz_catalog.equity_transactions_ly` para los datos actuales.
+2. Asegúrate de trabajar desde el `Query workspace`.
 ![alt text](./attachments/image-8.png)
 
-**Questions**:
-1. Calculate top 10 accounts by the volume of traded per year.
-2. Identify the Top 10 accounts by transaction value per year.
-3. Determine the Average transaction price for each of the stocks, including current year (2025) trades.
-4. Determine the Number of transactions the took place in each of exchange by year.
-5. List all of the stocks traded by account_id, 215 during the year 2024 and 2025.
+**Preguntas**:
+1. Calcular el top 10 de cuentas por volumen negociado por año.
+2. Identificar el top 10 de cuentas por valor de transacción por año.
+3. Determinar el precio promedio de transacción para cada acción, incluyendo las operaciones del año actual (2025).
+4. Determinar el número de transacciones que tuvieron lugar en cada bolsa por año.
+5. Listar todas las acciones negociadas por la `account_id` 215 durante los años 2024 y 2025.
 
 
 [**Solution Queries**](./Solution.md)
 
-## 5. Review the Explain Plan
-- From the watsonx.data left navigation menu select `Query History`.
-- Select one of the query that you like to analyze
-- Review the content in the Logical Execution Plan, Distributed Execution and Explain analyze tabs. 
+## 5. Revisar el Explain Plan
+- Desde el menú de navegación izquierdo de watsonx.data selecciona `Query History`.
+- Selecciona una de las consultas que quieras analizar.
+- Revisa el contenido en las pestañas Logical Execution Plan, Distributed Execution y Explain analyze. 
 
 
-## 6. How to improve the ETL / Query Design?
+## 6. ¿Cómo mejorar el diseño de ETL o consultas?
 
-- Share an ETL or query design change that you think will help in improving the query performance.  Post your response in the Teams Chat.
+- Comparte un cambio de ETL o de diseño de consultas que creas que ayudará a mejorar el rendimiento. Publica tu respuesta en el chat de Teams.

@@ -1,5 +1,5 @@
 # Lab5: Natural Language to SQL Agent
 
-This lab creates an agent that can convert user Natural Language queries into SQL queries and leveraging the presto engine in watsonx.data, query the data and respond back to the user with the answer.  
+Este lab crea un agente que puede convertir consultas en lenguaje natural del usuario a consultas SQL y, aprovechando el motor presto en watsonx.data, consultar los datos y responder al usuario con la respuesta.  
 
-Follow instructions in the [Natural Language to SQL Guide](NL2SQL_Guide.md) to create the NL2SQL Agent.
+Sigue las instrucciones en la [Natural Language to SQL Guide](NL2SQL_Guide.md) para crear el agente NL2SQL.

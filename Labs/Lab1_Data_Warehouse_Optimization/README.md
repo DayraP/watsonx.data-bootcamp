@@ -1,3 +1,3 @@
 # Lab1: Data Warehouse Optimization 
 
-[Data Warehouse Optimization Lab](Lab_1_Data_Offload_Guide.md) demonstrates how to reduce the operational cost of running the Data Warehouse environment. In-addition to reducing the operations cost of the Data Warehouse the data will be unified in the Open Hybrid Lakehouse, watsonx.data platform for Analytical and AI applications.
+[Data Warehouse Optimization Lab](Lab_1_Data_Offload_Guide.md) demuestra cómo reducir el costo operativo de ejecutar el entorno de Data Warehouse. Además de disminuir los costos de operación del Data Warehouse, los datos se unificarán en el Open Hybrid Lakehouse, la plataforma watsonx.data para aplicaciones analíticas y de IA.

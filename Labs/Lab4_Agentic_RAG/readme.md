@@ -1,6 +1,5 @@
 # Lab4: RAG Agent
 
-This lab implements an Agentic RAG pipeline using watsonx.data Milvus vector database, and watsonx Orchestrate as the user interface for interacting with the agent. 
+Este lab implementa un pipeline de Agentic RAG usando la base de datos vectorial Milvus de watsonx.data y watsonx Orchestrate como la interfaz de usuario para interactuar con el agente. 
 
-Follow the steps in the [Agentic RAG Guide](Agentic_RAG_Guide.md) to create the RAG agent.
-
+Sigue los pasos en la [Agentic RAG Guide](Agentic_RAG_Guide.md) para crear el agente RAG.
