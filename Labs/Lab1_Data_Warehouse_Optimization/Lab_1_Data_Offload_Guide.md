@@ -39,7 +39,7 @@ Todo el laboratorio se ejecutará en la interfaz **watsonx.data UI**, dentro del
 
 [Dataset description](./Data-description.md)
 
-ebido a las limitaciones del entorno del laboratorio, realizaremos lo siguiente:
+Debido a las limitaciones del entorno del laboratorio, realizaremos lo siguiente:
 
 1. Ejecutar consultas federadas con Presto para descargar los datos del DW de Netezza.
 2. Usar un esquema separado `equity_transactions_ly` en lugar de eliminar los datos históricos del DW, lo cual es el enfoque recomendado en entornos de producción.
@@ -70,7 +70,8 @@ graph TD
 
 -  Desde IBM Cloud `Resource List` <https://cloud.ibm.com/resources>
 -  Seleccionar la instancia de watsonx.data (en la sección Databases) en `wxdata-`
--  Abrir la consola web- Desde el menú Hamburguesa en la parte superior izquierda, seleccionar `Infrastructure Manager` y verificar que Netezza esté agregado como fuente de datos
+-  Abrir la consola web
+-  Desde el menú Hamburguesa en la parte superior izquierda, seleccionar `Infrastructure Manager` y verificar que Netezza esté agregado como fuente de datos
 - ![alt text](./attachments/verify-netezza.jpg)
 - Desde la hamburguesa en la parte superior izquierda, seleccionar `Data manager`
 - Navegar por el catálogo nz_catalog y verificar que los esquemas de Netezza `equity_transactions` y `equity_transactions_ly` estén disponibles.
