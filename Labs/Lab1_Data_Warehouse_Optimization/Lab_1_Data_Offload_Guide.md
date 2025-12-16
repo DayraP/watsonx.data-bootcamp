@@ -1,6 +1,8 @@
-# Optimizing the Netezza Data Warehouse Cost
+# Optimización del costo del Data Warehouse Netezza
 
-> Note that the data used in this lab is generated and does not in any way reflect the stock market movement.
+
+> Ten en cuenta que los datos utilizados en este laboratorio son generados y no reflejan de ninguna manera el movimiento del mercado de valores.
+
 
 ## Table of content
 - [Optimizing the Netezza Data Warehouse Cost](#optimizing-the-netezza-data-warehouse-cost)
@@ -23,25 +25,25 @@
 - Completed  [Environment Setup](/env-setup/README.md)
 
 
-## 1. Objective: 
-The objective of this lab is to demonstrate how to reduce the operational cost of running the Data Warehouse environment. In-addition to reducing the operations cost of the Data Warehouse the data will be unified in the Open Hybrid Lakehouse, watsonx.data platform for Analytical and AI applications.
+## 1. Objectivo: 
+El objetivo de este laboratorio es demostrar cómo reducir el costo operativo de ejecutar el entorno de Data Warehouse. Además de reducir el costo operativo del Data Warehouse, los datos se unificarán en el **Open Hybrid Lakehouse**, plataforma **watsonx.data** para aplicaciones analíticas y de IA.
 
-## 2. Solution Approach: 
-In this lab the historic data will be off loaded from the Netezza Data Warehouse (DW) database, `INVESTMENTS` and schema `equity_transactions` into watsonx.data iceberg_data catalog.  The historic data is identified based on the transacations that took place prior to 2024.  By reducing the volume of data in the Netezza DW the expensive block storage cost is reduced by using the Cloud Object Storage.
+## 2. Enfoque de la solución: 
+En este laboratorio, los datos históricos se descargarán del Data Warehouse (DW) de Netezza, base de datos `INVESTMENTS` y esquema `equity_transactions`, hacia el catálogo `iceberg_data` de watsonx.data. Los datos históricos se identifican en función de las transacciones realizadas antes de 2024. Al reducir el volumen de datos en el DW de Netezza, se disminuye el costoso almacenamiento en bloque, sustituyéndolo por **Cloud Object Storage**.
 
-The current year data is left in the data warehouse to minimize disruption to the existing applications.  We will be using the presto query engine to run federated queries that allows aggregating the data that exists in Netezza and watsonx.data.
+Los datos del año actual se mantienen en el Data Warehouse para minimizar la interrupción de las aplicaciones existentes. Utilizaremos el motor de consultas **Presto** para ejecutar consultas federadas que permitan agregar datos tanto de Netezza como de watsonx.data.
 
-The whole lab will be executed in **watsonx.data UI** interface in the back-end techzone environment.  
+Todo el laboratorio se ejecutará en la interfaz **watsonx.data UI**, dentro del entorno **techzone** en el backend. 
 
-## 3. Netezza data schema
+## 3. Esquema de datos de Netezza
 
 [Dataset description](./Data-description.md)
 
-Due to the limitations of the lab environment, we will:
+ebido a las limitaciones del entorno del laboratorio, realizaremos lo siguiente:
 
-1. Run federated presto queries to offload the data from Netezza DW.  
-2. Use a separate schema `equity_transactions_ly` instead of deleteing historic data from the DW which is a recommended approach of production environment. 
-3. Run federated queries against the current data in Netezza `equity_transactions_ly` schema that holds the current year data and historic data in watsonx.data.
+1. Ejecutar consultas federadas con Presto para descargar los datos del DW de Netezza.
+2. Usar un esquema separado `equity_transactions_ly` en lugar de eliminar los datos históricos del DW, lo cual es el enfoque recomendado en entornos de producción.
+3. Ejecutar consultas federadas sobre los datos actuales en Netezza (`equity_transactions_ly`) que contiene los datos del año en curso, y sobre los datos históricos en watsonx.data.
 
 ![alt text](./attachments/image-7.png)
 
@@ -51,28 +53,27 @@ Due to the limitations of the lab environment, we will:
 
 ```mermaid
 graph TD
-    A(🔌 Step 1: Check connection <br>to NZ)
-    A --> B(🗂️ Step 2 :Create  New schema <br> and tables)
-    B --> C(📥 Step 3: Data insertion)
-    C --> D(🔍 Step 4: Review data)
-    D --> E(🧠  Step 5: Combined query)
+    A(🔌 Paso 1: Verificar conexión <br>a NZ)
+    A --> B(🗂️ Paso 2 :Crear nuevo esquema <br> y tablas)
+    B --> C(📥 Paso 3: Inserción de datos)
+    C --> D(🔍 Paso 4: Revisar datos)
+    D --> E(🧠  Step 5: Query combinado)
 ```
 
-- **Step 1 - Netezza connection**: Check Netezza Connection;
-- **Step 2 - New schema and tables**: Create new schema and tables in the iceberg_data catalog for data offload;
-- **Step 3 - Data insertion**: insert data into newly created tables from Netezza INVESTMENTS schema, for historic transactions prior to 2025;
-- **Step 4 - Review data**: check data samples and number of records in the newly created tables;
-- **Step 5 - Combined query**: Execute querys that combine the data from the iceberg tables in watsonx.data and the current year schema, `equity_transactions_ly` in Netezza.
+- **Paso 1 - Conexión a Netezza**: Verificar la conexión a Netezza;
+-  **Paso 2 - Nuevo esquema y tablas**: Crear nuevo esquema y tablas en el catálogo `iceberg_data` para la descarga de datos;
+-  **Paso 3 - Inserción de datos**: Insertar datos en las tablas recién creadas desde el esquema `INVESTMENTS` de Netezza, para transacciones históricas anteriores a 2025;
+-   **Paso 4 - Revisar datos**: Verificar muestras de datos y número de registros en las tablas recién creadas;
+-    **Paso 5 - Consulta combinada**: Ejecutar consultas que combinen los datos de las tablas iceberg en watsonx.data y el esquema del año actual, `equity_transactions_ly` en Netezza.
 
-### 4.1 - Check Netezza data source
+### 4.1 - Verificar la fuente de datos de Netezza
 
-- From IBM Cloud `Resource List` <https://cloud.ibm.com/resources>
-- Select the watsonx.data instance (Under Databases) in `wxdata-`
-- Open web console
-- From the Hamburger menu in the top left, select `Infrastructure Manager` and verify check that Netezza is added as a data source
+-  Desde IBM Cloud `Resource List` <https://cloud.ibm.com/resources>
+-  Seleccionar la instancia de watsonx.data (en la sección Databases) en `wxdata-`
+-  Abrir la consola web- Desde el menú Hamburguesa en la parte superior izquierda, seleccionar `Infrastructure Manager` y verificar que Netezza esté agregado como fuente de datos
 - ![alt text](./attachments/verify-netezza.jpg)
-- From the Hamburger menu in the top left, select `Data manager`
-- Browse the nz_catalog and verify the Netezza schemas `equity_transactions` and `equity_transactions_ly` are available.
+- Desde la hamburguesa en la parte superior izquierda, seleccionar `Data manager`
+- Navegar por el catálogo nz_catalog y verificar que los esquemas de Netezza `equity_transactions` y `equity_transactions_ly` estén disponibles.
 
 ![](./attachments/Pasted%20image%2020250409145504.png)
 
