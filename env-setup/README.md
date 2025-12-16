@@ -1,7 +1,7 @@
 #  Configuración del Ambiente
 
 - [Configuración del Ambiente](#environment-setup)
-  - [1. Getting Started](#1-getting-started)
+  - [1. Primeros Pasos](#1-primeros-pasos)
     - [1.1 Download the Classroom Repo](#11-download-the-classroom-repo)
     - [1.2 Access the bootcamp environment](#12-access-the-bootcamp-environment)
     - [1.3 Open your Techzone Reservation](#13-open-your-techzone-reservation)
@@ -25,7 +25,7 @@
 
 
 
-## 1. Getting Started
+## 1. Primeros Pasos
 
 ### 1.1 Download the Classroom Repo 
 
