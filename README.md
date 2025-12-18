@@ -23,4 +23,3 @@ En este bootcamp, obtendrás experiencia práctica desarrollando una solución b
 [Agenda](Agenda/README.md)  <br>
 [Instrucciones de configuración para los laboratorios](env-setup/README.md) <br>
 [Descripción del caso de uso y visión general de los laboratorios](Labs/README.md) <br>
-

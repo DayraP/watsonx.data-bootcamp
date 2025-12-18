@@ -139,13 +139,6 @@ Ve a `IBM Cloud` -> `Resource list` -> en los recursos de `AI / Machine Learning
 Ahora deberías ver la pantalla principal de watsonx. Verifica en la esquina superior derecha que te encuentras en la cuenta y ubicación correctas (especificadas para tu cuenta de laboratorios).  
 Si no aparece el nombre correcto de la cuenta, puedes seleccionarlo desde el menú desplegable.
 
-Si no conoces tu cuenta, ve a la lista de tus reservas de Techzone:  
-https://techzone.ibm.com/my/reservations  
-
-Busca tu reserva creada recientemente y haz clic en **"Open this environment"**.  
-Desplázate hacia abajo y busca un nombre de reserva similar a:  
-`2709027 - watsonx-events`.
-
 **Nota:**  
 La cuenta que aparece en la esquina superior derecha suele cambiar a tu cuenta personal predeterminada cada vez que navegas o regresas a una nueva página. Por ello, es recomendable verificar la esquina superior derecha **cada vez** que cambies de página.
 
@@ -259,10 +252,10 @@ Si no la tienes, sigue los pasos a continuación:
    Ábrela en el editor de texto de tu preferencia.
 
     ```
-    cp "./env.example" "./.env.txt"
+    cp "./env.example" "./env.txt"
     ```
 
-2. Actualiza el archivo `.env.txt` de la siguiente manera:
+2. Actualiza el archivo `env.txt` de la siguiente manera:
 
     ```
     # Spark Engine ID -> Actualizar con el Engine ID proporcionado por el instructor

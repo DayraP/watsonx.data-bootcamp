@@ -37,7 +37,7 @@ Todo el laboratorio se ejecutará en la interfaz **watsonx.data UI**, dentro del
 
 ## 3. Esquema de datos de Netezza
 
-[Dataset description](./Data-description.md)
+[Descripción de dataset](./Data-description.md)
 
 Debido a las limitaciones del entorno del laboratorio, realizaremos lo siguiente:
 
@@ -85,10 +85,10 @@ graph TD
 2. Crea el esquema para la descarga de Netezza y las tablas en el catálogo iceberg de watsonx.data donde descargarás datos de transacciones desde Netezza `EQUITY_TRANSACTIONS`. 
   
    *  Modifica el comando SQL a continuación con tus valores `<SCHEMA_DWH_OFFLOAD>` y `WXD_BUCKET` en tu archivo de entorno y pégalo en el `Query Workspace` (los valores deben ser únicos en la cuenta de Cloud, así que tendrás uno diferente).  
-   *  Para el bootcamp, la convención para <SCHEMA_DWH_OFFLOAD> es `netezza_offload_<YourName_First3LettersOfSurname>`
+   *  Para el bootcamp, la convención para <SCHEMA_DWH_OFFLOAD> es `netezza_offload_<TuNombre_3PrimerasLetrasDeApellido>`
 
 ```sql
-CREATE SCHEMA IF NOT EXISTS iceberg_data.<SCHEMA_DWH_OFFLOAD> WITH (location = 's3a://<WXD_BUCKET>/<SCHEMA_DWH_OFFLOAD>');
+CREATE SCHEMA IF NOT EXISTS iceberg_data.<SCHEMA_DWH_OFFLOAD> WITH (location = 's3a://wxd-1765401354499711842/<SCHEMA_DWH_OFFLOAD>');
 ```
 3. Verifica que la ejecución de la consulta fue exitosa:
 ![successful-query](attachments/2025-06-27-12-21-19-pasted-vscode.png)
@@ -183,31 +183,31 @@ WITH (
    * Modifica el comando SQL a continuación con tu valor `<SCHEMA_DWH_OFFLOAD>` y pégalo en el `Query Workspace`.
 
 ```sql
--- Insert into dim_date
+-- Insertar en dim_date
 INSERT INTO iceberg_data.<SCHEMA_DWH_OFFLOAD>.dim_date
 SELECT *
 FROM nz_catalog.equity_transactions.dim_date dt
 WHERE dt.year < year(CURRENT_DATE);
 
--- Insert into fact_transactions (filtered by dim_date)
+-- Insertar en fact_transactions (filtrado por dim_date)
 INSERT INTO iceberg_data.<SCHEMA_DWH_OFFLOAD>.fact_transactions
 SELECT ft.*
 FROM nz_catalog.equity_transactions.fact_transactions ft
 JOIN iceberg_data.<SCHEMA_DWH_OFFLOAD>.dim_date d ON ft.date_id = d.date_id;
 
--- Insert into dim_account (using filtered fact_transactions)
+-- Insertar en dim_account (usando fact_transactions filtrado)
 INSERT INTO iceberg_data.<SCHEMA_DWH_OFFLOAD>.dim_account
 SELECT DISTINCT a.*
 FROM nz_catalog.equity_transactions.dim_account a
 JOIN iceberg_data.<SCHEMA_DWH_OFFLOAD>.fact_transactions ft ON a.account_id = ft.account_id;
 
--- Insert into dim_stock (using filtered fact_transactions)
+-- Insertar en dim_stock (usando fact_transactions filtrado)
 INSERT INTO iceberg_data.<SCHEMA_DWH_OFFLOAD>.dim_stock
 SELECT DISTINCT s.*
 FROM nz_catalog.equity_transactions.dim_stock s
 JOIN iceberg_data.<SCHEMA_DWH_OFFLOAD>.fact_transactions ft ON s.stock_id = ft.stock_id;
 
--- Insert into dim_exchange (using filtered fact_transactions)
+-- Insertar en dim_exchange (usando fact_transactions filtrado)
 INSERT INTO iceberg_data.<SCHEMA_DWH_OFFLOAD>.dim_exchange
 SELECT DISTINCT e.*
 FROM nz_catalog.equity_transactions.dim_exchange e
@@ -271,14 +271,9 @@ Ahora los datos están preparados y listos para que los usuarios de negocio y lo
 5. Listar todas las acciones negociadas por la `account_id` 215 durante los años 2024 y 2025.
 
 
-[**Solution Queries**](./Solution.md)
+[**Solución de consultas**](./Solution.md)
 
 ## 5. Revisar el Explain Plan
 - Desde el menú de navegación izquierdo de watsonx.data selecciona `Query History`.
 - Selecciona una de las consultas que quieras analizar.
 - Revisa el contenido en las pestañas Logical Execution Plan, Distributed Execution y Explain analyze. 
-
-
-## 6. ¿Cómo mejorar el diseño de ETL o consultas?
-
-- Comparte un cambio de ETL o de diseño de consultas que creas que ayudará a mejorar el rendimiento. Publica tu respuesta en el chat de Teams.

@@ -35,7 +35,7 @@ En `Presto data insertion` primero :memo: registrarás datos ubicados en el buck
 
 
 #### Spark
-En los pasos de Spark `Spark pre-processing` prepararás la tabla holdings :clipboard: para 2024 y acciones específicas basándote en las tablas descargadas en el Lab 1 desde Netezza. Luego, las holdings de 2024 se combinarán con las holdings hasta 2023 que contienen un conjunto predefinido de acciones para obtener la `holdings_table` total que se usará más adelante junto con `accounts_table` en el Agentic Flow. La tabla de Postgres `bankdemo.customers_table` está federada a watsonx.data `postgres_catalog` como parte de los prerrequisitos y no requiere cambios adicionales; se usará tal cual en el Agentic Flow.
+En los pasos de Spark `Spark pre-processing` prepararás la tabla holdings :clipboard: para 2024 y acciones específicas basándote en las tablas descargadas en el Lab 1 desde Netezza. Luego, las holdings de 2024 se combinarán con las holdings hasta 2023 que contienen un conjunto predefinido de acciones para obtener la `holdings_table` total que se usará más adelante junto con `accounts_table`. La tabla de Postgres `bankdemo.customers_table` está federada a watsonx.data `postgres_catalog` como parte de los prerrequisitos y no requiere cambios adicionales.
 
 ## 2.  Prerrequisitos
 - Haber completado la [configuración de ambiente](/env-setup/README.md)
@@ -60,7 +60,7 @@ En los pasos de Spark `Spark pre-processing` prepararás la tabla holdings :clip
   
 ## 4. Resultado esperado
 
-Al final del lab deberías tener 2 tablas en `clients_schema_YourName_First3LettersOfSurname` preparadas que luego se usarán en un Agentic Flow en el Lab5.
+Al final del lab deberías tener 2 tablas en `clients_schema_-TuNombre-3PrimerasLetrasDeApellido` preparadas.
 
 ![alt text](./attachments/image-12.png)
 
@@ -95,7 +95,7 @@ Al final del lab deberías tener 2 tablas en `clients_schema_YourName_First3Lett
 4. Selecciona `Lab2_Data_Lakehouse/wx-ai-lab2/1_presto_wxai.ipynb`
 ![select-jn](./attachments/2025-06-11-17-05-31-pasted-vscode.png)
 
-5. Agrega al nombre tus iniciales: `-name-first3lettersSurname` y haz clic en `Create`
+5. Agrega al nombre tus iniciales: `-Nombre-3PrimerasLetrasDeApellido` y haz clic en `Create`
 ![add-jn](./attachments/2025-06-11-17-07-04-pasted-vscode.png)
 
 ### 5.3 Abrir y ejecutar el Jupyter Notebook
@@ -125,10 +125,10 @@ Al final del lab deberías tener 2 tablas en `clients_schema_YourName_First3Lett
 
 2. Desde el menú Hamburguesa en la esquina superior izquierda ve a `Data manager`
 
-3. Verifica que se hayan agregado tablas en `hive_catalog.input_data_hive_YourName_First3LettersOfSurname`
+3. Verifica que se hayan agregado tablas en `hive_catalog.input_data_hive_-TuNombre-3PrimerasLetrasDeApellido`
 <img src="./attachments/image-21.png" alt="alt text" width="60%"><br>
 
-4. Verifica que `accounts_table` se haya agregado a `iceberg_catalog.clients_schema_YourName_First3LettersOfSurname`
+4. Verifica que `accounts_table` se haya agregado a `iceberg_catalog.clients_schema_-TuNombre-3PrimerasLetrasDeApellido`
 
 
 ## 6. Preprocesamiento con Spark: enviar app de spark en la UI de watsonx.data 
@@ -158,7 +158,7 @@ Al final del lab deberías tener 2 tablas en `clients_schema_YourName_First3Lett
 
      * Selecciona [./wx-ai-lab2/2_prepare-spark-app-submission_wxai.ipynb](./2_prepare-spark-app-submission_wxai.ipynb) desde la carpeta local
 
-     * Agrega al nombre tus iniciales: `-name-first3lettersSurname` y haz clic en `Create`
+     * Agrega al nombre tus iniciales: `-Nombre-3PrimerasLetrasDeApellido` y haz clic en `Create`
   ![add-jn](./attachments/2025-06-15-23-28-27-pasted-vscode.png)
 
   ### 6.2 Abrir y ejecutar el Jupyter Notebook
@@ -233,5 +233,5 @@ Al final del lab deberías tener 2 tablas en `clients_schema_YourName_First3Lett
 
 1. Desde el menú Hamburguesa en la esquina superior izquierda ve a `Data manager`
 
-2. Verifica que `holdings_table` esté disponible en `iceberg_data."clients_schema_YourName_First3LettersOfSurname"`
+2. Verifica que `holdings_table` esté disponible en `iceberg_data."clients_schema_-TuNombre-3PrimerasLetrasDeApellido"`
 ![alt text](./attachments/image-28.png)
