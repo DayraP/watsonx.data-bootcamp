@@ -1,4 +1,4 @@
-# Bootcamp para SBS de watsonx.data
+# Bootcamp de watsonx.data
 
 <!-- <img src="./assets1/class structure.png" width="100%"> -->
 
