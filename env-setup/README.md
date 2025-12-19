@@ -331,7 +331,7 @@ La forma más sencilla es completar los datos de conexión utilizando el fragmen
 Deberías ver todos los detalles de la conexión completados, excepto el **Username** y el **Password**:
 
 * Cambia el nombre de la conexión a (obligatorio): `milvus_connection`
-* Ingresa el **Username** como: `ibmlhapikey`
+* Ingresa el **Username** como: `ibmlhapikey_dayra.perez@ibm.com`
 * Pega la **Cloud API Key de watsonx.data** proporcionada por el instructor como **Password**  
   *(no utilices la Cloud API Key del estudiante)*
 * Haz clic en `Test connection` (esquina superior derecha) y, una vez que sea exitosa, selecciona `Create` para crear la conexión.
