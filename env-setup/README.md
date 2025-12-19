@@ -4,10 +4,8 @@
   - [1. Primeros Pasos](#1-primeros-pasos)
     - [1.1 Descargar el repositorio del Bootcamp](#11-descargar-el-repositorio-del-bootcamp)
     - [1.2 Acceder al ambiente del bootcamp](#12-acceder-al-ambiente-del-bootcamp)
-    - [1.3 Abrir tu reserva en Techzone](#13-abrir-tu-reserva-en-techzone)
-    - [1.4 Iniciar sesión en tu ambiente individual de Techzone](#14-iniciar-sesión-en-tu-ambiente-individual-de-techzone)
-    - [1.5 Verificar que estás en la instancia correcta](#15-verificar-que-estás-en-la-instancia-correcta)
-    - [1.6 Abrir un editor de texto de tu preferencia](#16-abrir-un-editor-de-texto-de-tu-preferencia)
+    - [1.3 Verificar que estás en la instancia correcta](#13-verificar-que-estás-en-la-instancia-correcta)
+    - [1.4 Abrir un editor de texto de tu preferencia](#14-abrir-un-editor-de-texto-de-tu-preferencia)
   - [2. Configuración del Ambiente](#2-configuración-del-ambiente)
     - [2.1 Crear una clave de API](#21-crear-una-clave-de-api)
     - [2.2 Crear un nuevo proyecto](#22-crear-un-nuevo-proyecto)
@@ -27,9 +25,9 @@
 
 ## 1. Primeros Pasos
 
-### 1.1 Descargar el repositorio del Classroom
+### 1.1 Descargar los archivos compartidos
 
-- El instructor proporcionará a los estudiantes un archivo ZIP con el repositorio del Classroom, que incluye las instrucciones y los archivos necesarios para el Bootcamp.
+- El instructor proporcionará a los estudiantes un archivo ZIP, que incluye los archivos necesarios para el Bootcamp.
 
 
 ### 1.2 Acceder al ambiente del bootcamp
@@ -45,19 +43,13 @@ Para completar este bootcamp, necesitarás acceso a los siguientes servicios:
 Para los laboratorios se requieren dos ambientes de Techzone:  
 un ambiente back-end compartido de watsonx.data, utilizado por todos los estudiantes, y un ambiente individual de laboratorios donde realizarás el trabajo práctico.
 
-Para acceder a los ambientes, busca los correos electrónicos enviados por IBM Technology Zone <noreply@techzone.ibm.com>, en los que se te invita a unirte a las cuentas donde se encuentran tus ambientes.
+Para acceder a los ambientes, busca los correos electrónicos enviados por IBM Cloud <no-reply@cloud.ibm.com>, en los que se te invita a unirte a las cuentas donde se encuentran tus ambientes.
 
-En cada correo, haz clic en el enlace `HERE` para aceptar la invitación  
+En cada correo, haz clic en el enlace `Join` para aceptar la invitación  
 (resaltado en la captura de pantalla a continuación).
-
-<img src="./attachments/image4.png"
-style="width:3.99858in;height:4.70288in"
-alt="Captura de pantalla de una computadora. El contenido generado por IA puede ser incorrecto." />
 
 **Opción:** Si no ves el correo o no lo recibes por algún motivo, puedes encontrar la invitación directamente en tu cuenta de IBM Cloud:  
 <https://cloud.ibm.com/notifications?type=account>
-
-Selecciona el enlace **Join Now**.
 
 <img src="./attachments/image5.png"
 style="width:4.96851in;height:2.75537in"
@@ -66,29 +58,7 @@ alt="Captura de pantalla de una computadora. El contenido generado por IA puede 
 *Es posible que hayas trabajado anteriormente con la misma cuenta de Techzone o que ya tengas acceso a ella y puedas verla en la lista de tus cuentas en IBM Cloud. En ese caso, selecciónala y revisa la lista de servicios disponibles para la reserva actual (según el Group ID y el Environment ID en Techzone).*
 
 
-### 1.3 Abrir tu reserva de Techzone
-
-* Ve a la lista de tus reservas de Techzone:  
-  <https://techzone.ibm.com/my/reservations>
-
-* Busca tu reserva creada recientemente y haz clic en **"Open this environment"**.
-
-* Desplázate hacia abajo y busca el nombre de la cuenta de Cloud  
-  (será proporcionado por el instructor).
-
-<img src="./attachments/image6.png"
-style="width:5.33333in;height:2.875in"
-alt="Captura de pantalla de una computadora. El contenido generado por IA puede ser incorrecto." />
-
-
-### 1.4 Iniciar sesión en tu ambiente individual de Techzone
-
-* Ve a: <https://cloud.ibm.com/resources>
-
-* Inicia sesión con tus credenciales de IBM
-
-
-### 1.5 Verificar que estás en la instancia correcta
+### 1.3 Verificar que estás en la instancia correcta
 
 Verifica en la esquina superior derecha que te encuentras en la instancia correcta:  
 **itz-watsonx-event-xxx**
@@ -99,7 +69,7 @@ Si no aparece el nombre correcto de la instancia, puedes seleccionarla desde el 
 La instancia que aparece en la esquina superior derecha suele cambiar a tu cuenta personal predeterminada cada vez que navegas o regresas a una nueva página. Por ello, es recomendable verificar la esquina superior derecha **cada vez** que cambies de página.
 
 
-### 1.6 Abrir un editor de texto de tu preferencia
+### 1.4 Abrir un editor de texto de tu preferencia
 
 Abre un editor de texto para usarlo como referencia durante el laboratorio.  
 En los laboratorios se indicará cuándo copiar información que será necesaria para pasos posteriores de configuración.
