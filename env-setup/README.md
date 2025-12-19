@@ -218,14 +218,7 @@ Si no la tienes, sigue los pasos a continuación:
 
 ### 2.7 Preparar el archivo env.txt
 
-1. Copia la plantilla [env.example](../env.example) ubicada en la carpeta raíz y guárdala con el nombre `env.txt`.  
-   Ábrela en el editor de texto de tu preferencia.
-
-    ```
-    cp "./env.example" "./env.txt"
-    ```
-
-2. Actualiza el archivo `env.txt` de la siguiente manera:
+1. Actualiza el archivo `env.txt` de la siguiente manera:
 
     ```
     # Spark Engine ID -> Actualizar con el Engine ID proporcionado por el instructor
